@@ -1,0 +1,7 @@
+{ config, ... }:
+
+{
+    imports = [
+        ./firewall.nix
+    ];
+}
