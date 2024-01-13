@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-    services = {
-        adb.enable = true;
-        flatpak.enable = true;
-    };
+    services.flatpak.enable = true;
+    programs.adb.enable = true;
 }
