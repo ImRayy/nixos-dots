@@ -78,7 +78,10 @@
  
 
   # Enable SSD Trim
-  services.fstrim.enable = true;
+  services.fstrim = {
+      enable = true;
+      interval = "weekly";
+  };
 
 
   programs.gnupg.agent = {
