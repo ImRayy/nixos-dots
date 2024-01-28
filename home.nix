@@ -6,8 +6,7 @@
   home.homeDirectory = "/home/ray";
 
   # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
+  # compatible with. This helps avoid breakage when a new Home Manager release introduces backwards incompatible changes.
   #
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
@@ -44,6 +43,7 @@
     kitty
     protonvpn-gui
     megasync
+    qbittorrent
 
     # Terminal Stuff
     appimage-run
@@ -90,6 +90,10 @@
     bun
     corepack_21
 
+    # QT
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
+
   ];
   gtk = {
     enable = true;
@@ -115,15 +119,16 @@
   qt = {
       enable = true;
       platformTheme = "gtk";
+
   };
 
   programs.home-manager.enable = true;
 
-    dconf.settings = {
+  dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];
         uris = ["qemu:///system"];
     };
-};
+  };
 
 }
