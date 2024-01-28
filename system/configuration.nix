@@ -73,6 +73,8 @@ services.stubby = {
   
   environment.variables = {
       ZDOTDIR = "$HOME/.config/zsh";
+      # QT_STYLE_OVERRIDE ="kvantum";
+      QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 	
   # Services
@@ -117,5 +119,4 @@ services.stubby = {
   # NixOS Version
   # -------------
   system.stateVersion = "23.05";
-
 }
