@@ -1,6 +1,5 @@
 { config, pkgs, inputs, system, ...}:
 
-
 {
 
   # Unstable Channel
@@ -30,6 +29,7 @@
       # Standard Packages 
       sane-backends
       usb-modeswitch
+    
 
       # Hyprland/Wayland Stuff
       xdg-desktop-portal-hyprland
@@ -51,5 +51,20 @@
       libsForQt5.qt5.qtquickcontrols2
       libsForQt5.qt5.qtgraphicaleffects
 
+      # Misc
+      gnome.nautilus
+      lsd
+      starship
+      nodejs_20
+
   ];
+
+  fonts = {
+      fontconfig.enable = true;
+      packages = with pkgs;[
+          cantarell-fonts
+         (nerdfonts.override { fonts = ["CommitMono"]; })
+      ];
+  };
+
 }

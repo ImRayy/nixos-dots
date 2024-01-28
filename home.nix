@@ -90,11 +90,7 @@
     bun
     corepack_21
 
-    # Fonts
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "DejaVuSansMono" "CascadiaCode" "Iosevka" "CommitMono" ]; })
-
   ];
-  fonts.fontconfig.enable = true;
   gtk = {
     enable = true;
     theme = {
@@ -123,7 +119,6 @@
 
   programs.home-manager.enable = true;
 
-    # Fonts
     dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];
