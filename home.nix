@@ -41,9 +41,8 @@
     steam-run
     obsidian
     kitty
-    protonvpn-gui
     megasync
-    qbittorrent
+    qbittorrent-qt5
 
     # Terminal Stuff
     appimage-run
@@ -98,9 +97,9 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Standard-Pink-Dark";
+      name = "Catppuccin-Mocha-Standard-Lavender-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = [ "lavender" ];
         size = "standard";
         tweaks = [ "rimless" ];
         variant = "mocha";
