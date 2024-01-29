@@ -14,18 +14,30 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      in
-    {
+      # System Configuraton
+      sysConf = {
+        hostname = "nixos";
+        timezone = "Asia/Kolkata";
+        locale = "en_IN";
+      };
+      # User Configuration
+      userConf = {
+        username = "ray";
+      };
+    in {
       homeConfigurations = {
           ray = inputs.home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               extraSpecialArgs = {inherit inputs;};
               modules = [ ./home.nix ];
-
           };
       };
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
+          specialArgs = {
+            inherit inputs;
+            inherit sysConf;
+            inherit userConf;
+          };
           modules = [ 
             ./system/configuration.nix
             ./system

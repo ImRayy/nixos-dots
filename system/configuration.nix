@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page and in the NixOS manual (accessible by running ‘nixos-help’). { config, pkgs, ... }:
-
-{ config, pkgs, ...}:
-
+{ config, pkgs, sysConf, userConf, ...}:
 
 {
   imports =
@@ -10,7 +6,7 @@
       ./hardware-configuration.nix
     ];
 
-  networking.hostName = "nixos";  
+  networking.hostName = sysConf.hostname;  
  
   services.ipp-usb.enable = true;
 
@@ -18,21 +14,21 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Asia/Kolkata";
+  time.timeZone = sysConf.timezone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN";
+  i18n.defaultLocale = sysConf.locale;
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
+    LC_ADDRESS = sysConf.locale;
+    LC_IDENTIFICATION = sysConf.locale;
+    LC_MEASUREMENT = sysConf.locale;
+    LC_MONETARY = sysConf.locale;
+    LC_NAME = sysConf.locale;
+    LC_NUMERIC = sysConf.locale;
+    LC_PAPER = sysConf.locale;
+    LC_TELEPHONE = sysConf.locale;
+    LC_TIME = sysConf.locale;
   };
 
 services.stubby = {
@@ -62,9 +58,8 @@ services.stubby = {
   # Current Shell
   programs.zsh.enable = true;
   
-  users.users.ray = {
+  users.users.${userConf.username}= {
     isNormalUser = true;
-    description = "ray";
     extraGroups = [ "networkmanager" "wheel" "audio" "lp" "scanner" "libvirtd" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -98,19 +93,16 @@ services.stubby = {
     xkbVariant = "";
   };
  
-
   # Enable SSD Trim
   services.fstrim = {
       enable = true;
       interval = "weekly";
   };
 
-
   programs.gnupg.agent = {
      enable = true;
      enableSSHSupport = true;
    };
-
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;  
