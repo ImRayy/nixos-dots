@@ -9,7 +9,6 @@
   #     };
   #   };
   # };
-  
   environment.systemPackages = with pkgs; [
 
       # Core Packages
@@ -25,6 +24,8 @@
       usbutils
       wget
       zip
+      inotify-tools
+      trash-cli
 
       # Standard Packages 
       sane-backends
@@ -37,6 +38,7 @@
       eww-wayland
       grim
       rofi-wayland
+      rofi-emoji
       slurp
       swaynotificationcenter
       swayosd
