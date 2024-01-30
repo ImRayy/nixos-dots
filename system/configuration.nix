@@ -70,6 +70,7 @@ services.stubby = {
       ZDOTDIR = "$HOME/.config/zsh";
       # QT_STYLE_OVERRIDE ="kvantum";
       QT_QPA_PLATFORMTHEME = "qt5ct";
+      EDITOR = "nvim";
   };
 	
   # Services
