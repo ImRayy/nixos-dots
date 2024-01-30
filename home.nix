@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, stylix, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should manage.
@@ -71,6 +71,7 @@
     starship
 
  #   # GNOME Stuff
+    gnome.eog
  #   gnome-extension-manager
  #   gnome.gnome-software
  #   gnome.gnome-tweaks
