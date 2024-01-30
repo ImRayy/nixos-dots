@@ -28,8 +28,14 @@
       homeConfigurations = {
           ray = inputs.home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
-              extraSpecialArgs = {inherit inputs;};
-              modules = [ ./home.nix ];
+              extraSpecialArgs = {
+                  inherit inputs;
+                  inherit userConf;
+              };
+              modules = [ 
+                  ./home/home.nix 
+                  ./home  
+              ];
           };
       };
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
