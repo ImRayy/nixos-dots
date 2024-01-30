@@ -2,13 +2,6 @@
 
 {
 
-  # Unstable Channel
-  # nixpkgs.config = { packageOverrides = pkgs: {
-  #     unstable = import unstableTarball {
-  #       config = config.nixpkgs.config;
-  #     };
-  #   };
-  # };
   environment.systemPackages = with pkgs; [
 
       # Core Packages
@@ -25,12 +18,14 @@
       wget
       zip
       inotify-tools
-      trash-cli
 
       # Standard Packages 
       sane-backends
       usb-modeswitch
-    
+
+      # CLI Packages
+      trash-cli
+      playerctl
 
       # Hyprland/Wayland Stuff
       xdg-desktop-portal-hyprland
@@ -54,7 +49,7 @@
       libsForQt5.qt5.qtgraphicaleffects
 
       # Misc
-      gnome.nautilus
+      cinnamon.nemo
       lsd
       starship
       nodejs_20
