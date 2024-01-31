@@ -4,5 +4,6 @@
     imports = [
         ./gtk.nix
         ./waybar
+        ./kitty.nix
     ];
 }

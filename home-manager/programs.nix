@@ -16,7 +16,6 @@
         gimp
         gnome.eog
         keepassxc
-        kitty
         lollypop
         megasync
         mpv
