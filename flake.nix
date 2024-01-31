@@ -33,8 +33,8 @@
                   inherit userConf;
               };
               modules = [ 
-                  ./home/home.nix 
-                  ./home  
+                  ./home-manager/home.nix 
+                  ./home-manager  
               ];
           };
       };
