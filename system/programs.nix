@@ -32,8 +32,6 @@
       cliphist
       eww-wayland
       grim
-      rofi-wayland
-      rofi-emoji
       slurp
       swaynotificationcenter
       swayosd
