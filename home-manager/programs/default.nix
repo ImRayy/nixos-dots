@@ -5,5 +5,6 @@
         ./gtk.nix
         ./waybar
         ./kitty.nix
+        ./lf
     ];
 }

@@ -37,7 +37,6 @@
       slurp
       swaynotificationcenter
       swayosd
-      swww
       wl-clipboard
 
       # GTK

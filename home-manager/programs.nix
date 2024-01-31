@@ -41,10 +41,8 @@
         gum
         imagemagick
         lazygit
-        lf
         lsd
         neofetch
-        pistol
         ripgrep
         starship
         stow
