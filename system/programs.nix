@@ -38,7 +38,6 @@
       swaynotificationcenter
       swayosd
       swww
-      waybar
       wl-clipboard
 
       # GTK
