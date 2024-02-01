@@ -2,10 +2,11 @@
 
 {
     imports = [
-        ./rofi
         ./gtk.nix
+        ./hypr
         ./kitty.nix
         ./lf
+        ./rofi
         ./waybar
     ];
 }
