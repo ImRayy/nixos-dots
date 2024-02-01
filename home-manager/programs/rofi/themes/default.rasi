@@ -112,6 +112,7 @@ element-text {
 }
 element-icon {
     size: 1.4em;
+    background-color: transparent;
 }
 textbox-prompt-colon {
     expand:     false;
