@@ -6,6 +6,7 @@
         ./hypr
         ./kitty.nix
         ./lf
+        ./mako.nix
         ./rofi
         ./waybar
     ];

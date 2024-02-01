@@ -33,7 +33,6 @@
       eww-wayland
       grim
       slurp
-      swaynotificationcenter
       swayosd
       wl-clipboard
 
