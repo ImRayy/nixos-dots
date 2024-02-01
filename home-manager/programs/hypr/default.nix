@@ -7,9 +7,9 @@
     };
 
     imports = [
+        ./startup.nix
         ./hyprland.nix
         ./keybindings.nix
-        ./startup.nix
         ./windowrules.nix
     ];
 }
