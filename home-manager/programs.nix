@@ -28,6 +28,7 @@
         telegram-desktop
         vlc
         vscode
+        bemenu
 
         # Terminal Stuff
         appimage-run
@@ -37,17 +38,21 @@
         czkawka
         ffmpeg
         ffmpeg
+        git-lfs
         gnupg
         gum
         imagemagick
         lazygit
         lsd
         neofetch
+        nix-prefetch-git
         ripgrep
         starship
         stow
         tldr
         trash-cli
+        tree
+        wlsunset
 
         # Programming utilities
         bun
