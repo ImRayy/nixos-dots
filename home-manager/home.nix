@@ -1,9 +1,12 @@
-{ config, pkgs, userConf, ... }:
+{ pkgs, inputs, userConf,  ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should manage.
+  imports = [
+      inputs.nix-colors.homeManagerModules.default
+  ];
   home.username = userConf.username;
   home.homeDirectory = "/home/${userConf.username}";
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release introduces backwards incompatible changes.
