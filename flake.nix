@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -35,6 +35,7 @@
                   inherit userConf;
               };
               modules = [ 
+                  inputs.stylix.homeManagerModules.stylix
                   ./home-manager/home.nix 
                   ./home-manager  
               ];

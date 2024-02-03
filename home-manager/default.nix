@@ -4,5 +4,6 @@
     imports = [
         ./programs.nix
         ./programs
+        ./stylix
     ];
 }

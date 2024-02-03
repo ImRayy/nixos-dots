@@ -1,14 +1,7 @@
-{ config, pkgs, inputs, ... }:
-let
-    inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-in
+{ config, pkgs, ... }:
 rec {
     gtk = {
         enable = true;
-        theme = {
-            name = "${config.colorScheme.slug}";
-            package = gtkThemeFromScheme {scheme = config.colorScheme;};
-        };
         cursorTheme = {
             name = "Bibata-Modern-Ice";
             package = pkgs.bibata-cursors;

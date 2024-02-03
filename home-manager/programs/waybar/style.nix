@@ -1,17 +1,18 @@
-{
+{ config, ... }:
+with config.lib.stylix.colors; {
     programs.waybar.style = ''
-        @define-color base      #1e1e2e;
-        @define-color crust     #2B2B3A;
+        @define-color base      #${base00};
+        @define-color crust     #${base01};
 
-        @define-color color0    #cdd6f4;
+        @define-color color0    #${base05};
         @define-color color1    @color0;
-        @define-color color2    #b4befe;
+        @define-color color2    #${base07};
         @define-color color3    @color0;
-        @define-color color4    #f38ba8;
+        @define-color color4    #${base08};
         @define-color color5    @color0;
         @define-color color6    @color0;
         @define-color color7    @color0;
-        @define-color color8    #181825;
+        @define-color color8    #${base01};
         @define-color color9    @color0;
 
         * {

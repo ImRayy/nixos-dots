@@ -2,7 +2,6 @@
 {
     programs.kitty = {
         enable = true;
-        theme = "Catppuccin-Mocha";
         settings = {
             # Fonts
             font_family = "CommitMono Nerd Font";
@@ -38,7 +37,7 @@
             tab_bar_edge = "bottom";
 
             # Color scheme 
-            background_opacity = "0.8";
+            # background_opacity = "0.8";
             dynamic_background_opacity = "yes";
 
             # Advanced 

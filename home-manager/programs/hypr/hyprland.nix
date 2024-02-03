@@ -14,8 +14,8 @@
                 gaps_in = 4;
                 gaps_out = 8;
                 border_size = 3;
-                "col.active_border" = "rgb(b4befe)";
-                "col.inactive_border" = "rgb(45475a)";
+                # "col.active_border" = "rgb(b4befe)";
+                # "col.inactive_border" = "rgb(45475a)";
                 layout = "dwindle";
             };
             decoration = {
@@ -31,7 +31,7 @@
                 drop_shadow = "no";
                 shadow_range = 10;
                 shadow_render_power = 5;
-                "col.shadow" = "rgb(000000)";
+                # "col.shadow" = "rgb(000000)";
             };
             animations = {
                 enabled = "yes";
