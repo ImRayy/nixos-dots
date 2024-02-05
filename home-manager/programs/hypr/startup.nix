@@ -1,7 +1,7 @@
 {
     wayland.windowManager.hyprland.settings = {
         exec-once = [
-            "~/.config/lf/scripts/set_wall.sh"
+            "hyprpaper"
             "hyprctl setcursor Bibata-Modern-Ice 24"
             "waybar"
             "swaync"
