@@ -3,6 +3,7 @@
         exec-once = [
             "~/.config/lf/scripts/set_wall.sh"
             "hyprctl setcursor Bibata-Modern-Ice 24"
+            "waybar"
             "swaync"
             "swayosd-server"
             "wl-paste --watch cliphist store"

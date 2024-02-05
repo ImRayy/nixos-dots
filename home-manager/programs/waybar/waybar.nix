@@ -5,7 +5,8 @@
         settings = [{
             "layer" = "top";
             "position" = "top";
-            "mod" =  "dock";
+            "mode" =  "dock";
+            "margin" = "8px 8px 0 8px";
             "exclusive" = true;
             "passtrough" = true;
             "gtk-layer-shell" = true;
