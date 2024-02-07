@@ -1,7 +1,6 @@
 { config, pkgs, ... }: 
 {
 
-    xdg.configFile."lf/scripts/set_wall.sh".source = ./scripts/set_wall.sh;
     home.packages = with pkgs; [ swww ];
     programs.lf.commands = {
         open = ''
@@ -51,7 +50,7 @@
                 if [ $DESKTOP_SESSION == gnome-xorg ];then
                     gsettings set org.gnome.desktop.background picture-uri "$f"
                 elif [ $DESKTOP_SESSION == hyprland ];then
-                    echo "$f" >>  ~/.config/wall.txt && ~/.config/lf/scripts/set_wall.sh
+                    echo "$f" >>  ~/.config/wall.txt && ~/.set_wall.sh
                 else
                     cp "$f" ~/.config/ && feh --bg-fill ~/.config/wall.png
                 fi

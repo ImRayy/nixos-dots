@@ -7,7 +7,7 @@
             "swayosd-server"
             "wl-paste --watch cliphist store"
             "nm-applet --indicator"
-            "hyprpaper"
+            "~/.scripts/set-wal"
             "run xhost +SI:localuser:root"
             "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
         ];

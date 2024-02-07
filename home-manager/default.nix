@@ -2,8 +2,9 @@
 
 {
     imports = [
-        ./programs.nix
         ./programs
+        ./programs.nix
+        ./scripts.nix
         ./stylix
     ];
 }
