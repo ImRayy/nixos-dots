@@ -62,7 +62,6 @@ with config.lib.stylix.colors; {
           font-weight: Bold;
           padding: 1px 0;
           margin: 4px 4px;
-          border-right: 2px solid @crust;
         }
 
         #workspaces :nth-child(5) {
@@ -106,10 +105,7 @@ with config.lib.stylix.colors; {
 
         #cpu {
           padding-right: 14px;
-          border-right: 2px solid @crust;
-        }
-
-        #memory {
+          border-left: 2px solid @crust;
           border-right: 2px solid @crust;
         }
 

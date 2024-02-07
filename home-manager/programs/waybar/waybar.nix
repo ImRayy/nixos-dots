@@ -15,9 +15,9 @@
                 "hyprland/workspaces"
                 "cpu"
                 "memory"
-                "mpris"
             ];
             "modules-center" = [
+                "mpris"
             ];
             "modules-right" = [
                 "tray"
