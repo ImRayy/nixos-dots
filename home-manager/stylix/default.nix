@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-    home.packages = with pkgs; [ hyprpaper ];
     stylix.image = pkgs.fetchurl {
       url = "https://w.wallhaven.cc/full/wy/wallhaven-wy98vp.jpg";
       sha256 = "135hibjs4298p0832klphccfqwwlpiipcfymaal5953zh073qjsx";
@@ -48,18 +47,5 @@
             '';
             executable = true;
         };
-        # hyprpaper config file
-        ".config/hypr/hyprpaper.conf" = {
-            text = with config.stylix; ''
-                preload = ''+image+''
-
-                wallpaper = HDMI-A-1,''+image+''
-
-                splash = true
-
-                ipc = off
-            '';
-        };
-
     };
 }
