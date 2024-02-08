@@ -2,6 +2,7 @@
 
 {
     imports = [
+        ./fish
         ./gtk.nix
         ./hypr
         ./kitty.nix

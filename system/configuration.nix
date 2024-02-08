@@ -56,18 +56,15 @@ services.stubby = {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 	
   # Current Shell
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
   
   users.users.${userConf.username}= {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "audio" "lp" "scanner" "libvirtd" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-    ];
+    shell = pkgs.fish;
   }; 
-  
+
   environment.variables = {
-      ZDOTDIR = "$HOME/.config/zsh";
       # QT_STYLE_OVERRIDE ="kvantum";
       QT_QPA_PLATFORMTHEME = "qt5ct";
   };
