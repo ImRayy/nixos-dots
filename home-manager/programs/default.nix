@@ -10,6 +10,7 @@
         ./mako.nix
         ./neofetch
         ./rofi
+        ./starship.nix
         ./waybar
     ];
 }
