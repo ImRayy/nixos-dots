@@ -6,13 +6,23 @@
 
     };
     stylix = {
+        autoEnable = false;
         polarity = "dark";
-        targets.waybar.enable = false;
-        opacity.terminal = 0.8;
-        targets = { 
-            kitty.variant256Colors = true;
+        targets  = {
+            waybar.enable = false;
+            kitty = {
+                enable = true;
+                variant256Colors = true;
+            };
+            gtk.enable = true;
             firefox.enable = false;
+            swaylock = {
+                enable = true;
+                useImage = true;
+            };
+
         };
+        opacity.terminal = 0.8;
         fonts = {
             serif = {
                 package = pkgs.cantarell-fonts;
@@ -35,9 +45,6 @@
             };
         };
     };
-    #  home.file.".swww-stylix".text = ''
-    #   '';
-    # home.file.".swww-stylix".executable = true;
     home.file = {
         # swww executable script
         ".swww-stylix" = {

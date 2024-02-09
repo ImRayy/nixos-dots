@@ -1,6 +1,7 @@
 {
     wayland.windowManager.hyprland.settings = {
         exec-once = [
+            "hyprctl setcursor Bibata-Modern-Ice 24"
             "waybar"
             "swww init"
             "swayosd-server"

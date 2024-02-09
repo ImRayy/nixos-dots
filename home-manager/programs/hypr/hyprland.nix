@@ -10,10 +10,12 @@
                 kb_layout = "us";
                 follow_mouse = 1;
             };
-            general = {
-                gaps_in = 3;
-                gaps_out = 6;
+            general = with config.lib.stylix.colors; {
+                gaps_in = 5;
+                gaps_out = 10;
                 border_size = 3;
+                "col.active_border" = "0xff${base08}";
+                "col.inactive_border" = "0x33${base00}";
                 layout = "dwindle";
             };
             decoration = {
