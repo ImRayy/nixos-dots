@@ -1,12 +1,16 @@
 { config, pkgs, ... }:
+let
+    colorScheme = ./themes/catppuccin-mocha/catppuccin-mocha.yaml;
+in
 {
     stylix.image = pkgs.fetchurl {
-      url = "https://w.wallhaven.cc/full/wy/wallhaven-wy98vp.jpg";
-      sha256 = "135hibjs4298p0832klphccfqwwlpiipcfymaal5953zh073qjsx";
+      url = "https://browsecat.art/sites/default/files/minimal-solar-system-wallpapers-52665-196251-5747315.png";
+      sha256 = "1picl90amxs3vlpkj1ricjaf2yhgd09lny3jhxv5mf6q5pi2q56i";
 
     };
     stylix = {
         autoEnable = false;
+        base16Scheme = colorScheme;
         polarity = "dark";
         targets  = {
             waybar.enable = false;
@@ -20,7 +24,7 @@
                 enable = true;
                 useImage = true;
             };
-
+            mako.enable = true;
         };
         opacity.terminal = 0.8;
         fonts = {

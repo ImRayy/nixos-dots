@@ -5,15 +5,17 @@ with config.lib.stylix.colors; {
         @define-color crust     #${base01};
 
         @define-color color0    #${base05};
-        @define-color color1    @color0;
+        @define-color color1    #${base07};
         @define-color color2    #${base07};
-        @define-color color3    @color0;
+        @define-color color3    #${base0D};
         @define-color color4    #${base08};
-        @define-color color5    @color0;
-        @define-color color6    @color0;
-        @define-color color7    @color0;
+        @define-color color5    #${base0B};
+        @define-color color6    #${base09};
+        @define-color color7    #${base0A};
         @define-color color8    #${base01};
         @define-color color9    @color0;
+        @define-color color10   #${base0E};
+        @define-color colorA    #${base0C};
 
         * {
           border: none;
@@ -50,12 +52,11 @@ with config.lib.stylix.colors; {
         #workspaces {
           font-weight: 600;
           margin: 6px 0 6px 0;
-          padding: 0 14px;
+          padding: 0 10px;
         }
 
         #tray {
           padding-right: 10px;
-          border-right: 2px solid @crust;
         }
 
         #workspaces {
@@ -98,15 +99,16 @@ with config.lib.stylix.colors; {
           border-radius: 10px;
         }
 
-        #cpu,
+        #cpu {
+          color: @colorA;
+        }
+
         #memory {
-          color: @color1;
+          color: @color10;
         }
 
         #cpu {
           padding-right: 14px;
-          border-left: 2px solid @crust;
-          border-right: 2px solid @crust;
         }
 
         #mpris {
@@ -125,12 +127,10 @@ with config.lib.stylix.colors; {
 
         #network {
           color: @color3;
-          border-right: 2px solid @crust;
         }
 
         #pulseaudio {
           color: @color5;
-          border-right: 2px solid @crust;
         }
     '';
 }

@@ -14,7 +14,7 @@
                 gaps_in = 5;
                 gaps_out = 10;
                 border_size = 3;
-                "col.active_border" = "0xff${base08}";
+                "col.active_border" = "0xff${base07}";
                 "col.inactive_border" = "0x33${base00}";
                 layout = "dwindle";
             };

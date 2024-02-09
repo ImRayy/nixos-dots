@@ -10,7 +10,7 @@
                 background:     #${base00};
                 background-alt: #${base01};
                 foreground:     #${base03};
-                active:         #${base02};
+                active:         #${base07};
                 selected:       #${base07};
                 selected-text:  #${base00};
             }
