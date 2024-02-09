@@ -1,36 +1,48 @@
+{ config, lib, ... }:
+let
+    lang = icon: color: {
+        symbol = icon;
+        format = "[$symbol](${color})";
+    };
+    os = icon: color: "[${icon} ](${color})";
+in
 {
   programs.starship = {
     enable = true;
     settings = {
-      add_newline = false;
+      add_newline = true;
 
-      line_break = { disabled = true; };
+      line_break = { disabled = false; };
+
+      format= lib.strings.concatStrings [
+          "$os"
+          "$directory"
+          "$git_branch$git_status$git_state$git_commit"
+          "$python"
+          "$nodejs"
+          "$lua"
+          " $cmd_duration"
+          "$line_break"
+          "$character"
+      ];
 
       character = {
-        error_symbol = " [](bold red)";
-        success_symbol = " [❯](bold green)";
-        vimcmd_symbol = " [❮](bold green)";
+        error_symbol = "[](bold red)";
+        success_symbol = "[❯](bold green)";
+        vimcmd_symbol = "[❮](bold green)";
       };
 
       cmd_duration = {
         min_time = 1000;
-        format = " took [$duration]($style)";
+        format = "took [$duration]($style)";
       };
 
-      directory = {
-        truncation_length = 5;
-        truncation_symbol = " ";
-        format = "[$path]($style)[$read_only]($read_only_style)";
+      directory = with config.lib.stylix.colors; {
+      format = " [](fg:#${base05})[$path](bg:#${base05} fg:bold #${base00})[](fg:#${base05})";
+
         read_only = "󰌾 ";
-        style = "bold cyan";
-      };
-
-      directory.substitutions = {
-        Documents = "󰈔 ";
-        Downloads = " ";
-        Music = "󰎈 ";
-        Pictures = "󰋩 ";
-        Videos = " ";
+        truncation_length = 6;
+        truncation_symbol = "~/󰇘/";
       };
 
       # GIT
@@ -74,32 +86,19 @@
         disabled = false;
       };
 
-      # Programming Languages
-      python = {
-        format = "[$symbol$version](bold ) ";
-        symbol = "  ";
+      os = {
+          disabled = false;
+          format = "$symbol";
       };
 
-      lua = {
-        format = "[$symbol($version )]($style)";
-        detect_extensions = [ "lua" ];
-        symbol = "  ";
-        style = "bold cyan";
+      os.symbols = {
+        Arch = os "" "bright-blue";
+        NixOS = os "" "#7DB5E0";
       };
 
-      nodejs = {
-        format = "[$symbol($version )]($style)";
-        detect_extensions = [ "ts" "mts" "cts" "ts" "mts" "cts" ];
-        symbol = "  ";
-        style = "bold #8FC708";
-      };
-
-      custom.nix = {
-        format = "[$symbol($version )]($style)";
-        detect_extensions = [ "nix" ];
-        symbol = "  ";
-        style = "bold #B2D3FF";
-      };
+      python = lang " " "#F7CE43";
+      nodejs = lang " " "#F7CE43";
+      lua = lang " " "#48F4F6";
     };
   };
 }
