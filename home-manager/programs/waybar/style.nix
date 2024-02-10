@@ -72,10 +72,9 @@ with config.lib.stylix.colors; {
         }
 
         #workspaces {
-          font-weight: Bold;
-          padding-left: 5px; 
           margin-left: 4px;
           padding-right: 0;
+          padding-left: 0;
         }
 
         #workspaces :nth-child(5) {

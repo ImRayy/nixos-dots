@@ -8,8 +8,8 @@
             source = pkgs.writeText "my-css" ''
             * {
                 background:     #${base00};
-                background-alt: #${base01};
-                foreground:     #${base03};
+                background-alt: #${base03};
+                foreground:     #${base05};
                 active:         #${base07};
                 selected:       #${base07};
                 selected-text:  #${base00};
