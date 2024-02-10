@@ -11,8 +11,8 @@
                 follow_mouse = 1;
             };
             general = with config.lib.stylix.colors; {
-                gaps_in = 5;
-                gaps_out = 10;
+                gaps_in = 3;
+                gaps_out = 6;
                 border_size = 3;
                 "col.active_border" = "0xff${base07}";
                 "col.inactive_border" = "0x33${base00}";

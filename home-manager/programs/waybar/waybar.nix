@@ -5,15 +5,18 @@
         settings = [{
             "layer" = "top";
             "position" = "top";
-            "mode" =  "dock";
             "margin" = "8px 8px 0 8px";
             "exclusive" = true;
-            "passtrough" = true;
+            "passtrough" = false;
             "gtk-layer-shell" = true;
             "height" = 0;
             "modules-left" =[
+                "custom/distro"
+                "custom/separator"
                 "hyprland/workspaces"
+                "custom/separator"
                 "cpu"
+                "custom/separator"
                 "memory"
             ];
             "modules-center" = [
@@ -22,10 +25,24 @@
             "modules-right" = [
                 "tray"
                 "network"
+                "custom/separator"
                 "pulseaudio"
+                "custom/separator"
                 "clock"
-                "custom/swaync"
+                "custom/separator"
+                "custom/powermenu"
             ];
+            "custom/separator" = {
+                "format" = "│";
+                "interval" = "once";
+                "tooltip"= false;
+            };
+            "custom/distro" = {
+                "format" = " ";
+                "on-click" = "kitty --hold -e neofetch";
+                "interval" = "once";
+                "tooltip" = false;
+            };
             "hyprland/window" = {
                 "format" = "{}";
                 "max-length" = 50;
@@ -116,6 +133,13 @@
                 "format-icons" = {
                     "default" = [ "" "" " " " " ];
                 };
+
+            };
+            "custom/powermenu" = {
+              "format" = " ";
+              "on-click" = "~/.config/rofi/powermenu.sh";
+              "interval" = "once";
+              "tooltip" = false;
             };
         }];
     };

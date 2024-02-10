@@ -47,12 +47,24 @@ with config.lib.stylix.colors; {
         #pulseaudio,
         #tray,
         #clock,
+        #custom-powermenu,
         #window,
         #mpris,
         #workspaces {
+          margin: 6px 6px 6px 0;
+          padding: 0px 9px;
+          border-radius: 6px;
           font-weight: 600;
-          margin: 6px 0 6px 0;
-          padding: 0 10px;
+        }
+
+        #custom-distro {
+          color: @color3;
+          font-size: 18px;
+          margin-left: 8px;
+        }
+
+        #custom-separator {
+            color: #${base04};
         }
 
         #tray {
@@ -61,8 +73,9 @@ with config.lib.stylix.colors; {
 
         #workspaces {
           font-weight: Bold;
-          padding: 1px 0;
-          margin: 4px 4px;
+          padding-left: 5px; 
+          margin-left: 4px;
+          padding-right: 0;
         }
 
         #workspaces :nth-child(5) {
@@ -99,16 +112,13 @@ with config.lib.stylix.colors; {
           border-radius: 10px;
         }
 
-        #cpu {
-          color: @colorA;
-        }
-
         #memory {
           color: @color10;
         }
 
         #cpu {
-          padding-right: 14px;
+          padding-right: 6px;
+          color: @colorA;
         }
 
         #mpris {
@@ -117,12 +127,12 @@ with config.lib.stylix.colors; {
 
         #clock {
           color: @color6;
-          font-weight: 600;
+          padding-right: 4px;
         }
 
         #custom-swaync {
           color: @color1;
-          padding-right: 18px;
+          padding-right: 4px;
         }
 
         #network {
@@ -131,6 +141,14 @@ with config.lib.stylix.colors; {
 
         #pulseaudio {
           color: @color5;
+        }
+
+        #custom-powermenu {
+          color: @color4;
+          font-weight: 800;
+          font-size: 17px;
+          margin-right: 6px;
+          padding-right: 0;
         }
     '';
 }
