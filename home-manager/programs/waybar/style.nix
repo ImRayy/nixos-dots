@@ -81,9 +81,13 @@ with config.lib.stylix.colors; {
           margin-right: 0px;
         }
 
+        window#waybar .empty {
+            color: @color9;
+        }
+
         #workspaces button {
           border-radius: 6px;
-          color: @color9;
+          color: @color5;
           padding: 6px;
         }
 

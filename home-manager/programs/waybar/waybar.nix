@@ -51,7 +51,7 @@
                 "on-click" = "activate";
                 "format" = "{icon}";
                 "format-icons" = {
-                    "default" = "";
+                    "default" = "";
                     "active" = "󰮯";
                     "urgent" = "󰊠";
                 };
