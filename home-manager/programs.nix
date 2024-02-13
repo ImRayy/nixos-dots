@@ -41,8 +41,11 @@
         git-lfs
         gnupg
         gum
+        hyprpicker 
         imagemagick
         lazygit
+        libnotify
+        libwebp
         lsd
         neofetch
         nix-prefetch-git
@@ -59,6 +62,7 @@
         cargo
         corepack_21
         jdk
+        nixfmt
         nodejs_20
         pipx
         python311Packages.pip
