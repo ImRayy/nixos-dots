@@ -11,6 +11,7 @@
     home.packages = with pkgs; [
 
         # GUI Apps
+        bemenu
         easyeffects
         firefox
         gimp
@@ -19,6 +20,7 @@
         lollypop
         megasync
         mpv
+        neovide
         obs-studio
         obsidian
         qbittorrent-qt5
@@ -28,7 +30,6 @@
         telegram-desktop
         vlc
         vscode
-        bemenu
 
         # Terminal Stuff
         appimage-run
@@ -67,9 +68,13 @@
         pipx
         python311Packages.pip
         python39
+        sassc
 
         # QT
         libsForQt5.qt5ct
         libsForQt5.qtstyleplugin-kvantum
+
+        # Misc
+        libdbusmenu-gtk3
     ];
 }
