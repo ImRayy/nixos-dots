@@ -1,0 +1,76 @@
+window {
+  background-color: $base;
+  color: $color00;
+}
+
+button {
+  min-width: 0;
+  min-height: 35px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+
+  &:active {
+    color: $color02;
+  }
+
+  &:hover {
+    color: $color07;
+  }
+}
+
+progress,
+highlight {
+  min-height: 8px;
+}
+
+.distro-icon {
+  font-size:16px;
+  padding-left:  10px;
+  padding-right:  6px;
+  color: $color03;
+}
+
+.separator {
+  color: #585b70;
+}
+
+.cpu-usage {
+  color: $color11;
+}
+
+.memory-usage {
+  color: $color10;
+}
+
+.client-title {
+  color: $color07;
+}
+
+.workspaces {
+  button.focused {
+    border-bottom: 3px solid $color01;
+  }
+}
+
+.network-indicator {
+  color: $color03;
+}
+
+.volume-indicator {
+  color: $color05;
+}
+
+.clock {
+  color: $color06;
+}
+
+label {
+  font-weight: bold;
+}
+
+.powermenu-icon{
+    padding-right: 20px;
+    font-size: 16px;
+    color: $color04;
+}

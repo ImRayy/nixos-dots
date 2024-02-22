@@ -10,6 +10,7 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     stylix.url = "github:danth/stylix";
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

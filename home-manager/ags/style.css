@@ -1,0 +1,60 @@
+* {
+  font-family: "CommitMono Nerd Font";
+  font-size: 15px; }
+
+window {
+  background-color: #1e1e2e;
+  color: #cdd6f4; }
+
+button {
+  min-width: 0;
+  min-height: 35px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent; }
+  button:active {
+    color: #b4befe; }
+  button:hover {
+    color: #f9e2af; }
+
+progress,
+highlight {
+  min-height: 8px; }
+
+.distro-icon {
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 6px;
+  color: #74c7ec; }
+
+.separator {
+  color: #585b70; }
+
+.cpu-usage {
+  color: #94e2d5; }
+
+.memory-usage {
+  color: #cba6f7; }
+
+.client-title {
+  color: #f9e2af; }
+
+.workspaces button.focused {
+  border-bottom: 3px solid #b4befe; }
+
+.network-indicator {
+  color: #74c7ec; }
+
+.volume-indicator {
+  color: #a6e3a1; }
+
+.clock {
+  color: #fab387; }
+
+label {
+  font-weight: bold; }
+
+.powermenu-icon {
+  padding-right: 20px;
+  font-size: 16px;
+  color: #f38ba8; }
