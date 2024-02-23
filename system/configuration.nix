@@ -101,6 +101,9 @@ services.stubby = {
      enableSSHSupport = true;
    };
     
+  # To support mtp/android file transfer
+  services.gvfs.enable = true;
+
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;  
   programs.kdeconnect.enable = true;
