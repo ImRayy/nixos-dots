@@ -3,14 +3,18 @@ const outdir = "/tmp/ags/js";
 const scss = `${App.configDir}/style/style.scss`;
 const css = `${App.configDir}/style.css`;
 
+function reloadCss() {
+  App.resetCss();
+  Utils.exec(`sassc ${scss} ${css}`);
+  App.applyCss(css);
+}
+
 // Initially apples css
-Utils.exec(`sassc ${scss} ${css}`);
-App.applyCss(css);
+reloadCss();
 
 // Monitor scss changes and reapply css
 Utils.monitorFile(`${App.configDir}/style`, function () {
-  Utils.exec(`sassc ${scss} ${css}`);
-  App.applyCss(css);
+  reloadCss();
 });
 
 try {
