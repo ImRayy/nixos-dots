@@ -46,7 +46,7 @@
         ''${{
             img_extensions=("jpg" "jpeg" "png" "gif")
             extension="''${f##*.}"
-            if [[ "''${img_extensions[@]} " == *" $extension "* ]]; then
+            if [[ " ''${img_extensions[@]} " == *" $extension "* ]]; then
                 if [ $DESKTOP_SESSION == gnome-xorg ];then
                     gsettings set org.gnome.desktop.background picture-uri "$f"
                 elif [ $DESKTOP_SESSION == hyprland ];then
