@@ -6,12 +6,17 @@
         allowUnfreePredicate = _: true;
     };
 
-    nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
+    nixpkgs.config.permittedInsecurePackages = [ 
+        "electron-25.9.0" 
+        /* freeimage-unstable used by megasync */ 
+        "freeimage-unstable-2021-11-01"
+    ];
 
     home.packages = with pkgs; [
 
         # GUI Apps
         bemenu
+        cinnamon.nemo
         easyeffects
         firefox
         gimp
@@ -21,12 +26,14 @@
         megasync
         mpv
         neovide
+        nwg-look
         obs-studio
         obsidian
         qbittorrent-qt5
         simple-scan
         spotify
         steam-run
+        swayosd
         telegram-desktop
         vlc
         vscode
@@ -36,11 +43,11 @@
         bat
         bottom
         cava
-        czkawka
-        ffmpeg
+        cliphist
         ffmpeg
         git-lfs
         gnupg
+        grim
         gum
         hyprpicker 
         imagemagick
@@ -51,11 +58,13 @@
         neofetch
         nix-prefetch-git
         ripgrep
+        slurp
         starship
         stow
         tldr
         trash-cli
         tree
+        wl-clipboard
         wlsunset
 
         # Programming utilities

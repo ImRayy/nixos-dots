@@ -100,7 +100,7 @@ services.stubby = {
      enable = true;
      enableSSHSupport = true;
    };
-
+    
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;  
   programs.kdeconnect.enable = true;

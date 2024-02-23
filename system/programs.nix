@@ -24,29 +24,13 @@
       usb-modeswitch
 
       # CLI Packages
-      trash-cli
       playerctl
-
-      # Hyprland/Wayland Stuff
-      xdg-desktop-portal-hyprland
-      cliphist
-      eww-wayland
-      grim
-      slurp
-      swayosd
-      wl-clipboard
-
-      # GTK
-      nwg-look
 
       # QT
       libsForQt5.qt5.qtquickcontrols2
       libsForQt5.qt5.qtgraphicaleffects
 
       # Misc
-      cinnamon.nemo
-      lsd
-      starship
       nodejs_20
 
   ];
