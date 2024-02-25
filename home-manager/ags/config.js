@@ -1,5 +1,5 @@
 const entry = App.configDir + "/widgets/main.ts";
-const outdir = "/tmp/ags/js";
+const outdir = "/tmp/ags/main.js";
 const scss = `${App.configDir}/style/style.scss`;
 const css = `${App.configDir}/style.css`;
 
@@ -22,17 +22,19 @@ try {
     "bun",
     "build",
     entry,
-    "--outdir",
+    "--outfile",
     outdir,
     "--external",
     "resource://",
     "--external",
-    "git://*",
+    "gi://*",
+    "--external",
+    "file://*",
   ]);
 } catch (error) {
   console.error(error);
 }
 
-const main = await import(`file://${outdir}/main.js`);
+const main = await import(`file://${outdir}`);
 
 export default main.default;
