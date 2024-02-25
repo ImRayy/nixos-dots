@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, homeConfig, ... }:
 let
-    colorScheme = ./themes/catppuccin-mocha/catppuccin-mocha.yaml;
+    colorScheme = with homeConfig; ./themes/${theme}/${theme}.yaml;
 in
 {
     stylix.image = pkgs.fetchurl {

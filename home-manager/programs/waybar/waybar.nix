@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, homeConfig, ... }:
 {
     programs.waybar = {
-        enable = true;
+        enable = if homeConfig.statusBar == "waybar" then true else false; 
         settings = [{
             "layer" = "top";
             "position" = "top";

@@ -1,4 +1,4 @@
-{ config, pkgs, sysConf, userConf, ...}:
+{ config, pkgs, username, systemConfig,...}:
 
 {
   imports =
@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
     ];
 
-  networking.hostName = sysConf.hostname;  
+  networking.hostName = systemConfig.hostname;
  
   services.ipp-usb.enable = true;
 
@@ -14,21 +14,21 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = sysConf.timezone;
+  time.timeZone = systemConfig.timezone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = sysConf.locale;
+  i18n.defaultLocale = systemConfig.locale;
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = sysConf.locale;
-    LC_IDENTIFICATION = sysConf.locale;
-    LC_MEASUREMENT = sysConf.locale;
-    LC_MONETARY = sysConf.locale;
-    LC_NAME = sysConf.locale;
-    LC_NUMERIC = sysConf.locale;
-    LC_PAPER = sysConf.locale;
-    LC_TELEPHONE = sysConf.locale;
-    LC_TIME = sysConf.locale;
+  i18n.extraLocaleSettings = with systemConfig; {
+    LC_ADDRESS = locale;
+    LC_IDENTIFICATION = locale;
+    LC_MEASUREMENT = locale;
+    LC_MONETARY = locale;
+    LC_NAME = locale;
+    LC_NUMERIC = locale;
+    LC_PAPER = locale;
+    LC_TELEPHONE = locale;
+    LC_TIME = locale;
   };
 
 services.stubby = {
@@ -58,7 +58,7 @@ services.stubby = {
   # Current Shell
   programs.fish.enable = true;
   
-  users.users.${userConf.username}= {
+  users.users.${username}= {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "audio" "lp" "scanner" "libvirtd" ];
     shell = pkgs.fish;

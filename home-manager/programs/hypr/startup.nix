@@ -1,8 +1,9 @@
+{ homeConfig, ... }:
 {
     wayland.windowManager.hyprland.settings = {
         exec-once = [
             "hyprctl setcursor Bibata-Modern-Ice 24"
-            "ags"
+            "${homeConfig.statusBar}"
             "swww init"
             "swayosd-server"
             "wl-paste --watch cliphist store"

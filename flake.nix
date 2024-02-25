@@ -17,23 +17,18 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      # System Configuraton
-      sysConf = {
-        hostname = "nixos";
-        timezone = "Asia/Kolkata";
-        locale = "en_IN";
-      };
-      # User Configuration
-      userConf = {
-        username = "ray";
-      };
+
+      # System & Home Manager Configuration
+      inherit ( import ./config.nix ) username systemConfig homeConfig;
+
     in {
       homeConfigurations = {
           ray = inputs.home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               extraSpecialArgs = {
                   inherit inputs;
-                  inherit userConf;
+                  inherit username;
+                  inherit homeConfig;
               };
               modules = [ 
                   inputs.stylix.homeManagerModules.stylix
@@ -45,8 +40,8 @@
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            inherit sysConf;
-            inherit userConf;
+            inherit username;
+            inherit systemConfig;
           };
           modules = [ 
             ./system/configuration.nix

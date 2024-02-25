@@ -1,10 +1,10 @@
-{ config, userConf,  ... }:
+{ config, username,  ... }:
 {
     home.file = {
         ".scripts/set-wall" = {
             text = ''
             #!/usr/bin/env bash
-            log_path="/home/${userConf.username}/.config/wall.txt"
+            log_path="/home/${username}/.config/wall.txt"
 
             wallpaper_path() {
                 cat $log_path | tail -n -1

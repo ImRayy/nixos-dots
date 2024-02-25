@@ -1,11 +1,10 @@
 { pkgs }:
 
 let
-    imgLink = "https://w.wallhaven.cc/full/zy/wallhaven-zyvrxy.png";
-
-    image = pkgs.fetchurl {
-        url = imgLink;
-        sha256 = "sha256-7ikZwIowFRWIMCSfrUxBFpTz1d+dWYsf+WAkrq+bcfk=";
+    inherit ( import ../../config.nix ) systemConfig;
+    image = with systemConfig.sddm; pkgs.fetchurl {
+        url = "${background}";
+        sha256 = "${sha256}";
     };
 in
 
