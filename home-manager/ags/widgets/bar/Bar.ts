@@ -50,11 +50,11 @@ const Right = () =>
 export default (monitor = 0) =>
   Widget.Window({
     name: `bar-${monitor}`,
-    class_name: "bar",
     monitor,
     anchor: ["top", "left", "right"],
     exclusivity: "exclusive",
     child: Widget.CenterBox({
+      class_name: "bar",
       start_widget: Left(),
       center_widget: Center(),
       end_widget: Right(),

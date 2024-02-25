@@ -1,5 +1,6 @@
 { config, inputs, pkgs, ... }:
 {
+
     imports = [ inputs.ags.homeManagerModules.default ];
 
     programs.ags = {
@@ -14,6 +15,7 @@
         source = ../ags;
         recursive = true;
     };
+
     xdg.configFile."ags/style/colors.scss" = with config.lib.stylix.colors; {
         source = pkgs.writeText "ags-colors" ''
             $base:    #${base00};

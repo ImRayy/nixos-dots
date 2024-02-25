@@ -7,6 +7,7 @@ export default () =>
     onScrollUp: () => dispatch("+1"),
     onScrollDown: () => dispatch("-1"),
     child: Widget.Box({
+      class_name: "workspaces",
       children: Array.from({ length: 5 }, (_, i) => i + 1).map((i) =>
         Widget.Button({
           attribute: i,
@@ -19,7 +20,7 @@ export default () =>
         self.hook(hyprland, () =>
           self.children.forEach((btn) => {
             btn.label =
-              hyprland.active.workspace.id === btn.attribute ? "󰮯" : "";
+              hyprland.active.workspace.id === btn.attribute ? "" : "";
           }),
         ),
     }),
