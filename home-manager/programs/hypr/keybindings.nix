@@ -53,9 +53,6 @@
                 ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
                 ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
 
-                # Screenshot/Screen Recording
-                "ALT, S, exec, bash -c ~/.config/hypr/scripts/screenshot.sh"
-
                 # Apps
                 "SUPER, RETURN, exec, kitty"
                 "SUPER SHIFT, RETURN, exec, nemo"

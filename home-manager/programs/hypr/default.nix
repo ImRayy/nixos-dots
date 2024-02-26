@@ -8,9 +8,10 @@
     };
 
     imports = [
-        ./startup.nix
+        ./extraConfig.nix
         ./hyprland.nix
         ./keybindings.nix
+        ./startup.nix
         ./windowrules.nix
     ];
 }

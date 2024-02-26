@@ -47,7 +47,6 @@
         ffmpeg
         git-lfs
         gnupg
-        grim
         gum
         hyprpicker 
         imagemagick
@@ -58,7 +57,6 @@
         neofetch
         nix-prefetch-git
         ripgrep
-        slurp
         starship
         stow
         tldr
