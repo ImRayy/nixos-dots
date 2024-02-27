@@ -13,5 +13,6 @@
     homeConfig = {
         theme = "catppuccin-mocha";
         statusBar = "ags"; /* ["waybar" | "ags"] */
+        notificationDaemon = "ags"; /* ["mako" | "ags"] */
     };
 }

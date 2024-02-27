@@ -2,7 +2,6 @@ import Separator from "./Separator.ts";
 
 const systemtray = await Service.import("systemtray");
 
-console.log(systemtray.bind());
 export default () =>
   Widget.Box({
     setup: (self) =>
