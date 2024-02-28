@@ -1,10 +1,16 @@
 { config, ... }:
 {
     programs.lf.keybindings = {
+        # Empty Bindings
+        c = "";
+        d = "";
+        f = "";
+        m = "";
+        n = "";
+
         # Basic Functions
         "." = "set hidden!";
         p = "paste";
-        DD = "delete";
         x = "cut";
         y = "copy";
         mf = "mkfile";
