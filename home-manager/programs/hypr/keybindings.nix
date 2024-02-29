@@ -50,8 +50,8 @@
                 "SUPER, mouse_up, workspace, e-1"
 
                 # Volumme Control
-                ",XF86AudioRaiseVolume, exec, pamixer increase 10"
-                ",XF86AudioLowerVolume, exec, pamixer decrease 10"
+                ",XF86AudioRaiseVolume, exec, pamixer --increase 5"
+                ",XF86AudioLowerVolume, exec, pamixer --decrease 5"
 
                 # Apps
                 "SUPER, RETURN, exec, kitty"
