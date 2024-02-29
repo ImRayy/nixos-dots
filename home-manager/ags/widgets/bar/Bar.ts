@@ -8,6 +8,7 @@ import Workspaces from "./modules/Workspaces.ts";
 import { CpuUsage, MemoryUsage } from "./modules/SysMonitor.ts";
 import { NetworkIndicator } from "./modules/Network.ts";
 import PowermenuIcon from "./modules/PowermenuIcon.ts";
+import Mpris from "./modules/Mpris.ts";
 
 // Bar layouts
 const Left = () =>
@@ -28,7 +29,7 @@ const Left = () =>
 const Center = () =>
   Widget.Box({
     spacing: 8,
-    children: [],
+    children: [Mpris()],
   });
 
 const Right = () =>
