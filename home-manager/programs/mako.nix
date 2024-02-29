@@ -1,7 +1,8 @@
-{ config, pkgs, homeConfig, ... }:
-{
+{ config, lib, pkgs, homeConfig, ... }:
+
+lib.mkIf (homeConfig.notificationDaemon == "mako") {
     services.mako = {
-        enable = if homeConfig.notificationDaemon == "waybar" then true else false; 
+        enable = true; 
         package = pkgs.mako;
         width = 400;
         height = 120;
