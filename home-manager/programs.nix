@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, lib, pkgs, homeConfig, ...}:
 
 {
     nixpkgs.config = {
@@ -33,7 +33,6 @@
         simple-scan
         spotify
         steam-run
-        swayosd
         telegram-desktop
         vlc
         vscode
