@@ -3,6 +3,7 @@
 {
     imports = [
         ./ags.nix
+        ./atuin.nix
         ./fish
         ./gtk.nix
         ./hypr

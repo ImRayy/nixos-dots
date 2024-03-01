@@ -39,7 +39,6 @@
 
         # Terminal Stuff
         appimage-run
-        atuin
         bat
         bottom
         cava
