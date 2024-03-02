@@ -1,0 +1,30 @@
+#mpris-player {
+    background-color: $crust;
+    border: 2px solid $color01;
+    .player-control-icons {
+        padding-right: 4px;
+        label {
+            font-size: 20px;
+        }
+    }
+    trough {
+        highlight, 
+        progress {
+            background-color: $color01;
+            min-height: 6px;
+        }
+    }
+
+    slider {
+        background-color: transparent;
+        min-width: 1px;
+        min-height: 1px;
+        box-shadow: none;
+        transition-property: all;
+        transition-duration: 300ms;
+        &:hover {
+            background-color: $color01;
+        }
+
+    }
+}

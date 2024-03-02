@@ -1,5 +1,6 @@
 import Mpris from "resource:///com/github/Aylur/ags/service/mpris.js";
 import { Capatilize } from "utils";
+import { floatingMediaPlayer } from "utils.ts";
 
 function statusIcon(status: "Playing" | "Paused") {
   if (status === "Playing") return "󰏤";
@@ -8,7 +9,7 @@ function statusIcon(status: "Playing" | "Paused") {
 
 const ignorePlayers = ["firefox", "chromium"];
 
-const playerIcons = (name: string) => {
+export const playerIcons = (name: string) => {
   switch (name) {
     case "spotify":
       return "";
@@ -26,7 +27,8 @@ const playerIcons = (name: string) => {
 export default () =>
   Widget.Button({
     class_name: "media",
-    on_primary_click: () => Mpris.getPlayer("")?.playPause(),
+    on_primary_click: () =>
+      (floatingMediaPlayer.value = floatingMediaPlayer.value ? false : true),
     on_scroll_up: () => Mpris.getPlayer("")?.next(),
     on_scroll_down: () => Mpris.getPlayer("")?.previous(),
     child: Widget.Label("-").hook(Mpris, (self) => {
