@@ -2,6 +2,7 @@
 
 {
     imports = [
+        ./env.nix
         ./programs
         ./programs.nix
         ./scripts.nix
