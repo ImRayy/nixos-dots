@@ -24,7 +24,6 @@
         keepassxc
         lollypop
         megasync
-        mpv
         neovide
         nwg-look
         obs-studio
