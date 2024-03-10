@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-rec {
+{ config, pkgs, username, ... }:
+let
+    homeDir = "/home/${username}";
+in
+{
     gtk = {
         enable = true;
         cursorTheme = {
@@ -10,5 +13,14 @@ rec {
             name = "Tela-circle-dark";
             package = pkgs.tela-circle-icon-theme;
         };
+
+        gtk3.bookmarks = [
+            "file://${homeDir}/Documents"
+            "file://${homeDir}/Downloads"
+            "file://${homeDir}/GitHub"
+            "file://${homeDir}/Music"
+            "file://${homeDir}/Pictures"
+            "file://${homeDir}/Videos"
+        ];
     };
 }

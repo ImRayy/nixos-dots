@@ -12,6 +12,7 @@ in
             "swww init"
             "run xhost +SI:localuser:root"
             "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+            "kdeconnect-indicator"
         ];
     };
 }
