@@ -2,6 +2,7 @@
 
 {
     imports = [
+        ./docker.nix
         ./hyprland.nix
         ./others.nix
         ./polkit.nix
