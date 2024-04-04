@@ -60,18 +60,3 @@ export default () =>
         "notify::volume",
       ),
   });
-
-// self.hook(
-//   Audio.speaker,
-//   () => {
-//     let count = -1;
-//     if (count < 0) count = 0;
-//     self.visible = true;
-//     count++;
-//     Utils.timeout(2000, () => {
-//       count--;
-//       if (count === 0) self.visible = false;
-//     });
-//   },
-//   "notify::volume",
-// ),
