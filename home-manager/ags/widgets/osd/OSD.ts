@@ -1,26 +1,17 @@
 const Audio = await Service.import("audio");
 
+let startupVisibility = false;
+
+setTimeout(() => {
+  startupVisibility = true;
+}, 2000);
+
 export default () =>
   Widget.Window({
     name: "osd",
     anchor: ["right"],
-    properties: [["count", -1]],
-    connections: [
-      [
-        Audio,
-        (self) => {
-          if (self._count < 0) self._count = 0;
-          self.visible = true;
-          self._count++;
-          Utils.timeout(2000, () => {
-            self._count--;
-            if (self._count === 0) self.visible = false;
-          });
-        },
-        "speaker-changed",
-      ],
-    ],
     layer: "overlay",
+    visible: startupVisibility,
     child: Widget.Box({
       vertical: true,
       children: [
@@ -50,4 +41,37 @@ export default () =>
         }),
       ],
     }),
+    setup: (self) =>
+      self.hook(
+        Audio.speaker,
+        () => {
+          let count = -1;
+          if (!startupVisibility) {
+            return;
+          }
+          if (count < 0) count = 0;
+          self.visible = true;
+          count++;
+          Utils.timeout(2000, () => {
+            count--;
+            if (count === 0) self.visible = false;
+          });
+        },
+        "notify::volume",
+      ),
   });
+
+// self.hook(
+//   Audio.speaker,
+//   () => {
+//     let count = -1;
+//     if (count < 0) count = 0;
+//     self.visible = true;
+//     count++;
+//     Utils.timeout(2000, () => {
+//       count--;
+//       if (count === 0) self.visible = false;
+//     });
+//   },
+//   "notify::volume",
+// ),
