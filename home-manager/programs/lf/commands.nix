@@ -50,7 +50,11 @@
                 if [ $DESKTOP_SESSION == gnome-xorg ];then
                     gsettings set org.gnome.desktop.background picture-uri "$f"
                 elif [ $DESKTOP_SESSION == hyprland ];then
+                    pkill hyprpaper
+                    sleep 1
                     echo "$f" >>  ~/.config/wall.txt && ~/.scripts/set-wall
+                    echo -e "preload = $f\nwallpaper = HDMI-A-1,$f\nsplash = false"\
+                    | tee ~/.config/hypr/hyprpaper.conf
                 else
                     cp "$f" ~/.config/ && feh --bg-fill ~/.config/wall.png
                 fi
