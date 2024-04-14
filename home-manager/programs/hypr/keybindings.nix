@@ -31,6 +31,12 @@
                 "SUPER, S, togglespecialworkspace"
                 "SUPER SHIFT, S, movetoworkspace, special"
 
+                # Group
+                "SUPER, G, togglegroup,"
+                "SUPER SHIFT, G, lockgroups, toggle"
+                "ALT SHIFT, H, changegroupactive, b"
+                "ALT SHIFT, L, changegroupactive, f"
+
                 # Workspaces
                 "SUPER, 1, workspace, 1"
                 "SUPER, 2, workspace, 2"
