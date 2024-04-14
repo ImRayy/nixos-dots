@@ -1,5 +1,6 @@
 import Mpris from "resource:///com/github/Aylur/ags/service/mpris.js";
 import { MprisPlayer } from "types/service/mpris";
+import { floatingMediaPlayer } from "utils";
 
 function statusIcon(status: "Playing" | "Paused") {
   if (status === "Playing") return "󰏤";
@@ -17,7 +18,7 @@ export const playerIcons = (name: string) => {
     case "chromium":
       return "";
     default:
-      return "󰎈 ";
+      return "󰎈";
   }
 };
 
@@ -25,9 +26,15 @@ const Player = (player: MprisPlayer) => {
   const mpris = player.getPlayer("spotify") || player.getPlayer();
   const { name, track_artists, track_title, play_back_status } = mpris;
 
-  const icon = Widget.Label({
+  const icon = Widget.Button({
     class_name: "player-icon",
-    label: playerIcons(name),
+    on_primary_click: () =>
+      (floatingMediaPlayer.value = floatingMediaPlayer.value ? false : true),
+    child: Widget.Label({
+      class_name: "player-icon-label",
+      css: "padding-right: 2px",
+      label: playerIcons(name),
+    }),
   });
 
   const title = Widget.Label({
@@ -43,26 +50,33 @@ const Player = (player: MprisPlayer) => {
     max_width_chars: 24,
     truncate: "end",
     wrap: true,
-    label: track_artists.join(", ") + " -",
+    label: track_artists.join(", ") + " - ",
   });
 
   const status = Widget.Label({
     class_name: "status-icon",
-    label: statusIcon(play_back_status),
+    label: " " + statusIcon(play_back_status),
   });
 
   return Widget.Box({
     spacing: 6,
-    children: [icon, artist, title, status],
+    children: [
+      icon,
+      Widget.Button({
+        on_primary_click: () => Mpris.getPlayer("")?.playPause(),
+        on_scroll_up: () => Mpris.getPlayer("")?.next(),
+        on_scroll_down: () => Mpris.getPlayer("")?.previous(),
+        child: Widget.Box({
+          children: [artist, title, status],
+        }),
+      }),
+    ],
   });
 };
 
 export default () =>
   Widget.Button({
     class_name: "media",
-    on_primary_click: () => Mpris.getPlayer("")?.playPause(),
-    on_scroll_up: () => Mpris.getPlayer("")?.next(),
-    on_scroll_down: () => Mpris.getPlayer("")?.previous(),
     setup: (self) =>
       self.hook(Mpris, (self) => {
         self.child = Player(Mpris);

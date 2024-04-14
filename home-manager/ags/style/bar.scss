@@ -4,8 +4,8 @@ window {
 }
 
 .bar {
-    padding-left: 10px;
-    padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 button {
@@ -28,8 +28,8 @@ highlight {
 }
 
 .distro-icon {
-  font-size:16px;
-  padding-right:  6px;
+  font-size: 16px;
+  padding-right: 6px;
   color: $color03;
 }
 
@@ -52,11 +52,21 @@ highlight {
 .workspaces {
   button {
     padding-right: 20px;
+
     &:nth-child(5) {
       padding-right: 0;
     }
   }
+
   padding-right: 4px;
+}
+
+.player-icon {
+  &:hover {
+    label {
+      color: $color04;
+    }
+  }
 }
 
 .network-indicator {
@@ -67,7 +77,6 @@ highlight {
   color: $color05;
 }
 
-
 .clock {
   color: $color06;
 }
@@ -76,8 +85,8 @@ label {
   font-weight: bold;
 }
 
-.powermenu-icon{
-    font-size: 16px;
-    color: $color04;
-    padding-right: 5px;
+.powermenu-icon {
+  font-size: 16px;
+  color: $color04;
+  padding-right: 5px;
 }
