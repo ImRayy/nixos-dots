@@ -1,38 +1,33 @@
-import Mpris from "resource:///com/github/Aylur/ags/service/mpris.js";
-import { MprisPlayer } from "types/service/mpris";
-import { floatingMediaPlayer } from "utils";
+import { floatingMediaPlayer } from "utils.ts";
+import { playerIcons } from "lib/icons";
 
-function statusIcon(status: "Playing" | "Paused") {
+const mpris = await Service.import("mpris");
+
+function statusIcon(status: "Playing" | "Paused" | "Stopped") {
   if (status === "Playing") return "󰏤";
   else return "";
 }
 
-export const playerIcons = (name: string) => {
-  switch (name) {
-    case "spotify":
-      return "";
-    case "Lollypop":
-      return "";
-    case "firefox":
-      return "󰈹";
-    case "chromium":
-      return "";
-    default:
-      return "󰎈";
-  }
-};
+interface PlayerProps {
+  name: string;
+  track_artists: string[];
+  track_title: string;
+  play_back_status: "Playing" | "Paused" | "Stopped";
+}
 
-const Player = (player: MprisPlayer) => {
-  const mpris = player.getPlayer("spotify") || player.getPlayer();
-  const { name, track_artists, track_title, play_back_status } = mpris;
-
+const Player = ({
+  name,
+  track_artists,
+  track_title,
+  play_back_status,
+}: PlayerProps) => {
   const icon = Widget.Button({
     class_name: "player-icon",
+    css: "padding-right: 1px",
     on_primary_click: () =>
       (floatingMediaPlayer.value = floatingMediaPlayer.value ? false : true),
-    child: Widget.Label({
+    child: Widget.Button({
       class_name: "player-icon-label",
-      css: "padding-right: 2px",
       label: playerIcons(name),
     }),
   });
@@ -50,35 +45,45 @@ const Player = (player: MprisPlayer) => {
     max_width_chars: 24,
     truncate: "end",
     wrap: true,
-    label: track_artists.join(", ") + " - ",
+    label: track_artists.join(", ") + " -",
   });
 
   const status = Widget.Label({
     class_name: "status-icon",
-    label: " " + statusIcon(play_back_status),
+    label: statusIcon(play_back_status),
   });
 
   return Widget.Box({
     spacing: 6,
-    children: [
-      icon,
-      Widget.Button({
-        on_primary_click: () => Mpris.getPlayer("")?.playPause(),
-        on_scroll_up: () => Mpris.getPlayer("")?.next(),
-        on_scroll_down: () => Mpris.getPlayer("")?.previous(),
-        child: Widget.Box({
-          children: [artist, title, status],
-        }),
-      }),
-    ],
+    children: [icon, artist, title, status],
   });
 };
 
 export default () =>
   Widget.Button({
     class_name: "media",
+
+    on_primary_click: () =>
+      (floatingMediaPlayer.value = floatingMediaPlayer.value ? false : true),
     setup: (self) =>
-      self.hook(Mpris, (self) => {
-        self.child = Player(Mpris);
+      self.hook(mpris, (self) => {
+        const player = mpris.getPlayer("spotify") || mpris.getPlayer() || null;
+        if (!player) {
+          return;
+        }
+
+        const { name, track_artists, track_title, play_back_status } = player;
+        if (play_back_status !== "Stopped") {
+          self.child = Player({
+            name: name,
+            track_artists: track_artists,
+            track_title: track_title,
+            play_back_status: play_back_status,
+          });
+        } else {
+          self.child = Widget.Label({
+            label: "",
+          });
+        }
       }),
   });
