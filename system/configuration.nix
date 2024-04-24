@@ -75,6 +75,13 @@
   services.openssh.enable = true;  
   programs.kdeconnect.enable = true;
 
+  programs.nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+          stdenv.cc.cc.lib
+      ];
+  };
+
   # NixOS Version
   # -------------
   system.stateVersion = "23.05";
