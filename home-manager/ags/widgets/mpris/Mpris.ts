@@ -1,6 +1,6 @@
 const Mpris = await Service.import("mpris");
 import { type MprisPlayer } from "types/service/mpris";
-import { playerIcons } from "widgets/bar/modules/Mpris";
+import { playerIcons } from "lib/icons";
 const players = Mpris.bind("players");
 import { floatingMediaPlayer } from "utils.ts";
 
