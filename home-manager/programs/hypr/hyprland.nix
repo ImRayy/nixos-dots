@@ -27,7 +27,7 @@
                     xray = true;
                     ignore_opacity = true;
                 };
-                rounding = 6;
+                rounding = 8;
                 drop_shadow = "no";
                 shadow_range = 10;
                 shadow_render_power = 5;
@@ -36,11 +36,13 @@
                 enabled = "yes";
                 bezier = "quart, 0.25, 1, 0.5, 1";
                 animation = [
-                    "windows, 1, 6, quart, slide"
-                    "border, 1, 6, quart"
+                    "windows, 1, 6, quart, popin"
+                    "windowsOut, 1, 7, quart"
+                    "border, 1, 6, default"
                     "borderangle, 1, 6, quart"
                     "fade, 1, 6, quart"
-                    "workspaces, 1, 6, default"
+                    "workspaces, 1, 6, quart"
+                    "layers, 1, 6, quart, slide"
                 ];
             };
             dwindle = {
@@ -60,6 +62,8 @@
                 "MOZ_DISABLE_RDD_SANDBOX,1"
                 "MOZ_ENABLE_WAYLAND,1"
                 "OZONE_PLATFORM,wayland"
+                "XCURSOR_THEME,Bibata-Modern-Ice"
+                "XCURSOR_SIZE,24"
             ];
         };
 
