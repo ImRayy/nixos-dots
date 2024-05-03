@@ -10,6 +10,7 @@
         ./kitty.nix
         ./lf
         ./mako.nix
+        ./misc.nix
         ./mpv.nix
         ./neofetch
         ./rofi
