@@ -21,6 +21,7 @@ export default () =>
           self.children.forEach((btn) => {
             btn.label =
               hyprland.active.workspace.id === btn.attribute ? "" : "";
+            btn.class_name = "indicator-icons";
           }),
         ),
     }),

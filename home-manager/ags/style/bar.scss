@@ -58,13 +58,11 @@ highlight {
     }
   }
 
-  padding-right: 4px;
-}
-
-.player-icon {
-  &:hover {
+  padding-right: 5px;
+  .indicator-icons {
     label {
-      color: $color04;
+      font-size: 14px;
+      font-weight: 900;
     }
   }
 }

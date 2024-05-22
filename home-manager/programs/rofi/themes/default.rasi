@@ -1,7 +1,7 @@
 configuration {
     font: "Cantarell Bold 11";
     drun {
-        display-name: " ";
+        display-name: "󰀻 ";
     }
     run {
         display-name: " ";
