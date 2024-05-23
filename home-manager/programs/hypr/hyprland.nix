@@ -65,6 +65,9 @@
                 "XCURSOR_THEME,Bibata-Modern-Ice"
                 "XCURSOR_SIZE,24"
             ];
+            layerrule = [
+                "animation default,selection"
+            ];
         };
 
     };
