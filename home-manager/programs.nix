@@ -15,34 +15,28 @@
     home.packages = with pkgs; [
 
         # GUI Apps
-        bemenu
-        cinnamon.nemo
-        easyeffects
-        firefox
         gimp
-        gnome.eog
         keepassxc
-        lollypop
-        megasync
+        libreoffice-fresh
         neovide
-        nwg-look
         obs-studio
         obsidian
         qbittorrent-qt5
         simple-scan
         spotify
-        steam-run
-        telegram-desktop
-        vlc
+        swayimg
+        system-config-printer
+        gnome.nautilus
         vscode
+        pavucontrol
 
         # Terminal Stuff
         appimage-run
         bat
         bottom
-        cava
         cliphist
         ffmpeg
+        firebase-tools
         git-lfs
         gnupg
         gum
@@ -52,11 +46,15 @@
         libnotify
         libwebp
         lsd
+        lsof
+        ncdu
+        ncspot
         neofetch
         nix-prefetch-git
+        pv
         ripgrep
+        scrcpy
         starship
-        stow
         tldr
         trash-cli
         tree
@@ -64,15 +62,13 @@
         wlsunset
 
         # Programming utilities
+        nodePackages_latest.eas-cli
         bun
-        cargo
-        corepack_21
+        corepack_22
         jdk
-        nixfmt
-        nodejs_20
-        pipx
-        python311Packages.pip
-        python39
+        nixfmt-rfc-style
+        nodejs_22
+        python3
         sassc
 
         # QT
