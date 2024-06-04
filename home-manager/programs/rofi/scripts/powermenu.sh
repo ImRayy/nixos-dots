@@ -19,7 +19,7 @@ hostname=$(hostname)
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-        -mesg "${user} on ${hostname}" \
+		-mesg "${user} on ${hostname}" \
 		-theme ${dir}/${theme}.rasi
 }
 
@@ -60,12 +60,12 @@ run_cmd() {
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
 			if [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
-                # why pkill? killall Hyprland dosen't work on nixos.
-                # why killall or pkill? cause 'hyprctl disatch exit 0' 
-                # causes system shutdown for some reason.
-				pkill -9 Hyprland  
-			elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
-				bspc quit
+				# why pkill? killall Hyprland dosen't work on nixos.
+				# why killall or pkill? cause 'hyprctl disatch exit 0'
+				# causes system shutdown for some reason.
+				pkill -9 Hyprland
+			elif [[ "$DESKTOP_SESSION" == 'none+qtile' ]]; then
+				qtile cmd-obj -o cmd -f shutdown
 			fi
 		fi
 	else
@@ -76,20 +76,20 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $shutdown)
-		run_cmd --shutdown
-        ;;
-    $reboot)
-		run_cmd --reboot
-        ;;
-    $lock)
-        if [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
-			swaylock
-        else 
-			betterlockscreen -l
-		fi
-        ;;
-    $logout)
-		run_cmd --logout
-        ;;
+$shutdown)
+	run_cmd --shutdown
+	;;
+$reboot)
+	run_cmd --reboot
+	;;
+$lock)
+	if [[ "$XDG_SESSION_TYPE" == 'wayland' ]]; then
+		swaylock
+	else
+		betterlockscreen -l
+	fi
+	;;
+$logout)
+	run_cmd --logout
+	;;
 esac

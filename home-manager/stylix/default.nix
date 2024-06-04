@@ -54,7 +54,14 @@ in
         ".swww-stylix" = {
             text = ''
             #!/usr/bin/env bash
-            swww img ''+config.stylix.image+''
+
+            if [[ $XDG_SESSION_TYPE = wayland ]]; then
+            	swww img ''+config.stylix.image+''
+
+            else
+            	feh --bg-fill ''+config.stylix.image+''
+
+            fi
             '';
             executable = true;
         };

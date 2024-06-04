@@ -40,6 +40,7 @@
                   inherit inputs;
                   inherit username;
                   inherit homeConfig;
+                  inherit systemConfig;
               };
               modules = [ 
                   inputs.stylix.homeManagerModules.stylix

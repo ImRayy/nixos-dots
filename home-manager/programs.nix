@@ -1,4 +1,4 @@
-{ config, lib, pkgs, homeConfig, ...}:
+{ config, lib, pkgs, homeConfig, ... }:
 
 {
     nixpkgs.config = {
@@ -13,7 +13,6 @@
     ];
 
     home.packages = with pkgs; [
-
         # GUI Apps
         gimp
         keepassxc
@@ -24,7 +23,6 @@
         qbittorrent-qt5
         simple-scan
         spotify
-        swayimg
         system-config-printer
         gnome.nautilus
         vscode
@@ -34,13 +32,9 @@
         appimage-run
         bat
         bottom
-        cliphist
+        fd
         ffmpeg
-        firebase-tools
-        git-lfs
         gnupg
-        gum
-        hyprpicker 
         imagemagick
         lazygit
         libnotify
@@ -58,16 +52,20 @@
         tldr
         trash-cli
         tree
-        wl-clipboard
-        wlsunset
 
         # Programming utilities
-        nodePackages_latest.eas-cli
         bun
+        cobra-cli
         corepack_22
+        firebase-tools
+        git-lfs
+        go
+        gum
         jdk
         nixfmt-rfc-style
+        nodePackages_latest.eas-cli
         nodejs_22
+        pipx
         python3
         sassc
 
@@ -77,5 +75,6 @@
 
         # Misc
         libdbusmenu-gtk3
+        calibre
     ];
 }

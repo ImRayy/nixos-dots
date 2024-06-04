@@ -47,19 +47,19 @@
             img_extensions=("jpg" "jpeg" "png" "gif")
             extension="''${f##*.}"
             if [[ " ''${img_extensions[@]} " == *" $extension "* ]]; then
-                if [ $DESKTOP_SESSION == gnome-xorg ];then
-                    gsettings set org.gnome.desktop.background picture-uri "$f"
-                elif [ $DESKTOP_SESSION == hyprland ];then
+                if [[ $DESKTOP_SESSION == hyprland ]];then
                     pkill hyprpaper
                     sleep 1
                     echo "$f" >>  ~/.config/wall.txt && ~/.scripts/set-wall
                     echo -e "preload = $f\nwallpaper = HDMI-A-1,$f\nsplash = false"\
                     | tee ~/.config/hypr/hyprpaper.conf
-                else
-                    cp "$f" ~/.config/ && feh --bg-fill ~/.config/wall.png
+                elif [[ $XDG_SESSION_TYPE == x11 ]];then
+                    echo "$f" >>  ~/.config/wall.txt && ~/.scripts/set-wall
+                else 
+                printf "\033[31mError: 'setwallpaper' function not configured for your window manager or desktop enviroment. Edit the 'home-manager/programs/lf/commands.nix' file to configure it properly.\033[0m\n"
                 fi
             else
-                echo "Selected file isn't a image file!"
+                printf "\033[31mSelected file isn't a image file!\033[0m\n"
             fi
         }}
         '';

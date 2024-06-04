@@ -1,9 +1,13 @@
-{ config, inputs, pkgs, ... }:
-{
+{ lib, config, inputs, pkgs, systemConfig, ... }:
 
+let
+    wm = systemConfig.windowManager;
+    enabled = lib.mkIf (wm == "hyprland" || wm == "all");
+in
+{
     imports = [ inputs.ags.homeManagerModules.default ];
 
-    programs.ags = {
+    programs.ags = enabled {
         enable = true;
         # configDir = ../ags;
         extraPackages = with pkgs; [
@@ -11,7 +15,7 @@
         ];
     };
 
-    xdg.configFile = {
+    xdg.configFile = enabled {
         "ags" = {
             source = ../ags;
             recursive = true;
@@ -34,8 +38,6 @@
                 $color10: #${base0E};
                 $color11: #${base0C};
             '';
-
         };
-
     };
 }
