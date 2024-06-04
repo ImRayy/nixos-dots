@@ -8,7 +8,7 @@
             background = "https://w.wallhaven.cc/full/zy/wallhaven-zyvrxy.png";
             sha256 = "sha256-7ikZwIowFRWIMCSfrUxBFpTz1d+dWYsf+WAkrq+bcfk=";
         };
-        windowManager = "qtile"; /* ["hyprland" | "qtile" | "both" ]  */
+        windowManager = "qtile"; /* ["hyprland" | "qtile" | "all" ]  */
     };
 
     homeConfig = {
