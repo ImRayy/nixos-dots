@@ -52,5 +52,11 @@
         nvmem="nvidia-smi --query-gpu=memory.used --format=csv";
         nvtemp="nvidia-smi -q -d temperature --format=csv,noheader,nounits";
         nvutil="nvidia-smi --query-gpu=utilization.gpu --format=csv";
+
+        # NIX
+        hm-rebuild="home-manager switch -b backup --flake .";
+        hm-rebuild-stylix="home-manager switch -b backup --flake . && ~/.swww-stylix";
+        nix-rebuild="sudo nixos-rebuild switch --flake .#default";
+        sys-gens="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
     };
 }

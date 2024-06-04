@@ -1,8 +1,7 @@
-{ lib, pkgs, homeConfig, ... }:
+{ lib, pkgs,... }:
 
-lib.mkIf (homeConfig.statusBar == "waybar") {
+{
     programs.waybar = {
-        enable = true;
         settings = [{
             "layer" = "top";
             "position" = "top";

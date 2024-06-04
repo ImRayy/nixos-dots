@@ -3,7 +3,7 @@
 {
     imports = [
         ./ags.nix
-        ./atuin.nix
+        ./dunst.nix
         ./fish
         ./gtk.nix
         ./hypr
@@ -13,6 +13,7 @@
         ./misc.nix
         ./mpv.nix
         ./neofetch
+        ./qtile.nix
         ./rofi
         ./starship.nix
         ./waybar

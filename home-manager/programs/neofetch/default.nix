@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+
 {
     xdg.configFile."neofetch/config.conf".source = pkgs.writeText "neofetch-config" ''
         print_info() {

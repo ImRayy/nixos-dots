@@ -6,6 +6,7 @@
         ./hyprland.nix
         ./others.nix
         ./polkit.nix
+        ./qtile.nix
         ./sddm.nix
         ./swaylock.nix
         ./syncthing.nix
