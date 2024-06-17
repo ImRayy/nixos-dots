@@ -5,6 +5,7 @@
         ./ags.nix
         ./dunst.nix
         ./fish
+        ./fzf.nix
         ./gtk.nix
         ./hypr
         ./kitty.nix
