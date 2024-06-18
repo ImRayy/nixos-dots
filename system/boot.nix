@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+
+  boot.tmp.useTmpfs = true;
+  boot.tmp.tmpfsSize = "30%";
   boot.loader = {
     systemd-boot.enable = false;
     timeout = 60; efi = {
