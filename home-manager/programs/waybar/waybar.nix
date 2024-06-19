@@ -5,7 +5,7 @@
         settings = [{
             "layer" = "top";
             "position" = "top";
-            "margin" = "8px 8px 0 8px";
+            "margin" = "0";
             "exclusive" = true;
             "passtrough" = false;
             "gtk-layer-shell" = true;
@@ -51,9 +51,9 @@
                 "on-click" = "activate";
                 "format" = "{icon}";
                 "format-icons" = {
-                    "default" = "";
-                    "active" = "󰮯";
-                    "urgent" = "󰊠";
+                    "default" = "";
+                    "active" = "";
+                    "urgent" = "";
                 };
                 "persistent_workspaces" = {
                     "*" = 5;
@@ -85,7 +85,7 @@
                 "spacing" = 10;
             };
             "clock" = {
-                "format" = "{:󰥔 %R  󰃭 %A %d}";
+                "format" = "󰥔 {:%R  󰃭 %A %d}";
                 "on-click" = "eww open Calendar --toggle --config ~/.config/eww/applets/";
                 "tooltip-format" = "{:%A %d %B %Y}";
             };

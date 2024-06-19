@@ -28,7 +28,7 @@ with config.lib.stylix.colors; {
         window#waybar {
           background: @base;
           color: @color8;
-          border-radius: 6px;
+          border-radius: 0;
         }
 
         tooltip {
@@ -51,7 +51,7 @@ with config.lib.stylix.colors; {
         #window,
         #mpris,
         #workspaces {
-          margin: 6px 6px 6px 0;
+          margin: 4px 4px 4px 0;
           padding: 0px 9px;
           border-radius: 6px;
           font-weight: 600;
@@ -101,8 +101,8 @@ with config.lib.stylix.colors; {
         }
 
         #workspaces button.urgent {
-          background: @color4;
-          color: @color8;
+          background: transparent;
+          color: @color4;
         }
 
         #workspaces button:hover {
