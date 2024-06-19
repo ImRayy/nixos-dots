@@ -3,13 +3,14 @@
 let
     wm = systemConfig.windowManager;
     useWaybar = wm == "hyprland" || wm == "all";
-    enabled = lib.mkIf (useWaybar && homeConfig.bar == "waybar");
+    enabled = useWaybar && homeConfig.statusBar == "waybar";
 
-    imports = [
+in
+{
+    imports = lib.optionals enabled [
         ./waybar.nix
         ./style.nix
     ];
-in
-enabled {
-    programs.waybar.enable = true;
+
+    programs.waybar.enable = enabled;
 }

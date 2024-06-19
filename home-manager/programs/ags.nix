@@ -1,8 +1,9 @@
-{ lib, config, inputs, pkgs, systemConfig, ... }:
+{ lib, config, inputs, pkgs, systemConfig, homeConfig, ... }:
 
 let
     wm = systemConfig.windowManager;
-    enabled = lib.mkIf (wm == "hyprland" || wm == "all");
+    hyprlandEnabled = wm == "hyprland" || wm == "all";
+    enabled = lib.mkIf (hyprlandEnabled && homeConfig.statusBar == "ags");
 in
 {
     imports = [ inputs.ags.homeManagerModules.default ];

@@ -2,20 +2,20 @@
 
 let 
     wm = systemConfig.windowManager;
-    enabled = lib.mkIf (wm == "hyprland" || wm == "all");
+    enabled = wm == "hyprland" || wm == "all";
+in
 
-    imports = [
+{
+    imports = lib.optionals enabled [
         ./extraConfig.nix
         ./hyprland.nix
         ./keybindings.nix
         ./startup.nix
         ./windowrules.nix
     ];
-in
-enabled {
-    home.packages = with pkgs; [ xdg-desktop-portal-hyprland hyprpaper ];
+
+    home.packages = with pkgs; lib.optionals enabled [ xdg-desktop-portal-hyprland hyprpaper ];
     wayland.windowManager.hyprland = {
-        enable = true;
-        package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+        enable = enabled;
     };
 }
