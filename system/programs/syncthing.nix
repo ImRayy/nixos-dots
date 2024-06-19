@@ -1,13 +1,12 @@
-{  config, pkgs, ... }:
+{  config, pkgs, username, ... }:
 
 {
-
   services = {
       syncthing = {
           enable = true;
           user = "ray";
-          dataDir = "/home/ray/Documents";
-          configDir = "/home/ray/.config/syncthing";
+          dataDir = "/home/${username}/.syncthing";
+          configDir = "/home/${username}/.config/syncthing";
       };
   };
 }
