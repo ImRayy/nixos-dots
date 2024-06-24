@@ -1,4 +1,5 @@
 { config, pkgs, ... }: 
+
 {
 
     home.packages = with pkgs; [ swww ];
@@ -68,7 +69,10 @@
         unarchive = ''
         ''${{
             case "$f" in
-                *.zip) 7z x "$f" ;;
+                *.zip)
+                    FILENAME="''${f%.*}"
+                    mkdir "$FILENAME" && unzip $f -d "$FILENAME/">/dev/null 2>&1
+                ;;
                 *.tar.gz) tar -xzvf "$f" ;;
                 *.tar.bz2) tar -xjvf "$f" ;;
                 *.tar) tar -xvf "$f" ;;
@@ -97,7 +101,6 @@
             done
         }}
         '';
-
         clear_trash = ''%trash-empty'';
         restore_trash = ''''${{trash-restore}}'';
 
@@ -114,6 +117,23 @@
 
             lf -remote "send $id :unselect; toggle $(get_dirs)"
         }}
+        '';
+
+       # zoxide: a smarter cd command. Supports all major shells.
+        z = ''
+        %{{
+        	result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        	lf -remote "send $id cd \"$result\""
+        }}
+        '';
+        zi = ''
+        ''${{
+	        result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+	        lf -remote "send $id cd \"$result\""
+        }}
+        '';
+        on_cd = ''
+            zoxide add "$PWD"
         '';
     };
 }

@@ -52,15 +52,13 @@
         # Navigation
         ga = "cd /media/Storage/anime";
         gc = "cd ~/.config";
-        gd = "cd ~/Documents";
-        git = "cd ~/Downloads/GIT";
-        gmd = "cd /media/MEGAsync/Notes/Obsidian";
+        gd = "cd ~/Downloads/";
+        gmd = "cd ~/Documents/Notes/Obsidian";
         gmo = "cd /media/Storage/Movies/";
         gmu = "cd /media/Storage/Music/";
         gmw = "cd /media/Storage/";
         gn = "cd /media/Documents/Notes";
         gp = "cd ~/Pictures";
-        gs = "cd ~/Pictures/Screenshots";
 
         # TRASH MAPPINGS
         dd = "trash";
