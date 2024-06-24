@@ -8,7 +8,6 @@
 
         # File Management
         ls="lsd --group-dirs first";
-        copydir="pwd | tr -d '\r\n' | wl-copy";
 
         # Note editor
         nvide = "neovide";
