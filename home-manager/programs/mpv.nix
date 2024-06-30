@@ -9,8 +9,8 @@
         bindings = {
             "ALT+k" = "add sub-scale +0.1";
             "ALT+j" = "add sub-scale -0.1";
-            "j" = "seek -10";
-            "l" = "seek 10";
+            # "h" = "seek -10";
+            # "l" = "seek 10";
         };
         config = {
             osc = false;
