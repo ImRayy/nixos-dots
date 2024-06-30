@@ -14,6 +14,7 @@
                 "SUPER, C, exec, hyprctl dispatch centerwindow"
                 "SUPER, T, exec, hyprctl dispatch togglesplit"
                 "SUPER, P, pin, active"
+                "ALT, L, exec, hyprlock"
 
                 # Focus Window
                 "SUPER, H, movefocus, l"
