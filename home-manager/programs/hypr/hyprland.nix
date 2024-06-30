@@ -54,16 +54,25 @@
                 new_is_master = true;
             };
             env = [
-                "WLR_NO_HARDWARE_CURSORS,1"
-                "LIBVA_DRIVER_NAME,nvidia"
+                "CLUTTER_BACKEND,wayland"
                 "XDG_SESSION_TYPE,wayland"
-                "GBM_BACKEND,nvidia-drm"
-                "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+                "XDG_CURRENT_DESKTOP,Hyprland"
+                "GDK_BACKEND,wayland,x11"
+                "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+                "QT_QPA_PLATFORM,wayland;xcb"
+                "QT_SCALE_FACTOR,1"
+                "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
                 "MOZ_DISABLE_RDD_SANDBOX,1"
                 "MOZ_ENABLE_WAYLAND,1"
-                "OZONE_PLATFORM,wayland"
+                # "OZONE_PLATFORM,wayland"
                 "XCURSOR_THEME,Bibata-Modern-Ice"
                 "XCURSOR_SIZE,24"
+
+                # 🖕 NVIDIA 🖕
+                "WLR_NO_HARDWARE_CURSORS,1"
+                "LIBVA_DRIVER_NAME,nvidia"
+                "GBM_BACKEND,nvidia-drm"
+                "__GLX_VENDOR_LIBRARY_NAME,nvidia"
             ];
             layerrule = [
                 "animation default,selection"
