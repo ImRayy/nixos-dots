@@ -6,12 +6,6 @@
         allowUnfreePredicate = _: true;
     };
 
-    nixpkgs.config.permittedInsecurePackages = [ 
-        "electron-25.9.0" 
-        /* freeimage-unstable used by megasync */ 
-        "freeimage-unstable-2021-11-01"
-    ];
-
     home.packages = with pkgs; [
         # GUI Apps
         gimp
@@ -27,6 +21,7 @@
         gnome.nautilus
         vscode
         pavucontrol
+        firefox
 
         # Terminal Stuff
         appimage-run
@@ -46,12 +41,14 @@
         neofetch
         nix-prefetch-git
         pv
+        rclone
         ripgrep
         scrcpy
         starship
         tldr
         trash-cli
         tree
+        yazi
 
         # Programming utilities
         bun
