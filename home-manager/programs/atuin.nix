@@ -1,6 +1,6 @@
 {
-    programs.atuin = {
-        enable = true;
-        enableFishIntegration = true;
-    };
+  programs.atuin = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 }

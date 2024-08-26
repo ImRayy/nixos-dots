@@ -6,7 +6,8 @@
   boot.tmp.tmpfsSize = "30%";
   boot.loader = {
     systemd-boot.enable = false;
-    timeout = 60; efi = {
+    timeout = 60;
+    efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
@@ -16,5 +17,5 @@
       efiSupport = true;
       useOSProber = true;
     };
-  }; 
+  };
 }

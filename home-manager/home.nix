@@ -1,4 +1,9 @@
-{ pkgs, inputs, username,  ... }:
+{
+  pkgs,
+  inputs,
+  username,
+  ...
+}:
 
 {
   home.username = username;
@@ -14,21 +19,20 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
 
-
   programs.home-manager.enable = true;
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
-        autoconnect = ["qemu:///system"];
-        uris = ["qemu:///system"];
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
     };
   };
 
   services = {
-      kdeconnect = {
-          enable = true;
-          indicator = true;
-      };
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
   };
 
 }

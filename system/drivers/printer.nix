@@ -3,7 +3,7 @@
 {
   # Enable support for SANE scanenrs
   hardware.sane = {
-     enable = true;
+    enable = true;
   };
 
   services.printing = {

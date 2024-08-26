@@ -1,7 +1,5 @@
 { config, ... }:
 
 {
-    imports = [
-        ./firewall.nix
-    ];
+  imports = [ ./firewall.nix ];
 }

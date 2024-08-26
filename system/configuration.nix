@@ -1,13 +1,19 @@
-{ config, pkgs, username, systemConfig,...}:
+{
+  config,
+  pkgs,
+  username,
+  systemConfig,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   networking.hostName = systemConfig.hostname;
- 
+
   services.ipp-usb.enable = true;
 
   # Enable networking
@@ -32,21 +38,31 @@
   };
 
   # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-	
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # Current Shell
   programs.fish.enable = true;
-  
-  users.users.${username}= {
+
+  users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "audio" "lp" "scanner" "libvirtd" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+      "lp"
+      "scanner"
+      "libvirtd"
+    ];
     shell = pkgs.fish;
-  }; 
+  };
 
   environment.variables = {
-      # QT_STYLE_OVERRIDE ="kvantum";
-      QT_QPA_PLATFORMTHEME = "qt5ct";
-      EDITOR = "nvim";
+    # QT_STYLE_OVERRIDE ="kvantum";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    EDITOR = "nvim";
   };
 
   # Enable the X11 windowing system.
@@ -57,30 +73,28 @@
     layout = "us";
     variant = "";
   };
- 
+
   # Enable SSD Trim
   services.fstrim = {
-      enable = true;
-      interval = "weekly";
+    enable = true;
+    interval = "weekly";
   };
 
   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-   };
-    
+    enable = true;
+    enableSSHSupport = true;
+  };
+
   # To support mtp/android file transfer
   services.gvfs.enable = true;
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;  
+  services.openssh.enable = true;
   programs.kdeconnect.enable = true;
 
   programs.nix-ld = {
-      enable = true;
-      libraries = with pkgs; [
-          stdenv.cc.cc.lib
-      ];
+    enable = true;
+    libraries = with pkgs; [ stdenv.cc.cc.lib ];
   };
 
   # NixOS Version

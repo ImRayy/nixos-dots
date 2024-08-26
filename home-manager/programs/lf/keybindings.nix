@@ -1,72 +1,72 @@
 { config, ... }:
 {
-    programs.lf.keybindings = {
-        # Empty Bindings
-        c = "";
-        d = "";
-        f = "";
-        m = "";
-        n = "";
+  programs.lf.keybindings = {
+    # Empty Bindings
+    c = "";
+    d = "";
+    f = "";
+    m = "";
+    n = "";
 
-        # Basic Functions
-        "." = "set hidden!";
-        p = "paste";
-        x = "cut";
-        y = "copy";
-        mf = "mkfile";
-        md = "mkdir";
-        ch = "chmod";
-        r = "rename";
-        br = "$vimv $fx";
-        C = "clear";
-        U = "unselect";
-        O = "push :open-with-gui<space>"; 
-        o = "push :open-with-cli<space>"; 
+    # Basic Functions
+    "." = "set hidden!";
+    p = "paste";
+    x = "cut";
+    y = "copy";
+    mf = "mkfile";
+    md = "mkdir";
+    ch = "chmod";
+    r = "rename";
+    br = "$vimv $fx";
+    C = "clear";
+    U = "unselect";
+    O = "push :open-with-gui<space>";
+    o = "push :open-with-cli<space>";
 
-        # Archive Mapping
-        az = "zip";
-        at = "tar";
-        ag = "targz";
-        au = "unarchive";
+    # Archive Mapping
+    az = "zip";
+    at = "tar";
+    ag = "targz";
+    au = "unarchive";
 
-        # Bookmarks
-        bc = "bookmark_create";
-        bj = "bookmark_jump";
+    # Bookmarks
+    bc = "bookmark_create";
+    bj = "bookmark_jump";
 
-        # Key Bindings
-        "<esc>" = "cmd-escape";
-        e = "$$EDITOR $fx";
-        D = "delete";
-        "<c-y>" = "up";
-        "<c-e>" = "down";
-        "<enter>" = "open";
-        gh = "cd ~";
-        gr = "cd /";
-        "<m-up>" = "up";
-        "<m-down>" = "down";
-        R = "bulk-rename";
-        zp = "set preview!";
-        t = "$tig -C $PWD";
-        M = "push $mkdir<space>";
+    # Key Bindings
+    "<esc>" = "cmd-escape";
+    e = "$$EDITOR $fx";
+    D = "delete";
+    "<c-y>" = "up";
+    "<c-e>" = "down";
+    "<enter>" = "open";
+    gh = "cd ~";
+    gr = "cd /";
+    "<m-up>" = "up";
+    "<m-down>" = "down";
+    R = "bulk-rename";
+    zp = "set preview!";
+    t = "$tig -C $PWD";
+    M = "push $mkdir<space>";
 
-        # Navigation
-        ga = "cd /media/Storage/anime";
-        gc = "cd ~/.config";
-        gd = "cd ~/Downloads/";
-        gmd = "cd ~/Documents/Notes/Obsidian";
-        gmo = "cd /media/Storage/Movies/";
-        gmu = "cd /media/Storage/Music/";
-        gmw = "cd /media/Storage/";
-        gn = "cd /media/Documents/Notes";
-        gp = "cd ~/Pictures";
+    # Navigation
+    ga = "cd /media/Storage/anime";
+    gc = "cd ~/.config";
+    gd = "cd ~/Downloads/";
+    gmd = "cd ~/Documents/Notes/Obsidian";
+    gmo = "cd /media/Storage/Movies/";
+    gmu = "cd /media/Storage/Music/";
+    gmw = "cd /media/Storage/";
+    gn = "cd /media/Documents/Notes";
+    gp = "cd ~/Pictures";
 
-        # TRASH MAPPINGS
-        dd = "trash";
-        tc = "clear_trash";
-        tr = "restore_trash";
+    # TRASH MAPPINGS
+    dd = "trash";
+    tc = "clear_trash";
+    tr = "restore_trash";
 
-        # WALLPAPER
-        ";" = "setwallpaper";
-        w = "setwallpaper-dark";
-    };
+    # WALLPAPER
+    ";" = "setwallpaper";
+    w = "setwallpaper-dark";
+  };
 }

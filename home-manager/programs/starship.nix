@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-    lang = icon: color: {
-        symbol = icon;
-        format = "[$symbol](${color})";
-    };
-    os = icon: color: "[${icon} ](${color})";
+  lang = icon: color: {
+    symbol = icon;
+    format = "[$symbol](${color})";
+  };
+  os = icon: color: "[${icon} ](${color})";
 in
 {
   programs.starship = {
@@ -12,18 +12,20 @@ in
     settings = {
       add_newline = true;
 
-      line_break = { disabled = false; };
+      line_break = {
+        disabled = false;
+      };
 
-      format= lib.strings.concatStrings [
-          "$os"
-          "$directory"
-          "$git_branch$git_status$git_state$git_commit"
-          "$python"
-          "$nodejs"
-          "$lua"
-          " $cmd_duration"
-          "$line_break"
-          "$character"
+      format = lib.strings.concatStrings [
+        "$os"
+        "$directory"
+        "$git_branch$git_status$git_state$git_commit"
+        "$python"
+        "$nodejs"
+        "$lua"
+        " $cmd_duration"
+        "$line_break"
+        "$character"
       ];
 
       character = {
@@ -38,7 +40,7 @@ in
       };
 
       directory = with config.lib.stylix.colors; {
-      format = " [](fg:#${base05})[$path](bg:#${base05} fg:bold #${base00})[](fg:#${base05})";
+        format = " [](fg:#${base05})[$path](bg:#${base05} fg:bold #${base00})[](fg:#${base05})";
 
         read_only = "󰌾 ";
         truncation_length = 6;
@@ -87,8 +89,8 @@ in
       };
 
       os = {
-          disabled = false;
-          format = "$symbol";
+        disabled = false;
+        format = "$symbol";
       };
 
       os.symbols = {

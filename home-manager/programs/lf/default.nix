@@ -1,8 +1,8 @@
 {
-    imports = [
-        ./commands.nix
-        ./extraConfig.nix
-        ./keybindings.nix
-        ./lf.nix
-    ];
+  imports = [
+    ./commands.nix
+    ./extraConfig.nix
+    ./keybindings.nix
+    ./lf.nix
+  ];
 }
