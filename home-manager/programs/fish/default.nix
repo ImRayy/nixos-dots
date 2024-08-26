@@ -3,9 +3,17 @@
 {
     programs.fish = {
         enable = true;
-        shellInit = ''
+        shellInit = /*fish*/ ''
+            # Setup volta.sh
+            # what is volta.sh? JavaScript Tool Manager
+            if not test -d $HOME/.volta
+                curl https://get.volta.sh | bash
+            else
+                set -gx VOLTA_HOME "$HOME/.volta"
+                set -gx PATH "$VOLTA_HOME/bin" $PATH
+            end
         '';
-        interactiveShellInit = ''
+        interactiveShellInit = /*fish*/ ''
             set fish_greeting
             # set TERM "xterm-256color"
             set -g -x PATH "$HOME/go/bin:$PATH"
@@ -24,7 +32,7 @@
             '';
 
             # Change working dir in fish to last dir in lf on exit (adapted from ranger).
-            lfcd = ''
+            lfcd = /*fish*/ ''
                 -wraps="lf" --description="lf - Terminal file manager (changing directory on exit)"
                 # `command` is needed in case `lfcd` is aliased to `lf`.
                 # Quotes will cause `cd` to not change directory if `lf` prints nothing to stdout due to an error.
