@@ -13,7 +13,7 @@
 
   homeConfig = {
     theme = "catppuccin-mocha";
-    statusBar = "waybar"; # ["waybar" | "ags"]
-    notificationDaemon = "dunst"; # ["dunst" | "ags"]
+    waybar = true;
+    dunst = true;
   };
 }

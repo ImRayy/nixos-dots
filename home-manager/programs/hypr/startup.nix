@@ -1,7 +1,6 @@
 { lib, homeConfig, ... }:
 let
-  bar = homeConfig.statusBar;
-  statusBar = if bar != "ags" then "ags --toggle-window 'bar-0' & ${bar}" else "ags";
+  statusBar = if homeConfig.waybar then "waybar" else "";
 in
 {
   wayland.windowManager.hyprland.settings = with homeConfig; {

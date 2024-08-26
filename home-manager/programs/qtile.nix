@@ -22,7 +22,7 @@ in
   };
 
   xdg.configFile."stylix-colors.json" = with config.lib.stylix.colors; {
-    source = pkgs.writeText "ags-colors" ''
+    source = pkgs.writeText "qtile-bar-colors" ''
       {
         "base00": "#${base00}",
         "base01": "#${base01}",

@@ -6,12 +6,9 @@
   ...
 }:
 
-let
-  enabled = homeConfig.notificationDaemon == "dunst";
-in
 {
   services.dunst = {
-    enable = enabled;
+    enable = homeConfig.dunst;
     settings = with config.lib.stylix.colors; {
       global = {
         # The geometry of the notification window.

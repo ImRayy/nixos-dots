@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./ags.nix
     ./dunst.nix
     ./fish
     ./fzf.nix

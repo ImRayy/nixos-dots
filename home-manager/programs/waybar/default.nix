@@ -8,7 +8,7 @@
 let
   wm = systemConfig.windowManager;
   useWaybar = wm == "hyprland" || wm == "all";
-  enabled = useWaybar && homeConfig.statusBar == "waybar";
+  enabled = useWaybar && homeConfig.waybar;
 
 in
 {
