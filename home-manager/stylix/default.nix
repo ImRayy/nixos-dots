@@ -13,6 +13,7 @@ in
         base16Scheme = colorScheme;
         polarity = "dark";
         targets  = {
+            dunst.enable = true;
             waybar.enable = false;
             kitty = {
                 enable = true;

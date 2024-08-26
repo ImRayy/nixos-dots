@@ -50,9 +50,6 @@
                 pseudotile = "yes";
                 preserve_split = "yes";
             };
-            master = {
-                new_is_master = true;
-            };
             env = [
                 "CLUTTER_BACKEND,wayland"
                 "XDG_SESSION_TYPE,wayland"

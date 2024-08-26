@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ./ags.nix
+        # ./ags.nix
         ./dunst.nix
         ./fish
         ./fzf.nix
@@ -13,7 +13,8 @@
         ./misc.nix
         ./mpv.nix
         ./neofetch
-        ./qtile.nix
+        # FIXME: Qtile is broken for now
+        # ./qtile.nix
         ./rofi
         ./starship.nix
         ./waybar
