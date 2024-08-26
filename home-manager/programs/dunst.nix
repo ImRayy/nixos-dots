@@ -1,27 +1,23 @@
-{ lib, config, systemConfig, ... }:
+{ lib, config, systemConfig, homeConfig, ... }:
 
 let
-    wm = systemConfig.windowManager;
-    enabled = lib.mkIf (wm == "qtile" || wm == "all");
+    enabled =  homeConfig.notificationDaemon == "dunst";
 in
-enabled {
+{
     services.dunst = {
-        enable = true;
+        enable = enabled;
         settings = with config.lib.stylix.colors; {
             global = {
                 # The geometry of the notification window.
                 width = 340;
                 height = 120;
-                origin = "top-center";
-                offset = "0x40";
+                origin = "right";
+                offset = "10x10";
 
                 indicate_hidden = false;
 
                 # Transparency [0-100]
                 transparency = 0;
-
-                # Notification stack
-                notification_height = 10;
 
                 # You want a Gap?
                 separator_height = 1;
@@ -32,7 +28,6 @@ enabled {
 
                 # Frame
                 frame_width = 3;
-                outer_frame_width = 14;
 
                 # Colors;
                 separator_color = "auto";
@@ -45,7 +40,6 @@ enabled {
 
                 # Markup is allowed
                 markup = "full";
-                format = "<b>%s</b>\n%b";
                 alignment = "center";
                 show_age_threshold = -1;
                 word_wrap = true;
