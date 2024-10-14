@@ -35,47 +35,29 @@ with config.lib.stylix.colors;
     tooltip {
       background: @base;
       border-color: @crust;
-      border-radius: 10px;
       border-style: solid;
       border-width: 2px;
     }
 
-    #backlight,
-    #cpu,
-    #custom-swaync,
-    #memory,
-    #network,
-    #pulseaudio,
     #tray,
-    #clock,
-    #custom-powermenu,
-    #window,
-    #mpris,
-    #workspaces {
+    #window {
       margin: 4px 4px 4px 0;
       padding: 0px 9px;
-      border-radius: 6px;
       font-weight: 600;
     }
 
     #custom-distro {
       color: @color3;
-      font-size: 18px;
+      font-size: 16px; 
+      margin-right: 14px;
       margin-left: 8px;
     }
 
-    #custom-separator {
-        color: #${base04};
-    }
-
-    #tray {
-      padding-right: 10px;
-    }
-
     #workspaces {
-      margin-left: 4px;
-      padding-right: 0;
-      padding-left: 0;
+      margin: 4px 10px 4px 0;
+      padding-right: 6px;
+      background: @crust;
+      border-radius: 6px;
     }
 
     #workspaces :nth-child(5) {
@@ -87,7 +69,6 @@ with config.lib.stylix.colors;
     }
 
     #workspaces button {
-      border-radius: 6px;
       color: @color5;
       padding: 6px;
     }
@@ -107,51 +88,87 @@ with config.lib.stylix.colors;
     }
 
     #workspaces button:hover {
-      background: @crust;
+      background: transparent;
       color: @color7;
     }
 
     #window {
       background: transparent;
-      border-radius: 10px;
     }
 
-    #memory {
-      color: @color10;
+
+    #custom-memory-icon,
+    #custom-cpu-icon,
+    #custom-flatpak-icon,
+    #mpris.icon,
+    #network.icon,
+    #pulseaudio.icon,
+    #custom-clock-icon {
+      padding-right: 8px;
     }
 
-    #cpu {
-      padding-right: 6px;
+
+    #cpu,
+    #memory,
+    #custom-flatpak-value,
+    #mpris.value,
+    #network.value,
+    #pulseaudio.value,
+    #clock {
+      color: @color1;
+      padding-right: 14px;
+      font-weight: 600;
+    }
+
+    #custom-cpu-icon {
       color: @colorA;
     }
 
-    #mpris {
-      color: @color7;
+    #custom-memory-icon {
+      color: @color10;
     }
 
-    #clock {
-      color: @color6;
-      padding-right: 4px;
+    #custom-flatpak-icon {
+      color: @color5;
     }
 
-    #custom-swaync {
-      color: @color1;
-      padding-right: 4px;
-    }
-
-    #network {
+    #network.icon {
       color: @color3;
     }
 
-    #pulseaudio {
+    #pulseaudio.icon {
       color: @color5;
+    }
+
+    #custom-clock-icon {
+      padding-right: 10px;
+      color: @color6;
+    }
+
+    #mpris.icon {
+      color: @color1;
+    }
+
+    #mpris.icon.brave {
+      color: @color7;
+    }
+
+    #mpris.icon.spotify {
+      color: @color5;
+    }
+
+    #mpris.icon.firefox {
+      color: @color6;
+    }
+
+    #mpris.icon.mpv {
+      color: @color10;
     }
 
     #custom-powermenu {
       color: @color4;
-      font-weight: 800;
-      font-size: 17px;
-      margin-right: 6px;
+      font-size: 15px; 
+      margin-right: 4px;
       padding-right: 0;
     }
   '';

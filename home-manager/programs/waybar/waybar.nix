@@ -13,141 +13,192 @@
         "height" = 0;
         "modules-left" = [
           "custom/distro"
-          "custom/separator"
           "hyprland/workspaces"
-          "custom/separator"
+          "custom/cpu-icon"
           "cpu"
-          "custom/separator"
+          "custom/memory-icon"
           "memory"
+          "custom/flatpak-icon"
+          "custom/flatpak-value"
         ];
-        "modules-center" = [ "mpris" ];
+
+        "modules-center" = [
+          "mpris#icon"
+          "mpris#value"
+        ];
+
         "modules-right" = [
           "tray"
-          "network"
-          "custom/separator"
-          "pulseaudio"
-          "custom/separator"
+          "network#icon"
+          "network#value"
+          "pulseaudio#icon"
+          "pulseaudio#value"
+          "custom/clock-icon"
           "clock"
-          "custom/separator"
           "custom/powermenu"
         ];
-        "custom/separator" = {
-          "format" = "│";
-          "interval" = "once";
-          "tooltip" = false;
-        };
+
         "custom/distro" = {
-          "format" = " ";
-          "on-click" = "kitty --hold -e neofetch";
+          "format" = "";
+          "on-click" = "foot --hold -e neofetch";
           "interval" = "once";
           "tooltip" = false;
         };
+
         "hyprland/window" = {
           "format" = "{}";
           "max-length" = 50;
         };
+
         "hyprland/workspaces" = {
+          "all-outputs" = false;
+          "active-only" = false;
           "on-click" = "activate";
+          "disable-scroll" = true;
+          "persistent-workspaces" = {
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
+            "4" = [ ];
+            "5" = [ ];
+          };
           "format" = "{icon}";
           "format-icons" = {
-            "default" = "";
-            "active" = "";
+            "default" = "";
+            "active" = "";
             "urgent" = "";
+            "empty" = "";
           };
-          "persistent_workspaces" = {
-            "*" = 5;
-          };
+          "sort-by-number" = true;
+        };
+
+        # CPU
+        "custom/cpu-icon" = {
+          "format" = "";
+          "tooltip" = false;
         };
         "cpu" = {
-          "interval" = 5;
-          "format" = " {usage}%";
-          "max-length" = 10;
+          "interval" = 2;
+          "format" = "{usage}%";
+          "tooltip" = false;
+        };
+
+        # MEMORY
+        "custom/memory-icon" = {
+          "format" = "";
+          "tooltip" = false;
         };
         "memory" = {
-          "interval" = 30;
-          "format" = " {used:0.1f}G/{total:0.1f}G";
+          "interval" = 20;
+          "format" = "{used:0.1f}G/{total:0.1f}G";
+          "tooltip" = false;
         };
-        "mpris" = {
-          "format" = "{player_icon} {title} | {artist} - {length}";
-          "format-paused" = "{status_icon} <i>{title} | {artist} - {length}</i>";
+
+        # FLATPAK
+        "custom/flatpak-icon" = {
+          "format" = "{}";
+          "on-click" = "foot --hold -e flatpak update";
+          "exec" = "echo ";
+          "exec-if" = "which flatpak";
+          "interval" = "once";
+          "tooltip" = false;
+        };
+        "custom/flatpak-value" = {
+          "exec" = "flatpak remote-ls --updates | wc -l";
+          "exec-if" = "which flatpak";
+          "interval" = 3600; # Check every hour
+          "tooltip" = false;
+        };
+
+        # MPRIS
+        "mpris#icon" = {
+          "format" = "{player_icon}";
+          "format_paused" = "{status_icon} ";
           "player-icons" = {
             "default" = "▶";
+            "mpv" = "";
+            "spotify" = "";
+            "brave" = "";
+            "firefox" = "󰈹";
+
           };
           "status-icons" = {
             "paused" = "󰏤";
           };
+          "tooltip" = false;
+        };
+        "mpris#value" = {
+          "format" = "{title}";
+          "format-paused" = "<i>{title}</i>";
           "ignored-players" = [
             "firefox"
             "chromium"
-            "brave"
           ];
+          "tooltip" = false;
+          "max-length" = 50;
         };
         "tray" = {
           "icon-size" = 15;
           "tooltip" = false;
           "spacing" = 10;
         };
-        "clock" = {
-          "format" = "󰥔 {:%R  󰃭 %A %d}";
-          "on-click" = "eww open Calendar --toggle --config ~/.config/eww/applets/";
-          "tooltip-format" = "{:%A %d %B %Y}";
-        };
-        "custom/swaync" = {
+
+        # NETWORK
+        "network#icon" = {
+          "format" = "()";
+          "format-wifi" = "󰤨";
+          "format-ethernet" = "";
+          "format-disconnected" = "󰤭";
           "tooltip" = false;
-          "format" = "{icon}";
-          "format-icons" = {
-            "notification" = "󱅫";
-            "none" = "󰂚";
-            "dnd-notification" = "󱏧<span foreground='red'><sup></sup></span>";
-            "dnd-none" = "󱏧";
-            "inhibited-notification" = "󰂚<span foreground='red'><sup></sup></span>";
-            "inhibited-none" = "󰂚";
-            "dnd-inhibited-notification" = "<span foreground='red'><sup></sup></span>";
-            "dnd-inhibited-none" = "󱏧";
-          };
-          "return-type" = "json";
-          "exec-if" = "which swaync-client";
-          "exec" = "swaync-client -swb";
-          "on-click" = "~/.config/swaync/scripts/open-tray.sh";
-          "on-click-right" = "swaync-client -d -sw";
-          "escape" = true;
         };
-        "network" = {
+        "network#value" = {
           "format" = "{ifname}";
-          "format-wifi" = "󰤨   {essid} {bandwidthTotalBytes}";
-          "format-ethernet" = "󱓞 Ethernet {bandwidthTotalBytes}";
-          "format-disconnected" = "󰤭 ";
-          "tooltip-format" = "{ifname} via {gwaddr} 󰊗";
-          "tooltip-format-wifi" = "󰤢   Signal Strength:  {signalStrength}%";
-          "tooltip-format-ethernet" = "󰊗   Signal Strength:  {signalStrength}%";
-          "on-click" = "~/.config/waybar/scripts/rofi-wifi-menu.sh";
-          "tooltip-format-disconnected" = "Disconnected";
+          "format-wifi" = "{essid} {bandwidthTotalBytes}";
+          "format-ethernet" = "Ethernet {bandwidthTotalBytes}";
+          "format-disconnected" = "Disconnected";
+          "tooltip" = false;
           "max-length" = 50;
           "interval" = 5;
         };
-        "pulseaudio" = {
-          "format" = "{icon} {volume}%";
-          "tooltip" = false;
-          "format-muted" = " Muted";
-          "on-click" = "pamixer -t";
-          "on-scroll-up" = "pamixer -i 5";
-          "on-scroll-down" = "pamixer -d 5";
-          "scroll-step" = 5;
+
+        # PULSEAUDIO
+        "pulseaudio#icon" = {
+          "format" = "{icon}";
+          "format-muted" = " ";
           "format-icons" = {
             "default" = [
               ""
               ""
-              " "
-              " "
             ];
           };
-
+          "on-click" = "pamixer -t";
+          "on-scroll-up" = "pamixer -i 5";
+          "on-scroll-down" = "pamixer -d 5";
         };
+        "pulseaudio#value" = {
+          "format" = "{volume}%";
+          "tooltip" = false;
+          "format-muted" = "Muted";
+          "scroll-step" = 5;
+        };
+
+        # CLOCK
+        "custom/clock-icon" = {
+          "format" = "";
+          "tooltip" = false;
+        };
+        "clock" = {
+          "format" = "{:%R}";
+          "format-alt" = "{:%R - %d %b, %Y (%A)}";
+          "tooltip" = false;
+        };
+
+        # POWERMENU
         "custom/powermenu" = {
           "format" = " ";
           "on-click" = "~/.config/rofi/powermenu.sh";
           "interval" = "once";
-          "tooltip" = false;
+          "tooltip" = "Open powermenu";
         };
       }
     ];
