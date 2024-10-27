@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  username,
-  ...
-}:
+{ pkgs, username, ... }:
 let
   homeDir = "/home/${username}";
 in
@@ -25,6 +20,7 @@ in
       "file://${homeDir}/GitHub"
       "file://${homeDir}/Music"
       "file://${homeDir}/Pictures"
+      "file://${homeDir}/Pictures/Screenshots"
       "file://${homeDir}/Videos"
     ];
   };
