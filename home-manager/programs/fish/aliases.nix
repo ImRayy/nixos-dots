@@ -7,7 +7,8 @@
     pk = "pkill";
 
     # File Management
-    ls = "lsd --group-dirs first";
+    ls = "eza --group-directories-first --icons";
+    lf = "yazi";
 
     # Note editor
     nvide = "neovide";
@@ -56,6 +57,10 @@
     hm-rebuild = "home-manager switch -b backup --flake .";
     hm-rebuild-stylix = "home-manager switch -b backup --flake . && ~/.swww-stylix";
     nix-rebuild = "sudo nixos-rebuild switch --flake .#default";
-    sys-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+    nixos-gens = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+
+    # Misc
+    orphan = "nohup '$@' >/dev/null 2>&1 & disown";
+    font-list = "fc-list : family | fzf | sed -z 's/\n//g'";
   };
 }

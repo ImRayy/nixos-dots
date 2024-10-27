@@ -13,6 +13,14 @@
             set -gx VOLTA_HOME "$HOME/.volta"
             set -gx PATH "$VOLTA_HOME/bin" $PATH
         end
+
+        if test -d $HOME/.local/bin
+          set -gx  PATH "$HOME/.local/bin" $PATH
+        end
+
+        if test -d $HOME/.bun/bin
+          set -gx PATH "$HOME/.bun/bin" $PATH
+        end
       '';
     interactiveShellInit = # fish
       ''
@@ -81,6 +89,17 @@
           repo = "puffer-fish";
           rev = "12d062eae0ad24f4ec20593be845ac30cd4b5923";
           sha256 = "06g8pv68b0vyhhqzj469i9rcics67cq1kbhb8946azjb8f7rhy6s";
+        };
+      }
+
+      # 🔍 Fzf plugin for Fish
+      {
+        name = "fzf-fish";
+        src = pkgs.fetchFromGitHub {
+          owner = "PatrickF1";
+          repo = "fzf.fish";
+          rev = "8920367cf85eee5218cc25a11e209d46e2591e7a";
+          sha256 = "1hqqppna8iwjnm8135qdjbd093583qd2kbq8pj507zpb1wn9ihjg";
         };
       }
     ];
