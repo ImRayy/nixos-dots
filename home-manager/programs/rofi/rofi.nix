@@ -8,11 +8,11 @@
       source = pkgs.writeText "my-css" ''
         * {
             background:     #${base00};
-            background-alt: #${base03};
+            background-alt: #${base01};
             foreground:     #${base05};
             active:         #${base07};
-            selected:       #${base07};
-            selected-text:  #${base00};
+            selected:       #${base02};
+            selected-text:  #${base07};
         }
 
         /* vim:ft=css
@@ -23,6 +23,5 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    plugins = with pkgs; [ rofi-emoji ];
   };
 }
