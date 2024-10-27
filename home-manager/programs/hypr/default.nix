@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   systemConfig,
   ...
 }:
@@ -25,8 +24,9 @@ in
     with pkgs;
     lib.optionals enabled [
       xdg-desktop-portal-hyprland
-      hyprpaper
       hypridle
+      hyprshot
+      hyprshade
     ];
   wayland.windowManager.hyprland = {
     enable = enabled;
