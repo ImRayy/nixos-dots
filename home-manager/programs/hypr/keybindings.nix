@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   wayland.windowManager.hyprland = {
     settings = {
@@ -56,23 +57,23 @@
         "SUPER, mouse_down, workspace, e+1"
         "SUPER, mouse_up, workspace, e-1"
 
-        # Volumme Control
+        # Volume Control
         ",XF86AudioRaiseVolume, exec, pamixer --increase 5"
         ",XF86AudioLowerVolume, exec, pamixer --decrease 5"
 
         # Apps
-        "SUPER, RETURN, exec, kitty"
+        "SUPER, RETURN, exec, foot"
         "SUPER SHIFT, RETURN, exec, nemo"
         "SUPER, D, exec, ~/.config/hypr/dmenu.sh"
         "SUPER, A , exec,  rofi -show drun -show-icons -theme ~/.config/rofi/themes/default.rasi"
-        "SUPER, E, exec, rofi -modi emoji -show emoji -config  ~/.config/rofi/launchers/type-1/style-6.rasi"
-        "SUPER, N, exec,  swaync-client -t -sw"
+        "SUPER, E, exec, ${pkgs.smile}/bin/smile"
+        "SUPER, N, exec,  ags --toggle-window notification-center"
         "SUPER ALT , L , exec, ~/.config/swaylock/lock.sh"
         "SUPER, X , exec, ~/.config/rofi/powermenu.sh"
       ];
     };
     extraConfig = ''
-      binde = SUPER, V, exec, cliphist list | rofi -dmenu -theme-str 'configuration{dmenu{display-name:"󰅌 ";}} listview{scrollbar:true;}' -theme ~/.config/rofi/themes/default.rasi | cliphist decode | wl-copy
+      binde = SUPER, V, exec, cliphist list | rofi -dmenu -theme-str 'configuration{dmenu{display-name:" ";}} listview{scrollbar:false;}' -theme ~/.config/rofi/themes/default.rasi | cliphist decode | wl-copy
     '';
   };
 }

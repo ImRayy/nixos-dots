@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -27,17 +27,24 @@
           xray = true;
           ignore_opacity = true;
         };
-        rounding = 8;
+        rounding = 0;
         drop_shadow = "no";
         shadow_range = 10;
         shadow_render_power = 5;
       };
       animations = {
         enabled = "yes";
-        bezier = "quart, 0.25, 1, 0.5, 1";
+        bezier = [
+          "wind, 0.05, 0.9, 0.1, 1.05"
+          "winIn, 0.1, 1.1, 0.1, 1.1"
+          "winOut, 0.3, -0.3, 0, 1"
+          "liner, 1, 1, 1, 1"
+          "quart, 0.25, 1, 0.5, 1"
+        ];
         animation = [
-          "windows, 1, 6, quart, popin"
-          "windowsOut, 1, 7, quart"
+          "windowsIn, 1, 6, winIn, slide"
+          "windowsOut, 1, 5, winOut, slide"
+          "windowsMove, 1, 5, wind, slide"
           "border, 1, 6, default"
           "borderangle, 1, 6, quart"
           "fade, 1, 6, quart"
@@ -51,24 +58,21 @@
         preserve_split = "yes";
       };
       env = [
-        "CLUTTER_BACKEND,wayland"
-        "XDG_SESSION_TYPE,wayland"
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "GDK_BACKEND,wayland,x11"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
-        "QT_QPA_PLATFORM,wayland;xcb"
-        "QT_SCALE_FACTOR,1"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "OZONE_PLATFORM,wayland"
+
+        # Mozilla
         "MOZ_DISABLE_RDD_SANDBOX,1"
         "MOZ_ENABLE_WAYLAND,1"
-        # "OZONE_PLATFORM,wayland"
+
+        # MOUSE CURSOR
         "XCURSOR_THEME,Bibata-Modern-Ice"
         "XCURSOR_SIZE,24"
 
         # 🖕 NVIDIA 🖕
         "WLR_NO_HARDWARE_CURSORS,1"
         "LIBVA_DRIVER_NAME,nvidia"
-        "GBM_BACKEND,nvidia-drm"
+        "XDG_SESSION_TYPE,wayland"
+        # "GBM_BACKEND,nvidia-drm" # firefox crash
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       ];
       layerrule = [ "animation default,selection" ];
