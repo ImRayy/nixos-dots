@@ -8,6 +8,7 @@
     ./gtk.nix
     ./hypr
     ./kitty.nix
+    ./foot.nix
     ./lf
     ./misc.nix
     ./mpv.nix

@@ -23,7 +23,7 @@
     distro_shorthand="tiny"
     os_arch="on"
     package_managers="off"
-    image_backend="kitty"
+    image_backend="sixel"
     image_source="''${HOME}/.config/neofetch/images/2B.png"
     ascii_distro="auto"
     ascii_colors=(distro)

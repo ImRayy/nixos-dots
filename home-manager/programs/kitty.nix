@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   programs.kitty = {
-    enable = true;
+    enable = false;
     settings = {
       # Fonts
       font_family = "CommitMono Nerd Font";
