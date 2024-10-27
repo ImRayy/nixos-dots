@@ -5,7 +5,7 @@
     ./env.nix
     ./programs
     ./programs.nix
-    ./scripts.nix
+    ./scripts
     ./stylix
   ];
 }
