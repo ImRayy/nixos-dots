@@ -15,3 +15,60 @@
 - [neovim](https://github.com/neovim/neovim), [neovide](https://github.com/neovide/neovide) - TUI & GUI text editor
 
 - Check [`home-manager/programs.nix`](https://github.com/ImRayy/nixos-dots/blob/master/home-manager/programs.nix) & [`system/programs.nxi`](https://github.com/ImRayy/nixos-dots/blob/master/system/programs.nix) for other installed applications
+
+## Keybindings
+
+**Window Management**
+
+| Keys | Action |
+| -------------- | --------------- |
+| `Super` + `Q` | Kill active & focused window|
+| `Super` + `Space` | Toggle floating window|  
+| `Super` + `F` | Toggle Fullscreen |
+| `Super` + `P` | Pin the active floating window |
+| `Super` + `C` | Center the active floating window  |
+| `Super` + `RightClick` | Resize winodw |
+| `Super` + `LeftClick` | Move winodw|
+| `Super` + `W` `A` `S` `D`  | swich focus around active window|
+| `Super` + `Shift` + `W` `A` `S` `D`  | Move active window |
+
+**Special Window/Scratchpad**
+
+| Keys | Action |
+| -------------- | --------------- |
+| `Super` + `S`  | Toggle SpecialWorkspace/Scratchpad |
+| `Super` + `Shft` + `S` | Move window to SpecialWorkspace |
+
+**Group**
+
+| Keys | Action |
+| -------------- | --------------- |
+| `Super` + `G` | Toggles the current active window into a group |
+| `Super` + `Shift` + `G`   | Locks the groups|
+| `Alt` + `Shift` + `H`   | switches to the previous window|
+| `Alt` + `Shift` + `L`   | switches to the next window|
+
+**Application Shortcuts**
+
+| Keys | Action |
+| -------------- | --------------- |
+| `Super` + `Enter`   | Foot terminal |
+| `Super` + `E`   | Emoji picker |
+| `Super` + `Shift`  + `Enter`   | GUI file explorer |
+
+**Widgets**
+
+|Keys | Action|
+|---|---|
+| `Super` + `A`   | Application launcher |
+| `Super` + `V`   | Clipboard picker |
+| `Super` + `N`   | Notification Pannel |
+| `Super` + `W`   | Wallpaper Picker |
+| `Super` + `X`   | Powermenu |
+
+**Workspaces**
+
+| Keys | Action |
+| -------------- | --------------- |
+| `Super` + `[1-5]`  | Switch workspace [0-5]|
+| `Super` + `Shift` + `[1-5]`    | Move workspace to [0-5]  |
