@@ -25,6 +25,9 @@ in
         variant256Colors = true;
       };
       gtk.enable = true;
+      foot.enable = true;
+      fzf.enable = true;
+      lazygit.enable = true;
       firefox.enable = false;
       swaylock = {
         enable = true;
@@ -45,7 +48,7 @@ in
       };
 
       monospace = {
-        package = pkgs.commit-mono;
+        package = pkgs.nerdfonts.override { fonts = [ "CommitMono" ]; };
         name = "CommitMono Nerd Font Mono";
       };
 
@@ -53,6 +56,7 @@ in
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };
+
     };
   };
   home.file = {
@@ -77,4 +81,5 @@ in
       executable = true;
     };
   };
+  imports = [ ./out.nix ];
 }
