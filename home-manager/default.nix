@@ -7,5 +7,6 @@
     ./programs.nix
     ./scripts
     ./stylix
+    ./mime.nix
   ];
 }
