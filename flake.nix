@@ -19,19 +19,20 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    ags.url = "github:Aylur/ags";
     stylix.url = "github:danth/stylix";
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
 
       # System & Home Manager Configuration
       inherit (import ./config.nix) username systemConfig homeConfig;
-
     in
     {
       homeConfigurations = {
@@ -67,6 +68,5 @@
           }
         ];
       };
-
     };
 }
