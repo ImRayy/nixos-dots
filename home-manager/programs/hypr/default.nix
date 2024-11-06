@@ -20,14 +20,6 @@ in
     ./windowrules.nix
   ];
 
-  home.packages =
-    with pkgs;
-    lib.optionals enabled [
-      xdg-desktop-portal-hyprland
-      hypridle
-      hyprshot
-      hyprshade
-    ];
   wayland.windowManager.hyprland = {
     enable = enabled;
   };

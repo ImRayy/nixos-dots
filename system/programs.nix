@@ -1,14 +1,6 @@
-{
-  config,
-  pkgs,
-  inputs,
-  system,
-  ...
-}:
+{ pkgs, ... }:
 
 {
-
-  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   environment.systemPackages = with pkgs; [
 
     # Core Packages
