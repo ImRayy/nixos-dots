@@ -95,12 +95,12 @@ in
 
       os.symbols = {
         Arch = os "" "bright-blue";
-        NixOS = os "" "#7DB5E0";
+        NixOS = os "" "bright-blue";
       };
 
-      python = lang " " "#F7CE43";
-      nodejs = lang " " "#F7CE43";
-      lua = lang " " "#48F4F6";
+      python = lang " " "yellow";
+      nodejs = lang " " "yellow";
+      lua = lang " " "bright-blue";
     };
   };
 }
