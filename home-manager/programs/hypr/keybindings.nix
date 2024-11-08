@@ -63,11 +63,12 @@
 
         # Apps
         "SUPER, RETURN, exec, foot"
-        "SUPER SHIFT, RETURN, exec, nemo"
+        "SUPER SHIFT, RETURN, exec, nautilus"
         "SUPER, D, exec, ~/.config/hypr/dmenu.sh"
         "SUPER, A , exec,  rofi -show drun -show-icons -theme ~/.config/rofi/themes/default.rasi"
         "SUPER, E, exec, ${pkgs.smile}/bin/smile"
         "SUPER, N, exec,  ags --toggle-window notification-center"
+        "SUPER, W, exec, ags --toggle-window wallpapers"
         "SUPER ALT , L , exec, ~/.config/swaylock/lock.sh"
         "SUPER, X , exec, ~/.config/rofi/powermenu.sh"
       ];
