@@ -30,6 +30,11 @@
     libsForQt5.qt5.qtgraphicaleffects
   ];
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   fonts = {
     fontconfig.enable = true;
     packages = with pkgs; [
