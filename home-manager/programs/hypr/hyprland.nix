@@ -52,6 +52,10 @@
           "layers, 1, 6, quart, slide"
         ];
       };
+      cursor = {
+        no_hardware_cursors = true;
+        persistent_warps = true;
+      };
       dwindle = {
         no_gaps_when_only = false;
         pseudotile = "yes";
@@ -59,6 +63,7 @@
       };
       env = [
         "OZONE_PLATFORM,wayland"
+        "ELECTRON_OZONE_PLATFORM_HINT,wayland"
 
         # Mozilla
         "MOZ_DISABLE_RDD_SANDBOX,1"
