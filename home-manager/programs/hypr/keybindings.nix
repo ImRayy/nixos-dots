@@ -1,5 +1,27 @@
-{ pkgs, ... }:
 {
+  pkgs,
+  username,
+  ...
+}: let
+  screenshot_path = "/home/${username}/Pictures/screenshots";
+  hyprshot = pkgs.writeShellScriptBin "hyprshot.sh" ''
+    if [[ ! -d ${screenshot_path} ]];then
+      mkdir -p ${screenshot_path}
+    fi
+
+    ${pkgs.hyprshot}/bin/hyprshot -m region --output-folder ${screenshot_path}
+  '';
+
+  clipboard = pkgs.writeShellScriptBin "rofi-clipboard.sh" ''
+    config="configuration{dmenu{display-name:\" \";}} listview{scrollbar:false;}"
+    themeDir="~/.config/rofi/themes/default.rasi"
+
+    cliphist list |
+        rofi -dmenu -theme-str "''${config}" -theme  "''${themeDir}" |
+        cliphist decode |
+        wl-copy
+  '';
+in {
   wayland.windowManager.hyprland = {
     settings = {
       bindm = [
@@ -65,16 +87,19 @@
         "SUPER, RETURN, exec, foot"
         "SUPER SHIFT, RETURN, exec, nautilus"
         "SUPER, D, exec, ~/.config/hypr/dmenu.sh"
-        "SUPER, A , exec,  rofi -show drun -show-icons -theme ~/.config/rofi/themes/default.rasi"
         "SUPER, E, exec, ${pkgs.smile}/bin/smile"
-        "SUPER, N, exec,  ags --toggle-window notification-center"
-        "SUPER, W, exec, ags --toggle-window wallpapers"
-        "SUPER ALT , L , exec, ~/.config/swaylock/lock.sh"
-        "SUPER, X , exec, ~/.config/rofi/powermenu.sh"
+        "ALT, S, exec, ${hyprshot}/bin/hyprshot.sh "
+
+        # Ags Windows
+        "SUPER, N, exec, ags -t notification-center"
+        "SUPER, W, exec, ags -t wallpapers"
+        "SUPER, M, exec, ags -t mpris-player-window"
+
+        # Rofi
+        "SUPER, A , exec,  rofi -show drun -show-icons -theme ~/.config/rofi/themes/default.rasi"
+        "SUPER, V, exec, ${clipboard}/bin/rofi-clipboard.sh"
+        "SUPER, X , exec, ${pkgs.rofi-powermenu}/bin/rofi-powermenu"
       ];
     };
-    extraConfig = ''
-      binde = SUPER, V, exec, cliphist list | rofi -dmenu -theme-str 'configuration{dmenu{display-name:" ";}} listview{scrollbar:false;}' -theme ~/.config/rofi/themes/default.rasi | cliphist decode | wl-copy
-    '';
   };
 }

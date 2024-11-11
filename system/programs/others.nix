@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.flatpak.enable = true;
+
   services.ollama = {
-    enable = true;
+    enable = false;
     package = pkgs.ollama;
+    acceleration = "cuda";
   };
   programs.adb.enable = true;
 }

@@ -1,7 +1,4 @@
-{ config, pkgs, ... }:
-
 {
-
   boot.tmp.useTmpfs = true;
   boot.tmp.tmpfsSize = "30%";
   boot.loader = {
@@ -12,7 +9,7 @@
       efiSysMountPoint = "/boot";
     };
     grub = {
-      devices = [ "nodev" ];
+      devices = ["nodev"];
       enable = true;
       efiSupport = true;
       useOSProber = true;

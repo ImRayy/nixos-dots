@@ -12,6 +12,8 @@
       "float, org.keepassxc.KeePassXC"
     ];
 
-    windowrulev2 = [ "noblur, title:^()$, class:^()$" ];
+    windowrulev2 = ["noblur, title:^()$, class:^()$"];
+
+    layerrule = ["animation default,selection"];
   };
 }

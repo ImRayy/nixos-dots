@@ -1,26 +1,18 @@
 {
   lib,
-  pkgs,
-  systemConfig,
+  userConfig,
   ...
-}:
-
-let
-  wm = systemConfig.windowManager;
-  enabled = wm == "hyprland" || wm == "all";
-in
-
-{
-  imports = lib.optionals enabled [
-    ./extraConfig.nix
+}: let
+  isEnabled = userConfig.wm.hyprland.enable;
+in {
+  imports = lib.optionals isEnabled [
     ./hyprland.nix
     ./hyprlock.nix
     ./keybindings.nix
-    ./startup.nix
-    ./windowrules.nix
+    ./rules.nix
   ];
 
   wayland.windowManager.hyprland = {
-    enable = enabled;
+    enable = isEnabled;
   };
 }

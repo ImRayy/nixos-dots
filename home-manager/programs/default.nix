@@ -1,23 +1,18 @@
-{ config, pkgs, ... }:
-
 {
   imports = [
     ./ags.nix
     ./dunst.nix
-    ./fish
-    ./fzf.nix
+    ./shell
     ./gtk.nix
     ./hypr
     ./kitty.nix
     ./foot.nix
-    ./lf
-    ./misc.nix
     ./mpv.nix
-    ./neofetch
-    # FIXME: Qtile is broken for now
-    # ./qtile.nix
+    ./neofetch.nix
+    ./neovim.nix
+    ./qtile.nix
     ./rofi
     ./starship.nix
-    ./waybar
+    ./yazi/yazi.nix
   ];
 }

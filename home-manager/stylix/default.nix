@@ -1,17 +1,14 @@
 {
   config,
   pkgs,
-  homeConfig,
+  userConfig,
   ...
-}:
-let
-  colorScheme = with homeConfig; ./themes/${theme}/${theme}.yaml;
-in
-{
+}: let
+  colorScheme = with userConfig; ./themes/${theme}/${theme}.yaml;
+in {
   stylix.image = pkgs.fetchurl {
     url = "https://browsecat.art/sites/default/files/minimal-solar-system-wallpapers-52665-196251-5747315.png";
     sha256 = "1picl90amxs3vlpkj1ricjaf2yhgd09lny3jhxv5mf6q5pi2q56i";
-
   };
   stylix = {
     autoEnable = false;
@@ -48,7 +45,7 @@ in
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override { fonts = [ "CommitMono" ]; };
+        package = pkgs.nerdfonts.override {fonts = ["CommitMono"];};
         name = "CommitMono Nerd Font Mono";
       };
 
@@ -56,11 +53,9 @@ in
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };
-
     };
   };
   home.file = {
-    # swww executable script
     ".swww-stylix" = {
       text =
         ''
@@ -81,5 +76,4 @@ in
       executable = true;
     };
   };
-  imports = [ ./out.nix ];
 }

@@ -19,6 +19,22 @@
         "type": "github"
       }
     },
+    "ags-dots": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731307640,
+        "narHash": "sha256-P0FmcPGD6yCtd4ttsd9POBjsfKqgScboZzGoNmn44JI=",
+        "owner": "ImRayy",
+        "repo": "ags-dots",
+        "rev": "2736a4b60c95c1f750139f6dd3fa43b52f7b160b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ImRayy",
+        "repo": "ags-dots",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -244,11 +260,29 @@
         "type": "github"
       }
     },
+    "qtile-dots": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718694892,
+        "narHash": "sha256-ZKYsR+bIwBu8XblXYIgx3DfIVampkPNkHzUboOBICcc=",
+        "owner": "ImRayy",
+        "repo": "qtile-dots",
+        "rev": "7a9756bbd72cba643b37b3c80ecb3feb166a950b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ImRayy",
+        "repo": "qtile-dots",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "ags": "ags",
+        "ags-dots": "ags-dots",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
+        "qtile-dots": "qtile-dots",
         "stylix": "stylix"
       }
     },

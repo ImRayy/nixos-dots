@@ -1,40 +1,59 @@
 {
-  config,
   pkgs,
   username,
   systemConfig,
+  userConfig,
   ...
-}:
+}: {
+  nixpkgs.config.allowUnfree = true;
 
-{
   imports = [
-    # Include the results of the hardware scan.
+    (import ./locale.nix {inherit systemConfig;})
+    ./boot.nix
+    ./drivers
+    ./firewall.nix
+    ./fonts.nix
     ./hardware-configuration.nix
+    ./packages.nix
+    ./programs
+    ./wm/hyprland.nix
+    ./wm/qtile.nix
   ];
 
-  networking.hostName = systemConfig.hostname;
+  # WindowManager
+  qtile.enable = userConfig.wm.qtile.enable;
+  hyprland.enable = userConfig.wm.hyprland.enable;
 
-  services.ipp-usb.enable = true;
+  # Virtual Machine
+  vm.enable = false;
+
+  # Services
+  syncthing.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      excludePackages = [pkgs.xterm];
+    };
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.hostName = systemConfig.hostname;
 
-  # Set your time zone.
-  time.timeZone = systemConfig.timezone;
+  # To support mtp/android file transfer
+  services.ipp-usb.enable = true;
+  services.gvfs.enable = true;
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = systemConfig.locale;
+  # nix-ld: run unpatched dynamic binaries
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [stdenv.cc.cc.lib];
+  };
 
-  i18n.extraLocaleSettings = with systemConfig; {
-    LC_ADDRESS = locale;
-    LC_IDENTIFICATION = locale;
-    LC_MEASUREMENT = locale;
-    LC_MONETARY = locale;
-    LC_NAME = locale;
-    LC_NUMERIC = locale;
-    LC_PAPER = locale;
-    LC_TELEPHONE = locale;
-    LC_TIME = locale;
+  # Enable .appimage
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
   };
 
   # Enable Flakes
@@ -46,6 +65,7 @@
   # Current Shell
   programs.fish.enable = true;
 
+  # Current User
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [
@@ -60,18 +80,8 @@
   };
 
   environment.variables = {
-    # QT_STYLE_OVERRIDE ="kvantum";
     QT_QPA_PLATFORMTHEME = "qt5ct";
     EDITOR = "nvim";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
   };
 
   # Enable SSD Trim
@@ -80,22 +90,14 @@
     interval = "weekly";
   };
 
+  # GNU Privacy Guard
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
 
-  # To support mtp/android file transfer
-  services.gvfs.enable = true;
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  programs.kdeconnect.enable = true;
-
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [ stdenv.cc.cc.lib ];
-  };
 
   # NixOS Version
   # -------------

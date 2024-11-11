@@ -6,15 +6,68 @@
 
 ## Applications
 
-- [hyprland](https://hyprland.org/) - Compositor/WindowManager
-- [ags](https://github.com/Aylur/ags) [current], [waybar](https://github.com/Alexays/Waybar) - top bar
-- [rofi](https://github.com/lbonn/rofi) - app-launcher, clipboard manager, powermenu
-- [smile](https://github.com/mijorus/smile) - emoji picker
-- [foot](https://codeberg.org/dnkl/foot)
-- [yazi](https://github.com/sxyazi/yazi) - TUI file explorer, [nautilua](https://apps.gnome.org/en-GB/Nautilus/) - GUI file explorer
-- [neovim](https://github.com/neovim/neovim), [neovide](https://github.com/neovide/neovide) - TUI & GUI text editor
+- [Hyprland](https://hyprland.org/) - compositor/window-manager
+- [Ags](https://github.com/Aylur/ags) - top bar, Quicksettings, Notificatons, OSD
+- [Rofi](https://github.com/lbonn/rofi) - app-launcher, clipboard manager, powermenu
+- [Smile](https://github.com/mijorus/smile) - emoji picker
+- [Foot](https://codeberg.org/dnkl/foot) - terminal, wayland only btw 
+- [Yazi](https://github.com/sxyazi/yazi) - TUI file explorer, [Nautilus](https://apps.gnome.org/en-GB/Nautilus/) - GUI file explorer
+- [Neovim](https://github.com/neovim/neovim), [Neovide](https://github.com/neovide/neovide) - TUI & GUI text editor
 
-- Check [`home-manager/programs.nix`](https://github.com/ImRayy/nixos-dots/blob/master/home-manager/programs.nix) & [`system/programs.nxi`](https://github.com/ImRayy/nixos-dots/blob/master/system/programs.nix) for other installed applications
+**Other Apps**: These are available, but I don't actively use. Can be enabled in `config.nix`
+
+- [Kitty](https://github.com/kovidgoyal/kitty) - terminal for wayland/x11
+- [Qtile](https://github.com/qtile/qtile) - window-manager for wayland/x11
+- [Dunst](https://github.com/dunst-project/dunst) - notificaton daemon, again wayland/x11
+
+Check [`home-manager/programs.nix`](https://github.com/ImRayy/nixos-dots/blob/master/home-manager/programs.nix) & [`system/programs.nxi`](https://github.com/ImRayy/nixos-dots/blob/master/system/programs.nix) for other installed applications
+
+## Installation
+
+**Rebuild System** 
+```bash
+cd nixos-dots/
+sudo nixos-rebuild switch --flake .#default
+```
+
+**Rebuild home-manager** 
+
+```bash
+cd nixos-dots/
+home-manager switch -b backup --flake .
+```
+
+---
+
+<details>
+  <summary>In case you don't have home-manager installed
+</summary>
+  
+#### Install home-manager as standalone...
+
+  ```bash
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+```
+
+
+One common error I often face while installing home-manager...
+
+```bash
+error: file 'home-manager' was not found in the Nix search path (add it using $NIX_PATH or -I)
+```
+
+To fix this
+
+```bash
+export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}
+
+# And then run
+nix-shell '<home-manager>' -A install
+```
+
+</details>
 
 ## Keybindings
 

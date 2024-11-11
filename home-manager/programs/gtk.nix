@@ -1,8 +1,10 @@
-{ pkgs, username, ... }:
-let
-  homeDir = "/home/${username}";
-in
 {
+  pkgs,
+  username,
+  ...
+}: let
+  homeDir = "/home/${username}";
+in {
   gtk = {
     enable = true;
     cursorTheme = {

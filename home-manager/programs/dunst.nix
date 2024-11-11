@@ -1,14 +1,11 @@
 {
   lib,
   config,
-  systemConfig,
-  homeConfig,
+  userConfig,
   ...
-}:
-
-{
+}: {
   services.dunst = {
-    enable = homeConfig.dunst;
+    enable = lib.mkIf userConfig.notificationDaemon == "dunst";
     settings = with config.lib.stylix.colors; {
       global = {
         # The geometry of the notification window.
@@ -37,7 +34,7 @@
         sort = "yes";
         idle_threshold = 120;
 
-        # Text 
+        # Text
         font = "CommitMono Nerd Font 10.5";
         line_height = 4;
 
@@ -63,7 +60,6 @@
         # Misc/Advanced
         title = "Dunst";
         class = "Dunst";
-
       };
 
       urgency_low = {

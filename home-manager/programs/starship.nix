@@ -1,12 +1,14 @@
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   lang = icon: color: {
     symbol = icon;
     format = "[$symbol](${color})";
   };
   os = icon: color: "[${icon} ](${color})";
-in
-{
+in {
   programs.starship = {
     enable = true;
     settings = {

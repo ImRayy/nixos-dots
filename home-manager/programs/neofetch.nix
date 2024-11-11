@@ -1,6 +1,9 @@
-{ config, pkgs, ... }:
-
-{
+{pkgs, ...}: let
+  neofetch-image = pkgs.fetchurl {
+    url = "https://ik.imagekit.io/rayshold/dotfiles/_config/neofetch/2B.png";
+    sha256 = "18rgqabsfkpxgw15yfynavcsk277vax2rw3668i9ici6p7ixjpiy";
+  };
+in {
   xdg.configFile."neofetch/config.conf".source = pkgs.writeText "neofetch-config" ''
     print_info() {
         prin "$(color 1)A N I M E | L I N U X"
@@ -24,7 +27,7 @@
     os_arch="on"
     package_managers="off"
     image_backend="sixel"
-    image_source="''${HOME}/.config/neofetch/images/2B.png"
+    image_source=${neofetch-image}
     ascii_distro="auto"
     ascii_colors=(distro)
     ascii_bold="on"

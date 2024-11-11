@@ -1,10 +1,8 @@
-{ config, pkgs, ... }:
-
 {
   imports = [
     ./env.nix
     ./programs
-    ./programs.nix
+    ./packages.nix
     ./scripts
     ./stylix
     ./mime.nix

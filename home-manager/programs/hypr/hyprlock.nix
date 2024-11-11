@@ -1,8 +1,6 @@
 let
   monitor = "";
-in
-
-{
+in {
   programs.hyprlock = {
     enable = true;
     settings = {

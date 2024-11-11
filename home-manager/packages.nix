@@ -1,12 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  homeConfig,
-  ...
-}:
-
-{
+{pkgs, ...}: {
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
@@ -16,19 +8,23 @@
     # GUI Apps
     gimp
     keepassxc
+    nautilus
     neovide
     obs-studio
     obsidian
-    qbittorrent-qt5
+    pavucontrol
+    qbittorrent
     simple-scan
     system-config-printer
-    nautilus
-    pavucontrol
+    eog
 
     # Terminal Stuff
-    appimage-run
+    jq
     bat
     bottom
+    cliphist
+    exiftool
+    eza
     fd
     ffmpeg
     gnupg
@@ -36,25 +32,26 @@
     lazygit
     libnotify
     libwebp
-    lsd
     lsof
     ncdu
     neofetch
     nix-prefetch-git
     pv
     ripgrep
-    scrcpy
     starship
     tldr
     trash-cli
-    yazi
 
-    # firebase-tools
+    # Programming stuff
+    cargo
     git-lfs
     go
     gum
-    nixfmt-rfc-style
-    sassc
+    openssl
+    postgresql_16
+    python3
+    sqlite
+    volta
 
     # QT
     # libsForQt5.qt5ct

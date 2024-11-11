@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   nixpkgs.config.cudaSupport = true;
   hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "nvidia-drm.modeset=1"
