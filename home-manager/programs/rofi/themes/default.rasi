@@ -1,5 +1,5 @@
 configuration {
-    font: "Cantarell Bold 11";
+    font: "Cantarell Medium 11";
     drun {
         display-name: " ";
     }
@@ -20,12 +20,12 @@ configuration {
 
 window {
     background-color: @background;
-    border:           3;
+    border:           3px;
     border-radius:    0;
-    border-color:     @active;
-    padding:          8;
-    width:  500px;
-    height: 376px;
+    border-color:     @background-alt;
+    padding:          8px;
+    width:  400px;
+    height: 229px;
 }
 mainbox {
     border:  0;
@@ -41,16 +41,16 @@ textbox {
 }
 listview {
     fixed-height: 0;
-    border:       0px;
+    border:       0;
     border-color: @active;
-    spacing:      4px ;
+    spacing:      4px;
     scrollbar:    false;
-    padding:      10px 5px 5px;
+    padding:      6px 0 0 0;
 }
 element {
     border:  0;
     padding: 6px ;
-    border-radius: 2px;
+    border-radius: 4px;
 } 
 element.normal.normal {
     background-color: @background;
@@ -61,8 +61,8 @@ element.normal.active {
     text-color:       @foreground;
 }
 element.selected.normal {
-    background-color: @selected;
-    text-color:       @selected-text;
+    background-color: @background-alt;
+    text-color:       @selected-foreground;
 }
 element.alternate.normal {
     background-color: @background;
@@ -88,9 +88,10 @@ button.selected {
 inputbar {
     spacing:    0;
     text-color: @selected;
-    padding:    10px;
-    margin:     0   4px;
-    background-color: @background;
+    padding:    8px;
+    margin:     0;
+    background-color: @background-alt;
+    border-radius: 4px;
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 case-indicator {
@@ -98,14 +99,14 @@ case-indicator {
     text-color: @selected;
 }
 entry {
-    placeholder: "Search...";
+    placeholder: "";
     placeholder-color: @foreground;
     background-color: transparent;
-    text-color: @selected-text;
+    text-color: @selected-foreground;
 }
 prompt {
     spacing:    0;
-    text-color: @selected-text;
+    text-color: @prompt-icon;
     background-color: transparent;
 }
 element {
@@ -117,12 +118,12 @@ element-text {
     vertical-align: 0.5;
 }
 element-icon {
-    size: 1.4em;
+    size: 1.3em;
     background-color: transparent;
 }
 textbox-prompt-colon {
     expand:     false;
-    str:        "│";
+    str:        "";
     margin:     0px 0.3em 0em 0em ;
     text-color: @active;
     background-color: transparent;

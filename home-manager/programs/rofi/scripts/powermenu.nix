@@ -1,20 +1,17 @@
 {
   pkgs,
   config,
-  systemConfig,
   ...
 }: let
-  user = config.home.username;
   themDir = "${config.home.homeDirectory}/.config/rofi/themes";
-  hostname = systemConfig.hostname;
 
   # Icons
-  shutdown = " Shutdown";
-  reboot = " Reboot";
-  lock = " Lock";
-  logout = " Logout";
-  yes = " Yes";
-  no = " No";
+  shutdown = "";
+  reboot = "";
+  lock = "";
+  logout = "";
+  yes = "";
+  no = "";
 
   rofi-powermenu = pkgs.writeShellApplication {
     name = "rofi-powermenu";
@@ -22,7 +19,7 @@
       # Rofi CMD
       rofi_cmd() {
           rofi -dmenu \
-              -mesg "  ${user} on ${hostname}" \
+              -mesg " Uptime: ''$(uptime | awk '{print $3}' | cut -d ',' -f 1)" \
               -theme ${themDir}/powermenu.rasi
       }
 
