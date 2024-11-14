@@ -3,7 +3,8 @@
     exec-once = [
       "ags"
       "swww-daemon"
-      "wl-paste --watch cliphist store"
+      "wl-paste --type text --watch cliphist store"
+      "wl-paste --type image --watch cliphist store"
     ];
 
     "$mod" = "SUPER";

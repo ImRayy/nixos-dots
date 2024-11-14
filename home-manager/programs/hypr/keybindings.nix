@@ -13,11 +13,15 @@
   '';
 
   clipboard = pkgs.writeShellScriptBin "rofi-clipboard.sh" ''
-    config="configuration{dmenu{display-name:\" \";}} listview{scrollbar:false;}"
+    config="
+    configuration{dmenu{display-name:\" \";}}
+    window{width:440px; height:279px;}
+    listview{scrollbar:false;}
+    "
     themeDir="~/.config/rofi/themes/default.rasi"
 
     cliphist list |
-        rofi -dmenu -theme-str "''${config}" -theme  "''${themeDir}" |
+        rofi -dmenu -theme-str "''${config}" -theme "''${themeDir}" |
         cliphist decode |
         wl-copy
   '';
