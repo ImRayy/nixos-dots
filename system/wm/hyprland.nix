@@ -18,12 +18,20 @@
 
     programs.hyprland = {
       enable = true;
+      withUWSM = true;
       xwayland.enable = true;
     };
 
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+    };
+
+    services.greetd = {
+      enable = true;
+      settings.default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+      };
     };
 
     environment.systemPackages = with pkgs; [

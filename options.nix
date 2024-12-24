@@ -9,10 +9,6 @@
   userConfig = rec {
     theme = "gruvbox"; # [catppuccin-mocha|gruvbox]
     notificationDaemon = "ags"; # [dunst|ags]
-    sddm = {
-      background = "https://w.wallhaven.cc/full/zy/wallhaven-zyvrxy.png";
-      sha256 = "sha256-7ikZwIowFRWIMCSfrUxBFpTz1d+dWYsf+WAkrq+bcfk=";
-    };
     wm = {
       qtile.enable = false;
       hyprland.enable = true;
