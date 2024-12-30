@@ -24,7 +24,16 @@
 
     xdg.portal = {
       enable = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+      wlr.enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal
+      ];
+      configPackages = with pkgs; [
+        xdg-desktop-portal
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
     };
 
     services.greetd = {
