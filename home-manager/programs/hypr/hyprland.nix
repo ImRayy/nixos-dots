@@ -19,7 +19,7 @@
       gaps_in = 3;
       gaps_out = 6;
       border_size = 3;
-      "col.active_border" = "0xff${base07}";
+      "col.active_border" = "0xff${base0B}";
       "col.inactive_border" = "0x33${base00}";
       layout = "dwindle";
     };
@@ -33,10 +33,14 @@
         xray = true;
         ignore_opacity = true;
       };
+
+      shadow = {
+        enabled = true;
+        range = 8;
+        render_power = 2;
+      };
+
       rounding = 0;
-      drop_shadow = "no";
-      shadow_range = 10;
-      shadow_render_power = 5;
     };
 
     animations = {
@@ -67,12 +71,16 @@
     };
 
     dwindle = {
-      no_gaps_when_only = false;
       pseudotile = "yes";
       preserve_split = "yes";
     };
 
+    misc = {
+      disable_hyprland_qtutils_check = true;
+    };
+
     env = [
+      "DESKTOP_SESSION,hyprland"
       "OZONE_PLATFORM,wayland"
       "ELECTRON_OZONE_PLATFORM_HINT,wayland"
 
