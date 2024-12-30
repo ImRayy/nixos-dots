@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:Aylur/ags/v1";
     ags-dots = {
       url = "github:ImRayy/ags-dots";
       flake = false;
@@ -28,6 +28,8 @@
     };
 
     stylix.url = "github:danth/stylix";
+
+    distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
   };
 
   outputs = {
@@ -58,9 +60,10 @@
         ];
       };
     };
+
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        inherit inputs;
+        inherit inputs system;
         inherit username;
         inherit systemConfig;
         inherit userConfig;
