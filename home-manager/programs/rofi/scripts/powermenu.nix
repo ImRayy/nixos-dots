@@ -61,10 +61,7 @@
               elif [[ ''$1 == '--logout' ]]; then
                   case "''$DESKTOP_SESSION" in
                   "hyprland")
-                      # why pkill? killall Hyprland dosen't work on nixos.
-                      # why killall or pkill? cause 'hyprctl disatch exit 0'
-                      # causes system shutdown for some reason.
-                      pkill -9 Hyprland
+                      hyprctl dispatch exit
                       ;;
                   "qtile")
                       qtile cmd-obj -o cmd -f shutdown
