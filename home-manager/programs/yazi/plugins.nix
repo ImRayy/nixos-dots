@@ -9,7 +9,7 @@
 
   setwall = pkgs.fetchurl {
     url = "${myrepo}/set-wall.yazi/init.lua";
-    sha256 = "1w4ck1mlwyfgm3fqgs3fzax67f87jkbf6yngzvv51a578z4zxmqk";
+    sha256 = "1ivswqjfyrir4vjwv9v4fvzridmh08j8p4kw5yn9z19qq292dh08";
   };
 
   compress = pkgs.fetchurl {

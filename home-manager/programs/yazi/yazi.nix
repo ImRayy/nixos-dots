@@ -13,7 +13,6 @@
         linemode = "size";
         show_symlink = true;
         show_hidden = false;
-        sort_by = "modified";
       };
       plugin.prepend_previewers = [
         {
@@ -29,7 +28,7 @@
       }
       {
         on = ["<A-w>"];
-        run = "plugin --sync set-wall";
+        run = "plugin set-wall";
         desc = "My own wallpaper plugin, which utilizes swww & hyprpaper";
       }
       {
