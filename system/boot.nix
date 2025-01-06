@@ -13,14 +13,13 @@
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
-    grub = rec {
+    grub = {
       devices = ["nodev"];
       enable = true;
       efiSupport = true;
       useOSProber = true;
       gfxmodeEfi = "1920x1080";
       theme = inputs.distro-grub-themes.packages.${system}.nixos-grub-theme;
-      splashImage = "${theme}/splash_image.jpg";
     };
   };
   boot.plymouth = {
