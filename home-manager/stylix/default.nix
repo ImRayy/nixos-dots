@@ -45,8 +45,8 @@ in {
       };
 
       monospace = {
-        package = pkgs.nerdfonts.override {fonts = ["CommitMono"];};
-        name = "CommitMono Nerd Font Mono";
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
       };
 
       emoji = {

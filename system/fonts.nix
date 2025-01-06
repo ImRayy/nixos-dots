@@ -12,7 +12,8 @@
       noto-fonts-extra
       dejavu_fonts
       liberation_ttf
-      (nerdfonts.override {fonts = ["CommitMono"];})
+      nerd-fonts.commit-mono
+      nerd-fonts.jetbrains-mono
     ];
   };
 }
