@@ -1,5 +1,4 @@
 configuration {
-    font: "Cantarell Medium 11";
     drun {
         display-name: " ";
     }
@@ -12,6 +11,7 @@ configuration {
     }
 }
 
+@import "../font.rasi"
 @import "../style.rasi"
 
 * {
@@ -20,12 +20,12 @@ configuration {
 
 window {
     background-color: @background;
-    border:           3px;
-    border-radius:    0;
+    border:           2px;
+    border-radius:    8px;
     border-color:     @background-alt;
     padding:          8px;
     width:  400px;
-    height: 229px;
+    height: 221px;
 }
 mainbox {
     border:  0;
@@ -50,7 +50,7 @@ listview {
 element {
     border:  0;
     padding: 6px ;
-    border-radius: 4px;
+    border-radius: 6px;
 } 
 element.normal.normal {
     background-color: @background;
@@ -88,10 +88,10 @@ button.selected {
 inputbar {
     spacing:    0;
     text-color: @selected;
-    padding:    8px;
+    padding:    6px 3px 4px 3px;
     margin:     0;
-    background-color: @background-alt;
-    border-radius: 4px;
+    background-color: transparent;
+    border-radius: 8px;
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 case-indicator {
@@ -99,7 +99,7 @@ case-indicator {
     text-color: @selected;
 }
 entry {
-    placeholder: "";
+    placeholder: " Search...";
     placeholder-color: @foreground;
     background-color: transparent;
     text-color: @selected-foreground;

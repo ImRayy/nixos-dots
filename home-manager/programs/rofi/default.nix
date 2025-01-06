@@ -23,6 +23,11 @@
         /* vim:ft=css
       '';
     };
+    "rofi/font.rasi".source = pkgs.writeText "font-rasi" ''
+      configuration {
+        font: "${config.stylix.fonts.serif.name} Medium 11";
+      }
+    '';
   };
   programs.rofi = {
     enable = true;

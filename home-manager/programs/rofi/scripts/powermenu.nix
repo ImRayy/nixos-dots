@@ -61,7 +61,12 @@
               elif [[ ''$1 == '--logout' ]]; then
                   case "''$DESKTOP_SESSION" in
                   "hyprland")
-                      hyprctl dispatch exit
+                      service_name="wayland-wm@Hyprland.service"
+                      if systemctl is-active --quiet $service_name --user; then
+                        uwsm stop
+                      else
+                        hyprctl dispatch exit
+                      fi
                       ;;
                   "qtile")
                       qtile cmd-obj -o cmd -f shutdown
