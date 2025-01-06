@@ -31,11 +31,11 @@ in {
           on-timeout = "You're idle!";
         }
         {
-          timeout = 900;
+          timeout = 400;
           on-timeout = "hyprlock";
         }
         {
-          timeout = 1200;
+          timeout = 600;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }

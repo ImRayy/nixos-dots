@@ -3,19 +3,19 @@
   username,
   ...
 }: let
-  screenshot_path = "/home/${username}/Pictures/screenshots";
+  screenshot_path = "/home/${username}/Pictures/Screenshots";
   hyprshot = pkgs.writeShellScriptBin "hyprshot.sh" ''
     if [[ ! -d ${screenshot_path} ]];then
       mkdir -p ${screenshot_path}
     fi
 
-    ${pkgs.hyprshot}/bin/hyprshot -m region --output-folder ${screenshot_path}
+    ${pkgs.hyprshot}/bin/hyprshot -m region -o ${screenshot_path}
   '';
 
   clipboard = pkgs.writeShellScriptBin "rofi-clipboard.sh" ''
     config="
     configuration{dmenu{display-name:\" \";}}
-    window{width:440px; height:279px;}
+    window{width:440px; height:271px;}
     listview{scrollbar:false;}
     "
     themeDir="~/.config/rofi/themes/default.rasi"
@@ -25,6 +25,8 @@
         cliphist decode |
         wl-copy
   '';
+
+  terminal = "kitty";
 in {
   wayland.windowManager.hyprland = {
     settings = {
@@ -83,16 +85,17 @@ in {
         "SUPER, mouse_down, workspace, e+1"
         "SUPER, mouse_up, workspace, e-1"
 
-        # Volume Control
+        # Audio Control
         ",XF86AudioRaiseVolume, exec, pamixer --increase 5"
         ",XF86AudioLowerVolume, exec, pamixer --decrease 5"
+        "SUPER SHIFT, P, exec, playerctl play-pause"
 
         # Apps
-        "SUPER, RETURN, exec, foot"
-        "SUPER SHIFT, RETURN, exec, nautilus"
+        "SUPER, RETURN, exec, uwsm app -- ${terminal}"
+        "SUPER SHIFT, RETURN, exec, uwsm app -- nautilus"
         "SUPER, D, exec, ~/.config/hypr/dmenu.sh"
-        "SUPER, E, exec, ${pkgs.smile}/bin/smile"
-        "ALT, S, exec, ${hyprshot}/bin/hyprshot.sh "
+        "SUPER, E, exec, uwsm app -- ${pkgs.smile}/bin/smile"
+        "ALT, S, exec, ${hyprshot}/bin/hyprshot.sh"
 
         # Ags Windows
         "SUPER, N, exec, ags -t notification-center"
@@ -100,7 +103,7 @@ in {
         "SUPER, M, exec, ags -t mpris-player-window"
 
         # Rofi
-        "SUPER, A , exec,  rofi -show drun -show-icons -theme ~/.config/rofi/themes/default.rasi"
+        "SUPER, A , exec,  rofi -show drun -show-icons -run-command 'uwsm app -- {cmd}' -theme ~/.config/rofi/themes/default.rasi"
         "SUPER, V, exec, ${clipboard}/bin/rofi-clipboard.sh"
         "SUPER, X , exec, ${pkgs.rofi-powermenu}/bin/rofi-powermenu"
       ];

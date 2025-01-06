@@ -1,10 +1,10 @@
 {config, ...}: {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "ags"
-      "swww-daemon"
-      "wl-paste --type text --watch cliphist store"
-      "wl-paste --type image --watch cliphist store"
+      "uwsm app -- ags &"
+      "uwsm app -- swww-daemon &"
+      "uwsm app -- wl-paste --type text --watch cliphist store &"
+      "uwsm app -- wl-paste --type image --watch cliphist store &"
     ];
 
     "$mod" = "SUPER";
