@@ -1,17 +1,8 @@
-{userConfig, ...}: let
-  font = {
-    main = "CommitMono Nerd Font";
-    italic = "Cartograph CF Italic";
-    bold_italic = "Cartograph CF Bold Italic";
-  };
-in {
+{userConfig, ...}: {
   programs.kitty.enable = userConfig.terminal.kitty.enable;
   programs.kitty.settings = {
     # Fonts
-    font_family = font.main;
     bold_font = "auto";
-    italic_font = font.italic;
-    bold_italic_font = font.bold_italic;
     font_size = "12.5";
     adjust_line_height = 0;
     adjust_column_width = 0;
