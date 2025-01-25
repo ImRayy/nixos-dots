@@ -1,8 +1,5 @@
-|![image1](https://ik.imagekit.io/rayshold/dotfiles/hyprland-gruvbox.png?updatedAt=1730741432239)|
-|---|
-
-|![image2](https://ik.imagekit.io/rayshold/dotfiles/ags/2024-11-04-134310_hyprshot.png?updatedAt=1730733654687)|![image3](https://ik.imagekit.io/rayshold/dotfiles/ags/2024-11-04-133932_hyprshot.png?updatedAt=1730733654956)|
-|---|---|
+![image1](https://ik.imagekit.io/rayshold/dotfiles/hyprland-gruvbox-02.png)
+![image2](https://ik.imagekit.io/rayshold/dotfiles/ags/wallpaper-picker-v2.webp)
 
 ## Applications
 
@@ -68,6 +65,10 @@ nix-shell '<home-manager>' -A install
 ```
 
 </details>
+
+
+> [!NOTE]
+> Ags dotfiles are not directly included in this repo, as managing them would be a hassle and I'm too lazy for that. Instead, I manage my ags dots in a separate repo and used that as a flake input in `flake.nix`. To sync with the latest changes, do a quick `nix flake update ags-dots` before rebuilding home configuration, same goes for `qtile`.
 
 ## Keybindings
 

@@ -98,9 +98,8 @@ in {
         "ALT, S, exec, ${hyprshot}/bin/hyprshot.sh"
 
         # Ags Windows
-        "SUPER, N, exec, ags -t notification-center"
-        "SUPER, W, exec, ags -t wallpapers"
-        "SUPER, M, exec, ags -t mpris-player-window"
+        "SUPER, N, exec, ags toggle notification-center"
+        "SUPER, W, exec, ags toggle wall-picker"
 
         # Rofi
         "SUPER, A , exec,  rofi -show drun -show-icons -run-command 'uwsm app -- {cmd}' -theme ~/.config/rofi/themes/default.rasi"

@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags.url = "github:Aylur/ags/v1";
+    ags.url = "github:Aylur/ags";
     ags-dots = {
       url = "github:ImRayy/ags-dots";
       flake = false;
@@ -28,7 +28,6 @@
     };
 
     stylix.url = "github:danth/stylix";
-
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
   };
 
