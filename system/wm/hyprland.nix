@@ -38,10 +38,16 @@
 
     services.greetd = {
       enable = true;
-      settings.default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+      settings.default_session = let
+        tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+      in {
+        command = "${tuigreet} --time --remember-session --cmd Hyprland";
       };
     };
+
+    systemd.tmpfiles.rules = [
+      "d '/var/cache/greeter' - greeter greeter - -"
+    ];
 
     environment.systemPackages = with pkgs; [
       hypridle
@@ -49,6 +55,7 @@
       hyprshot
       swww
       wl-clipboard
+      wf-recorder
     ];
   };
 }
