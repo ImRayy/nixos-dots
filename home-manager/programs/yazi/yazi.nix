@@ -26,45 +26,40 @@
         on = ["<A-p>"];
         run = "cd ${config.home.homeDirectory}/Pictures";
       }
-      {
-        on = ["<A-w>"];
-        run = "plugin set-wall";
-        desc = "My own wallpaper plugin, which utilizes swww & hyprpaper";
-      }
-      {
-        on = ["c" "a"];
-        run = "plugin compress";
-      }
-      {
-        on = ["c" "m"];
-        run = "plugin chmod";
-      }
-      {
-        on = "F";
-        run = "plugin smart-filter";
-      }
     ];
     theme = with config.lib.stylix.colors; {
-      status = {
-        separator_style = {
-          fg = "#${base01}";
-          bg = "#${base01}";
-        };
-        mode_normal = {
+      mode = {
+        normal_main = {
           fg = "#${base00}";
           bg = "#${base0D}";
           bold = true;
         };
-        mode_select = {
+        normal_alt = {
+          fg = "#${base0D}";
+          bg = "#${base01}";
+        };
+        select_main = {
           fg = "#${base00}";
-          bg = "#${base0C}";
+          bg = "#${base0B}";
           bold = true;
         };
-        mode_unset = {
+        select_alt = {
+          fg = "#${base0B}";
+          bg = "#${base01}";
+        };
+        unset_main = {
           fg = "#${base00}";
-          bg = "#${base0F}";
+          bg = "#${base06}";
           bold = true;
         };
+        unset_alt = {
+          fg = "#${base0D}";
+          bg = "#${base01}";
+        };
+      };
+
+      manager = {
+        border_style = {fg = "#${base03}";};
       };
     };
   };

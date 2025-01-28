@@ -27,6 +27,11 @@
     sha256 = "1kg392hacj1n3d195akxvymap0wsgymhhz7mnr0yv4c37hs9wcq6";
   };
 
+  max-preview = pkgs.fetchurl {
+    url = "${yazi-rs-common}/max-preview.yazi/init.lua";
+    sha256 = "0f7h2k00r90xg130ckfpdxfjmkha92ac3nk70k4wb0v5qx4sidlr";
+  };
+
   targetDir = "${config.home.homeDirectory}/.config/yazi/plugins";
 in {
   xdg.configFile = {
@@ -34,5 +39,30 @@ in {
     "${targetDir}/compress.yazi/init.lua".source = compress;
     "${targetDir}/smart-filter.yazi/init.lua".source = smartFilter;
     "${targetDir}/chmod.yazi/init.lua".source = chmod;
+    "${targetDir}/max-preview.yazi/init.lua".source = max-preview;
   };
+
+  programs.yazi.keymap.manager.prepend_keymap = [
+    {
+      on = ["<A-w>"];
+      run = "plugin set-wall";
+      desc = "My own wallpaper plugin, which utilizes swww & hyprpaper";
+    }
+    {
+      on = ["c" "a"];
+      run = "plugin compress";
+    }
+    {
+      on = ["c" "m"];
+      run = "plugin chmod";
+    }
+    {
+      on = "F";
+      run = "plugin smart-filter";
+    }
+    {
+      on = ["<C-p>"];
+      run = "plugin max-preview";
+    }
+  ];
 }
