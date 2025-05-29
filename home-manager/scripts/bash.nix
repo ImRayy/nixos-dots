@@ -1,5 +1,7 @@
 {pkgs, ...}: let
+  # ---------------------------------------------------------------------------
   # 🔌 Run any applicaton from terminal in detached mode
+  # ---------------------------------------------------------------------------
   orphan = pkgs.writeShellApplication {
     name = "orphan";
     text = ''
@@ -8,15 +10,18 @@
     '';
   };
 
-  backup-file = pkgs.writeShellApplication {
+  # ---------------------------------------------------------------------------
+  backupFile = pkgs.writeShellApplication {
     name = "bak";
     text = ''
       cp "$1" "$1.bak"
     '';
   };
 
+  # ---------------------------------------------------------------------------
   # 🛫 To remove nixos system generations with ease
-  rm-sys-gens = pkgs.writeShellApplication {
+  # ---------------------------------------------------------------------------
+  removeSystemGens = pkgs.writeShellApplication {
     name = "rm-sys-gens";
     text = ''
       profile_path="/nix/var/nix/profiles/system"
@@ -26,8 +31,10 @@
     '';
   };
 
-  # Same as rm-sys-gens but for home-manager
-  hm-remove-gens = pkgs.writeShellApplication {
+  # ---------------------------------------------------------------------------
+  # Same as removeSystemGens but for home-manager
+  # ---------------------------------------------------------------------------
+  removeHomeManagerGens = pkgs.writeShellApplication {
     name = "hm-remove-gens";
     text = ''
       gens=$(home-manager generations | awk '{print $5}')
@@ -51,11 +58,55 @@
       echo "Success!"
     '';
   };
+
+  # ---------------------------------------------------------------------------
+  #   Get all video titles from a YouTube playlist
+  # ---------------------------------------------------------------------------
+  getPlaylistTitles = pkgs.writeShellApplication {
+    name = "get-playlist-titles";
+    text = ''
+      if [ -z "$1" ]; then
+        echo "Usage: get-playlist-titles <playlist_url>"
+        exit 1
+      fi
+      yt-dlp --flat-playlist -J "$1" |  "${pkgs.jq}/bin/jq" -r '.entries[].title'
+    '';
+  };
+
+  # ---------------------------------------------------------------------------
+  #   Download a YouTube playlist in 1080p (or lower)
+  # ---------------------------------------------------------------------------
+  downloadYtPlaylist = pkgs.writeShellApplication {
+    name = "dl-yt-playlist";
+    text = ''
+      if [ -z "$1" ];then
+        echo "Usage: dl-yt-playlist [start] [end] <playlist_url>"
+        echo "  [start] and [end] are optional; leave blank to download the entire playlist."
+        echo "  <playlist_url> is required."
+        exit 1
+      fi
+
+      START=$1
+      END=$2
+      URL=$3
+
+      CMD="yt-dlp -f \"bestvideo[height<=1080]+bestaudio/best[height<=1080]\""
+
+      [ -n "$START" ] && CMD="$CMD --playlist-start $START"
+      [ -n "$END" ] && CMD="$CMD --playlist-end $END"
+
+      CMD="$CMD \"$URL\" -o \"%(playlist_index)02d.-%(title)s.%(ext)s\""
+
+      eval "$CMD"
+    '';
+  };
 in {
   home.packages = [
-    rm-sys-gens
+    removeSystemGens
     orphan
-    backup-file
-    hm-remove-gens
+    backupFile
+    removeHomeManagerGens
+    getPlaylistTitles
+    downloadYtPlaylist
   ];
 }
