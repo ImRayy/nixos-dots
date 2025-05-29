@@ -12,7 +12,7 @@
     };
     config = {
       hwdec = "auto-safe";
-      osc = false;
+      osc = true;
       border = false;
       sub-auto = "all";
       save-position-on-quit = true;
