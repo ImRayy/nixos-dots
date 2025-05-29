@@ -26,7 +26,7 @@ in {
     distro_shorthand="tiny"
     os_arch="on"
     package_managers="off"
-    image_backend="sixel"
+    image_backend="kitty"
     image_source=${neofetch-image}
     ascii_distro="auto"
     ascii_colors=(distro)
