@@ -39,8 +39,8 @@ in {
   nvutil = "nvidia-smi --query-gpu=utilization.gpu --format=csv";
 
   # NIX
-  hm-rebuild = "home-manager switch -b backup --flake .";
-  hm-rebuild-stylix = "home-manager switch -b backup --flake . && ~/.swww-stylix";
+  hms = "home-manager switch -b backup --flake .";
+  hms-stylix = "home-manager switch -b backup --flake . && ~/.swww-stylix";
   nix-rebuild = "sudo nixos-rebuild switch --flake .#default";
   nixos-gens = "sudo nix-env --list-generations --profile ${nixprofile_path}";
   nixos-gens-rm = "sudo nix-env --profile ${nixprofile_path} --delete-generations";
