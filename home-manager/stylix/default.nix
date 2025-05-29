@@ -60,7 +60,6 @@ in {
       text =
         ''
           #!/usr/bin/env bash
-
           if [[ $XDG_SESSION_TYPE = wayland ]]; then
           	swww img ''
         + config.stylix.image

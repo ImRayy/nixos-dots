@@ -19,8 +19,8 @@
     enable = true;
 
     # null or path, leave as null if you don't want hm to manage the config
-    configDir = inputs.ags-dots;
-    # configDir = null;
+    # configDir = inputs.ags-dots;
+    configDir = null;
 
     # additional packages to add to gjs's runtime
     extraPackages = with pkgs;
@@ -59,8 +59,8 @@
       $color11: #${base0C};
 
       $bg-alt: transparentize(#${base01}, 0.5);
-      $text: #${base07};
-      $text-dimmed: transparentize(#${base07}, 0.4);
+      $text: #${base05};
+      $text-dimmed: transparentize(#${base05}, 0.4);
     '';
   };
 }

@@ -14,10 +14,10 @@
             background-alt:        #${base01};
             primary:               #${base0C};
             primary-foreground:    #${base00};
-            foreground:            #${base05};
+            foreground:            #${base06};
             active:                #${base07};
             selected:              #${base02};
-            selected-foreground:   #${base07};
+            selected-foreground:   #${base05};
             prompt-icon:           #${base0C};
         }
         /* vim:ft=css
