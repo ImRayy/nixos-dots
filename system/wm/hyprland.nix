@@ -9,31 +9,23 @@
   };
 
   config = lib.mkIf config.hyprland.enable {
-    nix.settings = {
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      ];
-    };
-
     programs.hyprland = {
       enable = true;
-      withUWSM = true;
       xwayland.enable = true;
     };
 
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal
-      ];
-      configPackages = with pkgs; [
-        xdg-desktop-portal
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
-      ];
+      extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+
+      config = {
+        common = {
+          default = ["gtk"];
+          "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+          "org.freedesktop.impl.portal.FileChooser" = ["nautilus"];
+        };
+      };
     };
 
     services.greetd = {
@@ -54,6 +46,7 @@
       hyprpicker
       hyprshot
       swww
+      loupe
       wl-clipboard
       wf-recorder
     ];

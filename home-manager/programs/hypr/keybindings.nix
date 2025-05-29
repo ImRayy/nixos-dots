@@ -91,10 +91,10 @@ in {
         "SUPER SHIFT, P, exec, playerctl play-pause"
 
         # Apps
-        "SUPER, RETURN, exec, uwsm app -- ${terminal}"
-        "SUPER SHIFT, RETURN, exec, uwsm app -- nautilus"
+        "SUPER, RETURN, exec, ${terminal}"
+        "SUPER SHIFT, RETURN, exec, nautilus"
         "SUPER, D, exec, ~/.config/hypr/dmenu.sh"
-        "SUPER, E, exec, uwsm app -- ${pkgs.smile}/bin/smile"
+        "SUPER, E, exec, ${pkgs.smile}/bin/smile"
         "ALT, S, exec, ${hyprshot}/bin/hyprshot.sh"
 
         # Ags Windows
@@ -102,7 +102,7 @@ in {
         "SUPER, W, exec, ags toggle wall-picker"
 
         # Rofi
-        "SUPER, A , exec,  rofi -show drun -show-icons -run-command 'uwsm app -- {cmd}' -theme ~/.config/rofi/themes/default.rasi"
+        "SUPER, A , exec,  rofi -show drun -show-icons -theme ~/.config/rofi/themes/default.rasi"
         "SUPER, V, exec, ${clipboard}/bin/rofi-clipboard.sh"
         "SUPER, X , exec, ${pkgs.rofi-powermenu}/bin/rofi-powermenu"
       ];
