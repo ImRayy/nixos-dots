@@ -25,7 +25,7 @@
   hyprland.enable = userConfig.wm.hyprland.enable;
 
   # Virtual Machine
-  vm.enable = false;
+  vm.enable = userConfig.virtual-mechine.enable;
 
   # Services
   syncthing.enable = true;
@@ -48,6 +48,20 @@
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [stdenv.cc.cc.lib];
+  };
+
+  # Docker & Podman
+  virtualisation = {
+    docker = {
+      enable = true;
+      enableOnBoot = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+      autoPrune.enable = true;
+    };
+    podman.enable = true;
   };
 
   # Enable .appimage
