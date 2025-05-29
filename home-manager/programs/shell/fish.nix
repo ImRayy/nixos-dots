@@ -11,7 +11,7 @@ in {
 
     interactiveShellInit = ''
       set fish_greeting
-      set -g -x PATH "$HOME/go/bin:$PATH"
+      set -g -x PATH "$HOME/go/bin:$HOME/.local/share/go/bin:$PATH"
       set -g -x PATH "${config.home.sessionVariables.VOLTA_HOME}/bin:$PATH"
 
       # Keybindings
