@@ -1,16 +1,17 @@
 let
+  defaultBrowser = "app.zen_browser.zen";
   fileAssociations = {
     image = {
       formats = ["jpeg" "jpg" "png" "webp" "avif"];
-      defaultApp = "org.gnome.eog.desktop";
+      defaultApp = "org.gnome.Loupe.desktop";
     };
     "x-scheme-handler" = {
       formats = ["http" "https" "about" "unknown"];
-      defaultApp = "io.github.zen_browser.zen.desktop";
+      defaultApp = defaultBrowser;
     };
     text = {
       formats = ["html"];
-      defaultApp = "io.github.zen_browser.zen.desktop";
+      defaultApp = defaultBrowser;
     };
   };
 
