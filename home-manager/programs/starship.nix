@@ -32,8 +32,8 @@ in {
 
       character = {
         error_symbol = "[](bold red)";
-        success_symbol = "[❯](bold green)";
-        vimcmd_symbol = "[❮](bold green)";
+        success_symbol = "[](bold green)";
+        vimcmd_symbol = "[](bold green)";
       };
 
       cmd_duration = {
@@ -46,13 +46,13 @@ in {
 
         read_only = "󰌾 ";
         truncation_length = 6;
-        truncation_symbol = "~/󰇘/";
+        truncation_symbol = "~/.../";
       };
 
       # GIT
       git_branch = {
         format = " [$symbol$branch]($style) ";
-        symbol = "🍣 ";
+        symbol = " ";
         style = "bold green";
         always_show_remote = false;
         only_attached = false;
@@ -66,9 +66,9 @@ in {
 
       git_status = {
         conflicted = "⚔️ ";
-        ahead = "⇡";
-        behind = "[⇣\${count}](bold dimmed blue)";
-        diverged = "⇕\${ahead_count}⇣\${behind_count}";
+        ahead = "";
+        behind = "[\${count}](bold dimmed blue)";
+        diverged = "\${ahead_count}\${behind_count}";
         untracked = "[?\${count}](bold blue)";
         modified = "[!\${count}](bold yellow)";
         staged = "[+\${count}](bold yellow)";
@@ -101,8 +101,10 @@ in {
       };
 
       python = lang " " "yellow";
-      nodejs = lang " " "yellow";
+      nodejs = lang " " "blue";
       lua = lang " " "bright-blue";
+      bun = lang " " "blue";
+      deno = lang " " "blue";
     };
   };
 }
