@@ -1,11 +1,11 @@
 {pkgs, ...}: {
   # Enable support for SANE scanenrs
   hardware.sane = {
-    enable = true;
+    enable = false;
   };
 
   services.printing = {
-    enable = true;
+    enable = false;
     drivers = [pkgs.gutenprint];
   };
 }
