@@ -6,7 +6,6 @@
     ./gtk.nix
     ./hypr
     ./kitty.nix
-    ./foot.nix
     ./mpv.nix
     ./neofetch.nix
     ./neovim.nix

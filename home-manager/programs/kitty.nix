@@ -1,5 +1,5 @@
-{userConfig, ...}: {
-  programs.kitty.enable = userConfig.terminal.kitty.enable;
+{
+  programs.kitty.enable = true;
   programs.kitty.settings = {
     # Fonts
     bold_font = "auto";

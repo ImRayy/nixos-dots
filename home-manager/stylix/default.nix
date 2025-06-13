@@ -11,6 +11,7 @@ in {
     sha256 = "1picl90amxs3vlpkj1ricjaf2yhgd09lny3jhxv5mf6q5pi2q56i";
   };
   stylix = {
+    enable = true;
     autoEnable = false;
     base16Scheme = colorScheme;
     polarity = "dark";
@@ -22,7 +23,6 @@ in {
         variant256Colors = true;
       };
       gtk.enable = true;
-      foot.enable = true;
       fzf.enable = true;
       lazygit.enable = true;
       firefox.enable = false;
