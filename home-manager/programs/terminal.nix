@@ -31,13 +31,13 @@
     tab_bar_edge = "bottom";
 
     # Color scheme
-    # background_opacity = "0.8";
     dynamic_background_opacity = "yes";
 
     # Advanced
     allow_remote_control = "yes";
     listen_on = "unix:/tmp/mykitty";
   };
+
   programs.kitty.keybindings = {
     # Tab management
     "kitty_mod+h" = "previous_tab";
@@ -56,4 +56,26 @@
     # Font sizes
     "kitty_mod+backspace" = "change_font_size  10";
   };
+
+  # programs.ghostty = {
+  #   enable = true;
+  #   enableFishIntegration = true;
+  #   installBatSyntax = true;
+  #   installVimSyntax = true;
+  # };
+  #
+  # programs.ghostty.settings = {
+  #   window-padding-x = 10;
+  #   window-padding-y = 10;
+  #   window-padding-balance = true;
+  #   desktop-notifications = true;
+  # };
+  #
+  # programs.ghostty.settings.keybind = [
+  #   "ctrl+o=toggle_tab_overview"
+  #   "ctrl+k=goto_split:top"
+  #   "ctrl+j=goto_split:bottom"
+  #   "ctrl+l=goto_split:right"
+  #   "ctrl+h=goto_split:left"
+  # ];
 }

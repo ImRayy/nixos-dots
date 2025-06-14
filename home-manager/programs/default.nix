@@ -5,7 +5,7 @@
     ./shell
     ./gtk.nix
     ./hypr
-    ./kitty.nix
+    ./terminal.nix
     ./mpv.nix
     ./neofetch.nix
     ./neovim.nix
