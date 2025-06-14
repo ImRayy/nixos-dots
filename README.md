@@ -7,7 +7,7 @@
 - [Ags](https://github.com/Aylur/ags) - top bar, Quicksettings, Notificatons, OSD
 - [Rofi](https://github.com/lbonn/rofi) - app-launcher, clipboard manager, powermenu
 - [Smile](https://github.com/mijorus/smile) - emoji picker
-- [Foot](https://codeberg.org/dnkl/foot) - terminal, wayland only btw 
+- [Kitty](https://github.com/kovidgoyal/kitty) - terminal
 - [Yazi](https://github.com/sxyazi/yazi) - TUI file explorer, [Nautilus](https://apps.gnome.org/en-GB/Nautilus/) - GUI file explorer
 - [Neovim](https://github.com/neovim/neovim), [Neovide](https://github.com/neovide/neovide) - TUI & GUI text editor
 
@@ -106,7 +106,7 @@ nix-shell '<home-manager>' -A install
 
 | Keys | Action |
 | -------------- | --------------- |
-| `Super` + `Enter`   | Foot terminal |
+| `Super` + `Enter`   | Kitty terminal |
 | `Super` + `E`   | Emoji picker |
 | `Super` + `Shift`  + `Enter`   | GUI file explorer |
 

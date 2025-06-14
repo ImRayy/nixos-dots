@@ -27,9 +27,10 @@
     decoration = {
       blur = {
         enabled = true;
-        size = 8;
+        size = 6;
         passes = 2;
         new_optimizations = true;
+        noise = 0.1;
         xray = true;
         ignore_opacity = true;
       };
@@ -98,6 +99,35 @@
       "XDG_SESSION_TYPE,wayland"
       # "GBM_BACKEND,nvidia-drm" # firefox crash
       "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+    ];
+
+    windowrule = [
+      # Disables weird blur border
+      "noblur, title:^()$, class:^()$"
+
+      # Emoji Picker
+      "float, initialClass:it.mijorus.smile"
+      "rounding 6, class:it.mijorus.smile"
+      "animation popin, class:it.mijorus.smile"
+
+      # KeePassXC
+      "size 800 540,class:org.keepassxc.KeePassXC"
+      "float, class:org.keepassxc.KeePassXC"
+      "rounding 6, class:org.keepassxc.KeePassXC"
+
+      # Terminal Musicplayer
+      "size 800 540, initialTitle:^(music-player)$"
+      "center, initialTitle:^(music-player)$"
+      "float, initialTitle:^(music-player)$"
+
+      # File Picker
+      "animation popin, title:Save Image"
+      "animation popin, title:Save As"
+      "animation popin, title:File Upload"
+    ];
+
+    layerrule = [
+      "animation default,selection"
     ];
   };
 }

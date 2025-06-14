@@ -63,7 +63,7 @@
                   "hyprland")
                       service_name="wayland-wm@Hyprland.service"
                       if systemctl is-active --quiet $service_name --user; then
-                        uwsm stop
+                        loginctl terminate-user "$(whoami)"
                       else
                         hyprctl dispatch exit
                       fi

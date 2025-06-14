@@ -1,5 +1,6 @@
 {
   pkgs,
+  unstablePkgs,
   inputs,
   system,
   ...
@@ -32,7 +33,7 @@
       })
     ];
   };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = unstablePkgs.linuxPackages_latest;
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
   boot.kernelParams = [

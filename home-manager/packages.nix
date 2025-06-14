@@ -1,63 +1,82 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  unstablePkgs,
+  inputs,
+  ...
+}: {
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
 
-  home.packages = with pkgs; [
-    # GUI Apps
-    gimp
-    keepassxc
-    nautilus
-    neovide
-    obs-studio
-    obsidian
-    pavucontrol
-    qbittorrent
-    simple-scan
-    system-config-printer
-    eog
+  home.packages =
+    (with unstablePkgs; [
+      inputs.zen-browser.packages."${system}".default
+      cryptomator
+      ente-auth
+      notesnook
+      obsidian
+      smile
+      tauon
+      telegram-desktop
+      keepassxc
 
-    # Terminal Stuff
-    jq
-    bat
-    bottom
-    cliphist
-    exiftool
-    eza
-    fd
-    ffmpeg
-    gnupg
-    imagemagick
-    lazygit
-    libnotify
-    libwebp
-    lsof
-    ncdu
-    neofetch
-    nix-prefetch-git
-    pv
-    ripgrep
-    starship
-    tldr
-    trash-cli
+      # Terminal Apps
+      age
+    ])
+    ++ (with pkgs; [
+      # GUI Apps
+      gimp
+      nautilus
+      neovide
+      obs-studio
+      pavucontrol
+      qbittorrent
+      hunspell
+      hunspellDicts.uk_UA
 
-    # Programming stuff
-    cargo
-    git-lfs
-    go
-    gum
-    openssl
-    postgresql_16
-    python3
-    sqlite
-    volta
+      # Terminal Stuff
+      jq
+      bat
+      bottom
+      cliphist
+      exiftool
+      eza
+      fd
+      ffmpeg
+      gnupg
+      imagemagick
+      lazygit
+      lazydocker
+      libnotify
+      libwebp
+      lsof
+      ncdu
+      neofetch
+      nix-prefetch-git
+      pv
+      ripgrep
+      tldr
+      trash-cli
+      p7zip
+      rclone
+      mpvpaper
+      yt-dlp
+      docker-compose
+      uv
+      wordnet
+      chafa
+      cachix
+      tokei
 
-    # QT
-    # libsForQt5.qt5ct
-    # libsForQt5.qtstyleplugin-kvantum
-    #
-    # # Misc
-    # libdbusmenu-gtk3
-  ];
+      # Programming stuff
+      cargo
+      git-lfs
+      go
+      gum
+      openssl
+      postgresql_16
+      python3
+      sqlite
+    ]);
 }

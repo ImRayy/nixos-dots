@@ -15,7 +15,9 @@ in {
     autoEnable = false;
     base16Scheme = colorScheme;
     polarity = "dark";
+    opacity.terminal = 0.8;
     targets = {
+      qt.enable = true;
       dunst.enable = true;
       waybar.enable = false;
       kitty = {
@@ -26,13 +28,7 @@ in {
       fzf.enable = true;
       lazygit.enable = true;
       firefox.enable = false;
-      swaylock = {
-        enable = true;
-        useImage = true;
-      };
-      mako.enable = true;
     };
-    opacity.terminal = 0.8;
     fonts = {
       serif = {
         package = pkgs.cantarell-fonts;
