@@ -1,14 +1,20 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [./plugins.nix];
 
   programs.yazi = {
     enableFishIntegration = true;
     enable = true;
+    package = inputs.yazi.packages.${pkgs.system}.default;
     settings = {
       enableBashIntegration = true;
       log.enabled = false;
       preview.max_width = 1000;
-      manager = {
+      mgr = {
         sort_dir_first = true;
         linemode = "size";
         show_symlink = true;
@@ -21,7 +27,7 @@
         }
       ];
     };
-    keymap.manager.prepend_keymap = [
+    keymap.mgr.prepend_keymap = [
       {
         on = ["<A-p>"];
         run = "cd ${config.home.homeDirectory}/Pictures";
@@ -58,7 +64,7 @@
         };
       };
 
-      manager = {
+      mgr = {
         border_style = {fg = "#${base03}";};
       };
     };

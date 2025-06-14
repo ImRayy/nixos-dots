@@ -6,6 +6,7 @@
   gh-common = "https://raw.githubusercontent.com";
   yazi-rs-common = "${gh-common}/yazi-rs/plugins/refs/heads/main";
   myrepo = "${gh-common}/ImRayy/doftiles/refs/heads/master/.config/yazi/plugins";
+  targetDir = "${config.home.homeDirectory}/.config/yazi/plugins";
 
   setwall = pkgs.fetchurl {
     url = "${myrepo}/set-wall.yazi/init.lua";
@@ -13,56 +14,85 @@
   };
 
   compress = pkgs.fetchurl {
-    url = "${gh-common}/KKV9/compress.yazi/refs/heads/main/init.lua";
-    sha256 = "0yhg6nvp31k4r6wb8lxqs78cjy34y18a2rhsa9na9r67v5fygw3s";
-  };
-
-  smartFilter = pkgs.fetchurl {
-    url = "${yazi-rs-common}/smart-filter.yazi/init.lua";
-    sha256 = "1k8m4d49cm1ivs4byq7qk1sk5iyqm1rqbl4k53w89yjz6c07886s";
+    url = "${gh-common}/KKV9/compress.yazi/refs/heads/main/main.lua";
+    sha256 = "071647k0r8kacxkvq12hi1i1di1s49n429dkball86z6y5cvcli5";
   };
 
   chmod = pkgs.fetchurl {
-    url = "${yazi-rs-common}/chmod.yazi/init.lua";
-    sha256 = "1kg392hacj1n3d195akxvymap0wsgymhhz7mnr0yv4c37hs9wcq6";
+    url = "${yazi-rs-common}/chmod.yazi/main.lua";
+    sha256 = "1n1afi95gklyw6gja14cnnihj3pm93q5a2rn49a302j01n2pg3jh";
   };
 
-  max-preview = pkgs.fetchurl {
-    url = "${yazi-rs-common}/max-preview.yazi/init.lua";
-    sha256 = "0f7h2k00r90xg130ckfpdxfjmkha92ac3nk70k4wb0v5qx4sidlr";
+  mount = pkgs.fetchurl {
+    url = "${yazi-rs-common}/mount.yazi/main.lua";
+    sha256 = "0sp799rpid1lhysjgycwxj43x4si6hkmq8m5miszwxav304102v5";
   };
 
-  targetDir = "${config.home.homeDirectory}/.config/yazi/plugins";
+  whatSize = pkgs.fetchurl {
+    url = "${gh-common}/pirafrank/what-size.yazi/refs/heads/main/main.lua";
+    sha256 = "1v8asln9011x2a4bzwq9prq86vs3jf2n3i68mfnbz27mp86ikkf2";
+  };
 in {
   xdg.configFile = {
-    "${targetDir}/set-wall.yazi/init.lua".source = setwall;
-    "${targetDir}/compress.yazi/init.lua".source = compress;
-    "${targetDir}/smart-filter.yazi/init.lua".source = smartFilter;
-    "${targetDir}/chmod.yazi/init.lua".source = chmod;
-    "${targetDir}/max-preview.yazi/init.lua".source = max-preview;
+    "${targetDir}/set-wall.yazi/main.lua".source = setwall;
+    "${targetDir}/compress.yazi/main.lua".source = compress;
+    "${targetDir}/chmod.yazi/main.lua".source = chmod;
+    "${targetDir}/mount.yazi/main.lua".source = mount;
+    "${targetDir}/what-size.yazi/main.lua".source = whatSize;
   };
 
-  programs.yazi.keymap.manager.prepend_keymap = [
+  programs.yazi.keymap.mgr.prepend_keymap = [
+    # Set wall
     {
       on = ["<A-w>"];
       run = "plugin set-wall";
       desc = "My own wallpaper plugin, which utilizes swww & hyprpaper";
     }
+
+    # Compress
     {
-      on = ["c" "a"];
+      on = ["c" "a" "a"];
       run = "plugin compress";
+      desc = "Archive selected files";
     }
+    {
+      on = ["c" "a" "p"];
+      run = "plugin compress -p";
+      desc = "Archive selected files (password)";
+    }
+    {
+      on = ["c" "a" "h"];
+      run = "plugin compress -ph";
+      desc = "Archive selected files (password+header)";
+    }
+    {
+      on = ["c" "a" "l"];
+      run = "plugin compress -l";
+      desc = "Archive selected files (compression level)";
+    }
+    {
+      on = ["c" "a" "u"];
+      run = "plugin compress -phl";
+      desc = "Archive selected files (password+header+level)";
+    }
+
+    # Chmod
     {
       on = ["c" "m"];
       run = "plugin chmod";
     }
+
+    # Mount
     {
-      on = "F";
-      run = "plugin smart-filter";
+      on = "M";
+      run = "plugin mount";
     }
+
+    # What Size
     {
-      on = ["<C-p>"];
-      run = "plugin max-preview";
+      on = ["." "s"];
+      run = "plugin what-size";
+      desc = "Calc size of selection or cwd";
     }
   ];
 }
