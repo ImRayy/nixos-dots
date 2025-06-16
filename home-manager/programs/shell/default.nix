@@ -1,5 +1,8 @@
 {
-  imports = [./fish.nix];
+  imports = [
+    ./fish.nix
+    ./starship.nix
+  ];
 
   programs.fzf = {
     enable = true;

@@ -11,7 +11,6 @@
     ./neovim.nix
     ./qtile.nix
     ./rofi
-    ./starship.nix
     ./yazi/yazi.nix
   ];
 }
