@@ -9,7 +9,7 @@
   userConfig = {
     theme = "gruvbox"; # [catppuccin-mocha|gruvbox|rosepine]
     notificationDaemon = "ags"; # [dunst|ags]
-    virtual-mechine.enable = false; # Kvm/Virt-manager
+    virtual-machine.enable = false; # Kvm/Virt-manager
     wm = {
       qtile.enable = false;
       hyprland.enable = true;

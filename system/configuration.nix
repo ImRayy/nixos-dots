@@ -7,6 +7,15 @@
 }: {
   nixpkgs.config.allowUnfree = true;
 
+  documentation = {
+    enable = false;
+    man = {
+      enable = false;
+      man-db.enable = false;
+      mandoc.enable = false;
+    };
+  };
+
   imports = [
     (import ./locale.nix {inherit systemConfig;})
     ./boot.nix
@@ -25,14 +34,15 @@
   hyprland.enable = userConfig.wm.hyprland.enable;
 
   # Virtual Machine
-  vm.enable = userConfig.virtual-mechine.enable;
+  vm.enable = userConfig.virtual-machine.enable;
 
   # Services
   syncthing.enable = true;
+
   services = {
     xserver = {
       enable = true;
-      excludePackages = [pkgs.xterm];
+      excludePackages = with pkgs; [nano xterm];
     };
   };
 
@@ -70,14 +80,14 @@
     binfmt = true;
   };
 
+  # Enable Fish
+  programs.fish.enable = true;
+
   # Enable Flakes
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
-
-  # Current Shell
-  programs.fish.enable = true;
 
   # Current User
   users.users.${username} = {
@@ -94,7 +104,6 @@
   };
 
   environment.variables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
     EDITOR = "nvim";
   };
 
