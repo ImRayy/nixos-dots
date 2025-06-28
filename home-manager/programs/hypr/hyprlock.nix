@@ -1,12 +1,17 @@
-let
+{pkgs, ...}: let
   monitor = "";
+
+  wallpaper = pkgs.fetchurl {
+    url = "https://w.wallhaven.cc/full/e8/wallhaven-e8o9dk.jpg";
+    sha256 = "15drham1galkn20w8zcdbsdfxi3nk1wncagfyg3ny8mrazyfgkph";
+  };
 in {
   programs.hyprlock = {
     enable = true;
     settings = {
       background = {
         monitor = "${monitor}";
-        path = "/home/ray/Pictures/wallpapers/nature.jpg";
+        path = "${wallpaper}";
         blur_passes = 0;
         contrast = 0.8916;
         brightness = 0.8172;
