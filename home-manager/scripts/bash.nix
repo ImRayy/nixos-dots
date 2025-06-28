@@ -34,30 +34,27 @@
   # ---------------------------------------------------------------------------
   # Same as removeSystemGens but for home-manager
   # ---------------------------------------------------------------------------
-  removeHomeManagerGens = pkgs.writeShellApplication {
-    name = "hm-remove-gens";
-    text = ''
-      gens=$(home-manager generations | awk '{print $5}')
-      first_id=$(echo "$gens" | tail -n 1)
-      last_id=$(echo "$gens" | head -n 1)
-      total_gens=$(echo "$gens" | wc -w)
+  removeHomeManagerGens = pkgs.writeShellScriptBin "rm-hm-gens" ''
+    gens=$(home-manager generations | awk '{print $5}')
+    first_id=$(echo "$gens" | tail -n 1)
+    last_id=$(echo "$gens" | head -n 1)
+    total_gens=$(echo "$gens" | wc -w)
 
-      echo "Total $total_gens generations found" \
-          "$first_id - $last_id"
+    echo "Total $total_gens generations found" \
+        "$first_id - $last_id"
 
-      keep=$(gum input --placeholder "How many recent generations to keep?")
-      remove=$(echo "$gens" | tail -n +"$((keep + 1))")
+    keep=$(gum input --placeholder "How many recent generations to keep?")
+    remove=$(echo "$gens" | tail -n +"$((keep + 1))")
 
-      if [[ -z "$keep" ]]; then
-          echo "None selected, exiting..."
-          exit 1
-      fi
+    if [[ -z "$keep" ]]; then
+        echo "None selected, exiting..."
+        exit 1
+    fi
 
-      gum spin --spinner="dot" --title="Cleaning up generation..." \
-          -- home-manager remove-generations $remove
-      echo "Success!"
-    '';
-  };
+    gum spin --spinner="dot" --title="Cleaning up generation..." \
+        -- home-manager remove-generations $remove
+    echo "Success!"
+  '';
 
   # ---------------------------------------------------------------------------
   #   Get all video titles from a YouTube playlist
