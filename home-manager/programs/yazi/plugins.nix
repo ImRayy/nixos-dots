@@ -27,18 +27,12 @@
     url = "${yazi-rs-common}/mount.yazi/main.lua";
     sha256 = "0sp799rpid1lhysjgycwxj43x4si6hkmq8m5miszwxav304102v5";
   };
-
-  whatSize = pkgs.fetchurl {
-    url = "${gh-common}/pirafrank/what-size.yazi/refs/heads/main/main.lua";
-    sha256 = "1v8asln9011x2a4bzwq9prq86vs3jf2n3i68mfnbz27mp86ikkf2";
-  };
 in {
   xdg.configFile = {
     "${targetDir}/set-wall.yazi/main.lua".source = setwall;
     "${targetDir}/compress.yazi/main.lua".source = compress;
     "${targetDir}/chmod.yazi/main.lua".source = chmod;
     "${targetDir}/mount.yazi/main.lua".source = mount;
-    "${targetDir}/what-size.yazi/main.lua".source = whatSize;
   };
 
   programs.yazi.keymap.mgr.prepend_keymap = [
@@ -86,13 +80,6 @@ in {
     {
       on = "M";
       run = "plugin mount";
-    }
-
-    # What Size
-    {
-      on = ["." "s"];
-      run = "plugin what-size";
-      desc = "Calc size of selection or cwd";
     }
   ];
 }
