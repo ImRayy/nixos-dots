@@ -4,6 +4,14 @@
   ...
 }: let
   aliases = import ./aliases.nix;
+  home = config.home.homeDirectory;
+  paths = [
+    ".bun/bin"
+    ".local/share/go/bin"
+    ".volta/bin"
+    "go/bin"
+  ];
+  pathString = builtins.concatStringsSep ":" (map (x: "${home}/${x}") paths);
 in {
   programs.fish = {
     enable = true;
@@ -11,8 +19,7 @@ in {
 
     interactiveShellInit = ''
       set fish_greeting
-      set -g -x PATH "$HOME/go/bin:$HOME/.local/share/go/bin:$PATH"
-      set -g -x PATH "${config.home.sessionVariables.VOLTA_HOME}/bin:$PATH"
+      set -g -x PATH "${pathString}:$PATH"
 
       # Keybindings
       bind -Minsert \eo lfcd
