@@ -1,8 +1,7 @@
 {config, ...}: {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "ags run &"
-      "swww-daemon &"
+      "quickshell &"
       "wl-paste --type text --watch cliphist store &"
       "wl-paste --type image --watch cliphist store &"
     ];
@@ -47,22 +46,25 @@
     animations = {
       enabled = "yes";
       bezier = [
-        "wind, 0.05, 0.9, 0.1, 1.05"
+        "quart, 0.25, 1, 0.5, 1"
+        "specialWorkSwitch, 0.05, 0.7, 0.1, 1"
+        "standard, 0.2, 0, 0, 1"
         "winIn, 0.1, 1.1, 0.1, 1.1"
         "winOut, 0.3, -0.3, 0, 1"
-        "liner, 1, 1, 1, 1"
-        "quart, 0.25, 1, 0.5, 1"
+        "wind, 0.05, 0.9, 0.1, 1.05"
       ];
 
       animation = [
-        "windowsIn, 1, 6, winIn, slide"
-        "windowsOut, 1, 5, winOut, slide"
-        "windowsMove, 1, 5, wind, slide"
-        "border, 1, 6, default"
+        "border, 1, 6, standard"
         "borderangle, 1, 6, quart"
         "fade, 1, 6, quart"
-        "workspaces, 1, 6, quart"
+        "fadeDim, 1, 6, standard"
         "layers, 1, 6, quart, slide"
+        "specialWorkspace, 1, 6, specialWorkSwitch, slidefadevert 15%"
+        "windowsIn, 1, 6, winIn, slide"
+        "windowsMove, 1, 5, standard, slide"
+        "windowsOut, 1, 5, winOut, slide"
+        "workspaces, 1, 6, standard"
       ];
     };
 
@@ -84,6 +86,7 @@
       "DESKTOP_SESSION,hyprland"
       "OZONE_PLATFORM,wayland"
       "ELECTRON_OZONE_PLATFORM_HINT,wayland"
+      "XDG_SESSION_DESKTOP,hyprland"
 
       # Mozilla
       "MOZ_DISABLE_RDD_SANDBOX,1"
@@ -128,6 +131,9 @@
 
     layerrule = [
       "animation default,selection"
+      "animation popin 85%, (quickshell::launcher)(.*)"
+      "animation popin 85%, quickshell::powermenu"
+      "animation slide bottom, quickshell::alert-dialog"
     ];
   };
 }

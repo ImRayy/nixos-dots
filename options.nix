@@ -8,7 +8,7 @@
 
   userConfig = {
     theme = "gruvbox"; # [catppuccin-mocha|gruvbox|rosepine]
-    notificationDaemon = "ags"; # [dunst|ags]
+    notificationDaemon = "quickshell"; # [dunst|quickshell]
     virtual-machine.enable = false; # Kvm/Virt-manager
     wm = {
       qtile.enable = false;

@@ -21,12 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags.url = "github:Aylur/ags";
-    ags-dots = {
-      url = "github:ImRayy/ags-dots";
-      flake = false;
-    };
-
     qtile-dots = {
       url = "github:ImRayy/qtile-dots";
       flake = false;
@@ -40,6 +34,14 @@
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     yazi.url = "github:sxyazi/yazi";
+
+    quickshell = {
+      # add ?ref=<tag> to track a tag
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      # THIS IS IMPORTANT
+      # Mismatched system dependencies will lead to crashes and other issues.
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {

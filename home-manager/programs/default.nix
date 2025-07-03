@@ -1,6 +1,6 @@
 {
   imports = [
-    ./ags.nix
+    ./quickshell.nix
     ./dunst.nix
     ./gtk.nix
     ./hypr

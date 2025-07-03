@@ -4,6 +4,7 @@
   ...
 }: let
   screenshot_path = "/home/${username}/Pictures/Screenshots";
+
   hyprshot = pkgs.writeShellScriptBin "hyprshot.sh" ''
     if [[ ! -d ${screenshot_path} ]];then
       mkdir -p ${screenshot_path}
@@ -12,21 +13,10 @@
     ${pkgs.hyprshot}/bin/hyprshot -m region -o ${screenshot_path}
   '';
 
-  clipboard = pkgs.writeShellScriptBin "rofi-clipboard.sh" ''
-    config="
-    configuration{dmenu{display-name:\" \";}}
-    window{width:440px; height:271px;}
-    listview{scrollbar:false;}
-    "
-    themeDir="~/.config/rofi/themes/default.rasi"
-
-    cliphist list |
-        rofi -dmenu -theme-str "''${config}" -theme "''${themeDir}" |
-        cliphist decode |
-        wl-copy
-  '';
-
   terminal = "kitty";
+
+  binding = m: c: k: a: "${m}, ${k}, ${c}, ${a}";
+  shell = k: a: binding "SUPER" "exec" k "hyprctl dispatch global quickshell:${a}";
 in {
   wayland.windowManager.hyprland = {
     settings = {
@@ -96,15 +86,12 @@ in {
         "SUPER, D, exec, ~/.config/hypr/dmenu.sh"
         "SUPER, E, exec, ${pkgs.smile}/bin/smile"
         "ALT, S, exec, ${hyprshot}/bin/hyprshot.sh"
+        "ALT SHIFT, P, exec, ${pkgs.tessen}/bin/tessen"
 
-        # Ags Windows
-        "SUPER, N, exec, ags toggle notification-center"
-        "SUPER, W, exec, ags toggle wall-picker"
-
-        # Rofi
-        "SUPER, A , exec,  rofi -show drun -show-icons -theme ~/.config/rofi/themes/default.rasi"
-        "SUPER, V, exec, ${clipboard}/bin/rofi-clipboard.sh"
-        "SUPER, X , exec, ${pkgs.rofi-powermenu}/bin/rofi-powermenu"
+        # Quickshell
+        (shell "a" "launcher-apps")
+        (shell "v" "launcher-clipboard")
+        (shell "x" "powermenu")
       ];
     };
   };

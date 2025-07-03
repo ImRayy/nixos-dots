@@ -45,7 +45,6 @@
       hypridle
       hyprpicker
       hyprshot
-      swww
       loupe
       wl-clipboard
       wf-recorder

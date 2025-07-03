@@ -14,6 +14,7 @@
       liberation_ttf
       nerd-fonts.commit-mono
       nerd-fonts.jetbrains-mono
+      nerd-fonts.zed-mono
     ];
   };
 }

@@ -4,7 +4,7 @@
 ## Applications
 
 - [Hyprland](https://hyprland.org/) - compositor/window-manager
-- [Ags](https://github.com/Aylur/ags) - top bar, Quicksettings, Notificatons, OSD
+- [Quickshell](https://quickshell.outfoxxed.me/) - top bar, Launcher, Notificatons
 - [Rofi](https://github.com/lbonn/rofi) - app-launcher, clipboard manager, powermenu
 - [Smile](https://github.com/mijorus/smile) - emoji picker
 - [Kitty](https://github.com/kovidgoyal/kitty) - terminal
@@ -68,7 +68,7 @@ nix-shell '<home-manager>' -A install
 
 
 > [!NOTE]
-> Ags dotfiles are not directly included in this repo, as managing them would be a hassle and I'm too lazy for that. Instead, I manage my ags dots in a separate repo and used that as a flake input in `flake.nix`. To sync with the latest changes, do a quick `nix flake update ags-dots` before rebuilding home configuration, same goes for `qtile`.
+> Quickshell dotfiles are not directly included in this repo, as managing them would be a hassle and I'm too lazy for that. Instead, I manage my ags dots in a separate repo and used that as a flake input in `flake.nix`. To sync with the latest changes, do a quick `nix flake update shell` before rebuilding home configuration, same goes for `qtile`.
 
 ## Keybindings
 
