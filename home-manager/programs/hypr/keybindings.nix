@@ -92,6 +92,7 @@ in {
         (shell "a" "launcher-apps")
         (shell "v" "launcher-clipboard")
         (shell "x" "powermenu")
+        (shell "w" "wallpapers")
       ];
     };
   };

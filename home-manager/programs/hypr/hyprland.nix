@@ -96,6 +96,11 @@
       "XCURSOR_THEME,Bibata-Modern-Ice"
       "XCURSOR_SIZE,24"
 
+      # QT
+      "QT_QPA_PLATFORM,wayland"
+      "QT_QPA_PLATFORMTHEME, gtk3"
+      "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+
       # 🖕 NVIDIA 🖕
       "WLR_NO_HARDWARE_CURSORS,1"
       "LIBVA_DRIVER_NAME,nvidia"
@@ -134,6 +139,7 @@
       "animation popin 85%, (quickshell::launcher)(.*)"
       "animation popin 85%, quickshell::powermenu"
       "animation slide bottom, quickshell::alert-dialog"
+      "animation slide bottom, quickshell::wallpapers"
     ];
   };
 }
