@@ -33,6 +33,7 @@
       })
     ];
   };
+  boot.supportedFilesystems = ["ntfs"];
   boot.kernelPackages = unstablePkgs.linuxPackages_latest;
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
