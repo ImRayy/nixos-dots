@@ -9,6 +9,7 @@ in {
 
   # File Management
   ls = "eza --group-directories-first --icons";
+  tree = "eza --tree";
   lf = "yazi";
 
   # Note editor
@@ -40,12 +41,15 @@ in {
 
   # NIX
   hms = "home-manager switch -b backup --flake .";
-  hms-stylix = "home-manager switch -b backup --flake . && ~/.swww-stylix";
   nix-rebuild = "sudo nixos-rebuild switch --flake .#default";
   nixos-gens = "sudo nix-env --list-generations --profile ${nixprofile_path}";
   nixos-gens-rm = "sudo nix-env --profile ${nixprofile_path} --delete-generations";
 
+  # Docker
+  dcud = "docker compose up -d";
+  dcd = "docker compose down";
+
   # Misc
-  orphan = "nohup '$@' >/dev/null 2>&1 & disown";
   font-list = "fc-list : family | fzf | tr -d '\\n'";
+  passs = "PASSWORD_STORE_ENABLE_EXTENSIONS=true pass fzf";
 }
