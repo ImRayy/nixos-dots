@@ -12,6 +12,7 @@
       hyprpicker # Color picker
       hyprshade # NightLight
       zenity # File picker
+      matugen # Material color generator
     ]
     ++ (with kdePackages; [
       qtdeclarative
