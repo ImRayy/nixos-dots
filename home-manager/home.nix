@@ -2,6 +2,13 @@
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
+  news.display = "silent";
+  manual = {
+    html.enable = false;
+    json.enable = false;
+    manpages.enable = false;
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release introduces backwards incompatible changes.
   #
