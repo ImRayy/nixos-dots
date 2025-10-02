@@ -13,30 +13,17 @@
     (with unstablePkgs; [
       inputs.zen-browser.packages."${system}".default
       cryptomator
-      ente-auth
       notesnook
       obsidian
       smile
       tauon
       telegram-desktop
       keepassxc
+      brave
+      vscode
 
       # Terminal Apps
       age
-    ])
-    ++ (with pkgs; [
-      # GUI Apps
-      gimp
-      nautilus
-      neovide
-      obs-studio
-      pavucontrol
-      qbittorrent
-      hunspell
-      hunspellDicts.uk_UA
-
-      # Terminal Stuff
-      jq
       bat
       bottom
       cliphist
@@ -46,36 +33,51 @@
       ffmpeg
       gnupg
       imagemagick
-      lazygit
+      infisical
+      jq
       lazydocker
+      lazygit
+      mpvpaper
+      p7zip
+      rclone
+      ripgrep
+      tldr
+      trash-cli
+      yt-dlp
+      obs-studio
+    ])
+    ++ (with pkgs; [
+      # GUI Apps
+      gimp
+      nautilus
+      neovide
+      pavucontrol
+      qbittorrent
+      hunspell
+      hunspellDicts.uk_UA
+
+      # Terminal Stuff
       libnotify
       libwebp
       lsof
       ncdu
       neofetch
       nix-prefetch-git
-      pv
-      ripgrep
-      tldr
-      trash-cli
-      p7zip
-      rclone
-      mpvpaper
-      yt-dlp
-      docker-compose
-      uv
       wordnet
       chafa
       cachix
       tokei
+      pv
+      uv
 
       # Programming stuff
+      docker-compose
       cargo
       git-lfs
       go
       gum
       openssl
-      postgresql_16
+      postgresql
       python3
       sqlite
     ]);
