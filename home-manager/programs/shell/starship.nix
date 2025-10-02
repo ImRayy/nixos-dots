@@ -20,6 +20,7 @@ in {
       };
 
       format = lib.strings.concatStrings [
+        "$nix_shell"
         "$os"
         "$directory"
         "$git_branch$git_status$git_state$git_commit"
