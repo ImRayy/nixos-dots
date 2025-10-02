@@ -22,6 +22,7 @@
     ./drivers
     ./firewall.nix
     ./fonts.nix
+    ./gaming.nix
     ./hardware-configuration.nix
     ./packages.nix
     ./programs
