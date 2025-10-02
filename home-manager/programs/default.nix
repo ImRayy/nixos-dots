@@ -1,6 +1,5 @@
 {config, ...}: {
   imports = [
-    # ./rofi
     ./dunst.nix
     ./gtk.nix
     ./hypr
