@@ -9,7 +9,7 @@
     GOPATH = "${config.home.homeDirectory}/.local/share/go";
     GOMODCACHE = "${config.home.homeDirectory}/.cache/go/pkg/mod";
     VOLTA_HOME = "${config.home.homeDirectory}/.volta";
-    SHELL = "${pkgs.fish}/bin/fish";
+    SHELL = "${pkgs.zsh}/bin/zsh";
     WINEPREFIX = "${config.xdg.dataHome}/wine";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${config.xdg.dataHome}/.steam/root/compatibilitytools.d";
   };

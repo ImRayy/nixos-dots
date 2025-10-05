@@ -81,8 +81,7 @@
     binfmt = true;
   };
 
-  # Enable Fish
-  programs.fish.enable = true;
+  programs.zsh.enable = true;
 
   # Enable Flakes
   nix.settings.experimental-features = [
@@ -101,7 +100,7 @@
       "scanner"
       "libvirtd"
     ];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
 
   environment.variables = {

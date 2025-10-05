@@ -7,8 +7,8 @@
   imports = [./plugins.nix];
 
   programs.yazi = {
-    enableFishIntegration = true;
     enable = true;
+    enableZshIntegration = true;
     package = inputs.yazi.packages.${pkgs.system}.default;
     settings = {
       enableBashIntegration = true;
