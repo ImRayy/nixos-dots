@@ -26,8 +26,12 @@ in {
       enable = true;
       variant256Colors = true;
     };
+    foot.enable = true;
+    # tmux.enable = true;
+    zellij.enable = true;
     gtk.enable = true;
     fzf.enable = true;
+    nushell.enable = true;
     lazygit.enable = true;
     firefox.enable = false;
   };

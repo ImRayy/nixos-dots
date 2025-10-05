@@ -13,7 +13,7 @@
     ${pkgs.hyprshot}/bin/hyprshot -m region -o ${screenshot_path}
   '';
 
-  terminal = "kitty";
+  terminal = "foot";
 
   binding = m: c: k: a: "${m}, ${k}, ${c}, ${a}";
   shell = k: a: binding "SUPER" "exec" k "hyprctl dispatch global quickshell:${a}";
@@ -33,7 +33,6 @@ in {
         "SUPER, C, exec, hyprctl dispatch centerwindow"
         "SUPER, T, exec, hyprctl dispatch togglesplit"
         "SUPER, P, pin, active"
-        "ALT, L, exec, hyprlock"
 
         # Focus Window
         "SUPER, H, movefocus, l"

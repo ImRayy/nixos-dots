@@ -1,4 +1,8 @@
 {
+  lib,
+  config,
+  ...
+}: {
   programs.kitty.enable = true;
   programs.kitty.settings = {
     # Fonts
@@ -55,6 +59,39 @@
 
     # Font sizes
     "kitty_mod+backspace" = "change_font_size  10";
+  };
+
+  programs.foot.enable = true;
+  programs.foot.settings = {
+    main = {
+      font = lib.mkForce (
+        "${config.stylix.fonts.monospace.name}:size=12.5"
+        + ":fontfeatures=calt"
+        + ":fontfeatures=dlig"
+        + ":fontfeatures=liga,termicons:size=12"
+      );
+      line-height = 16.5;
+      term = "xterm-256color";
+      selection-target = "clipboard";
+      dpi-aware = "no";
+      pad = "12x12 center";
+    };
+
+    cursor = {
+      style = "beam";
+      blink = "yes";
+    };
+
+    desktop-notifications = {
+      command = "notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
+    };
+
+    bell = {
+      command = "notify-send bell";
+      command-focused = "no";
+      notify = "yes";
+      urgent = "yes";
+    };
   };
 
   # programs.ghostty = {
