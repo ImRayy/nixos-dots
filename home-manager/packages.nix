@@ -13,13 +13,11 @@
     (with unstablePkgs; [
       inputs.zen-browser.packages."${system}".default
       cryptomator
-      notesnook
       obsidian
       smile
       tauon
       telegram-desktop
       keepassxc
-      brave
       vscode
 
       # Terminal Apps
@@ -31,7 +29,6 @@
       eza
       fd
       ffmpeg
-      gnupg
       imagemagick
       infisical
       jq

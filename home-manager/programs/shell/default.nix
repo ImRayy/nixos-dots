@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./default-shell.nix
     ./fish.nix
     ./starship.nix
     ./zsh.nix

@@ -1,13 +1,12 @@
-let
-  defaultBrowser = "zen-beta.desktop";
+{userConfig, ...}: let
   fileAssociations = {
     image = {
       formats = ["jpeg" "jpg" "png" "webp" "avif"];
-      defaultApp = "org.gnome.Loupe.desktop";
+      defaultApp = userConfig.mime.image;
     };
     "x-scheme-handler" = {
       formats = ["http" "https" "about" "unknown" "tg" "chrome"];
-      defaultApp = defaultBrowser;
+      defaultApp = userConfig.mime.browser;
     };
     "application" = {
       formats = [
@@ -18,11 +17,11 @@ let
         "x-extension-xhtml"
         "x-extension-xht"
       ];
-      defaultApp = defaultBrowser;
+      defaultApp = userConfig.mime.browser;
     };
     text = {
       formats = ["html"];
-      defaultApp = defaultBrowser;
+      defaultApp = userConfig.mime.browser;
     };
   };
 

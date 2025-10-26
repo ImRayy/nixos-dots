@@ -4,7 +4,9 @@
   systemConfig,
   userConfig,
   ...
-}: {
+}: let
+  cfg = userConfig;
+in {
   nixpkgs.config.allowUnfree = true;
 
   documentation = {
@@ -30,22 +32,15 @@
     ./wm/qtile.nix
   ];
 
-  # WindowManager
-  qtile.enable = userConfig.wm.qtile.enable;
-  hyprland.enable = userConfig.wm.hyprland.enable;
-
-  # Virtual Machine
-  vm.enable = userConfig.virtual-machine.enable;
-
-  # Services
-  syncthing.enable = true;
-
-  services = {
-    xserver = {
-      enable = true;
-      excludePackages = with pkgs; [nano xterm];
-    };
-  };
+  # Userconfig services
+  docker.enable = cfg.docker.enable;
+  gaming.enable = cfg.gaming.enable;
+  hyprland.enable = cfg.wm.hyprland.enable;
+  ollama.enable = cfg.ollama.enable;
+  printing.enable = cfg.printing.enable;
+  qtile.enable = cfg.wm.qtile.enable;
+  syncthing.enable = cfg.syncthing.enable;
+  vm.enable = cfg.virtual-machine.enable;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -55,24 +50,20 @@
   services.ipp-usb.enable = true;
   services.gvfs.enable = true;
 
+  # Other services
+  services.flatpak.enable = true;
+  services.xserver = {
+    enable = true;
+    excludePackages = with pkgs; [nano xterm];
+  };
+
+  # Enable ADB
+  programs.adb.enable = true;
+
   # nix-ld: run unpatched dynamic binaries
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [stdenv.cc.cc.lib];
-  };
-
-  # Docker & Podman
-  virtualisation = {
-    docker = {
-      enable = true;
-      enableOnBoot = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-      autoPrune.enable = true;
-    };
-    podman.enable = true;
   };
 
   # Enable .appimage

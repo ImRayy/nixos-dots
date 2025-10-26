@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  userConfig,
   ...
 }: let
   screenshot_path = "/home/${username}/Pictures/Screenshots";
@@ -12,8 +13,6 @@
 
     ${pkgs.hyprshot}/bin/hyprshot -m region -o ${screenshot_path}
   '';
-
-  terminal = "foot";
 
   binding = m: c: k: a: "${m}, ${k}, ${c}, ${a}";
   shell = k: a: binding "SUPER" "exec" k "hyprctl dispatch global quickshell:${a}";
@@ -80,7 +79,7 @@ in {
         "SUPER SHIFT, P, exec, playerctl play-pause"
 
         # Apps
-        "SUPER, RETURN, exec, ${terminal}"
+        "SUPER, RETURN, exec, ${userConfig.terminal}"
         "SUPER SHIFT, RETURN, exec, nautilus"
         "SUPER, D, exec, ~/.config/hypr/dmenu.sh"
         "SUPER, E, exec, ${pkgs.smile}/bin/smile"

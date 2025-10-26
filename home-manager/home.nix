@@ -1,4 +1,10 @@
-{username, ...}: {
+{
+  username,
+  userConfig,
+  ...
+}: let
+  conf = userConfig;
+in {
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
@@ -8,6 +14,10 @@
     json.enable = false;
     manpages.enable = false;
   };
+
+  # Userconfig services
+  terminal = conf.terminal;
+  shell = conf.defaultHomeShell;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release introduces backwards incompatible changes.
