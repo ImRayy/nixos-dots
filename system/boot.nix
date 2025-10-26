@@ -34,7 +34,7 @@
     ];
   };
   boot.supportedFilesystems = ["ntfs"];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
   boot.kernelParams = [
