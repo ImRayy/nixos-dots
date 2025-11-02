@@ -113,6 +113,9 @@ in {
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  # Enable Tailscale
+  services.tailscale.enable = true;
+
   # NixOS Version
   # -------------
   system.stateVersion = "23.05";
