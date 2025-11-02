@@ -16,7 +16,7 @@
 - [Qtile](https://github.com/qtile/qtile) - window-manager for wayland/x11
 - [Dunst](https://github.com/dunst-project/dunst) - notificaton daemon, again wayland/x11
 
-Check [`home-manager/programs.nix`](https://github.com/ImRayy/nixos-dots/blob/master/home-manager/programs.nix) & [`system/programs.nxi`](https://github.com/ImRayy/nixos-dots/blob/master/system/programs.nix) for other installed applications
+Check [`home-manager/programs.nix`](https://github.com/ImRayy/nixos-dots/blob/master/home-manager/programs.nix) & [`system/programs.nix`](https://github.com/ImRayy/nixos-dots/blob/master/system/programs.nix) for other installed applications
 
 ## Installation
 

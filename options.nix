@@ -18,7 +18,7 @@
     ollama.enable = false;
     gaming.enable = true;
 
-    # Widow Manager
+    # Window Manager
     wm.qtile.enable = false;
     wm.hyprland.enable = true;
 
