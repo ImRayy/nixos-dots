@@ -11,10 +11,9 @@
   config = lib.mkIf config.gaming.enable {
     environment.systemPackages = with pkgs; [
       mangohud
-      protonup
+      protonup-ng
       lutris
       heroic
-      bottles
       cloudflare-warp
       winetricks
       protontricks

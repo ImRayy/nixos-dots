@@ -6,10 +6,10 @@
       cantarell-fonts
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
-      noto-fonts-extra
+      noto-fonts
       dejavu_fonts
       liberation_ttf
       nerd-fonts.commit-mono

@@ -78,10 +78,6 @@
       preserve_split = "yes";
     };
 
-    misc = {
-      disable_hyprland_qtutils_check = true;
-    };
-
     env = [
       "DESKTOP_SESSION,hyprland"
       "OZONE_PLATFORM,wayland"

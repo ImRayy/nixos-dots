@@ -13,11 +13,10 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -27,12 +26,19 @@
     };
 
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     yazi.url = "github:sxyazi/yazi";
 
     quickshell = {
@@ -40,23 +46,18 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       # THIS IS IMPORTANT
       # Mismatched system dependencies will lead to crashes and other issues.
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = {
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
     stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    unstablePkgs = import nixpkgs-unstable {
-      system = system;
-      config.allowUnfree = true;
-    };
 
     # System & Home Manager Configuration
     inherit (import ./options.nix) username systemConfig userConfig;
@@ -65,7 +66,6 @@
       ray = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit unstablePkgs;
           inherit inputs;
           inherit username;
           inherit userConfig;
@@ -86,7 +86,6 @@
         inherit username;
         inherit systemConfig;
         inherit userConfig;
-        inherit unstablePkgs;
       };
       modules = [
         ./system/configuration.nix

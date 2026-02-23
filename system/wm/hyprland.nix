@@ -31,7 +31,7 @@
     services.greetd = {
       enable = true;
       settings.default_session = let
-        tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+        tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
       in {
         command = "${tuigreet} --time --remember-session --cmd Hyprland";
       };

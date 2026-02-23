@@ -1,6 +1,5 @@
 {
   pkgs,
-  unstablePkgs,
   inputs,
   system,
   ...
@@ -34,7 +33,7 @@
     ];
   };
   boot.supportedFilesystems = ["ntfs"];
-  boot.kernelPackages = pkgs.linuxPackages_6_16;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
   boot.kernelParams = [

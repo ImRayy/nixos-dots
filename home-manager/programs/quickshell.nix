@@ -1,9 +1,9 @@
 {
+  pkgs,
   inputs,
-  unstablePkgs,
   ...
 }: {
-  home.packages = with unstablePkgs;
+  home.packages = with pkgs;
     [
       inputs.quickshell.packages."${system}".default
       app2unit #  Desktop entry launcher

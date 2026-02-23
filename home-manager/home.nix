@@ -1,10 +1,15 @@
 {
+  inputs,
   username,
   userConfig,
   ...
 }: let
   conf = userConfig;
 in {
+  imports = [
+    inputs.zen-browser.homeModules.beta
+  ];
+
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
@@ -30,6 +35,7 @@ in {
   # environment.
 
   programs.home-manager.enable = true;
+  programs.zen-browser.enable = true;
 
   services = {
     kdeconnect = {

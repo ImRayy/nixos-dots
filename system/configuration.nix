@@ -30,6 +30,7 @@ in {
     ./programs
     ./wm/hyprland.nix
     ./wm/qtile.nix
+    ./gc.nix
   ];
 
   # Userconfig services
