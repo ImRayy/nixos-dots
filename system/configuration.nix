@@ -29,7 +29,6 @@ in {
     ./packages.nix
     ./programs
     ./wm/hyprland.nix
-    ./wm/qtile.nix
     ./gc.nix
   ];
 
@@ -39,7 +38,6 @@ in {
   hyprland.enable = cfg.wm.hyprland.enable;
   ollama.enable = cfg.ollama.enable;
   printing.enable = cfg.printing.enable;
-  qtile.enable = cfg.wm.qtile.enable;
   syncthing.enable = cfg.syncthing.enable;
   vm.enable = cfg.virtual-machine.enable;
 

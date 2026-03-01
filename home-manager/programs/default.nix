@@ -7,7 +7,6 @@
     ./neofetch.nix
     ./neovim.nix
     ./pass.nix
-    ./qtile.nix
     ./quickshell.nix
     ./shell
     ./terminal.nix

@@ -19,12 +19,11 @@
     gaming.enable = true;
 
     # Window Manager
-    wm.qtile.enable = false;
-    wm.hyprland.enable = true;
+    wm.hyprland.enable = false;
 
     # Default Apps
     mime = {
-      browser = "zen-beta.desktop";
+      browser = "brave.desktop"; # ["zen-beta.desktop" | "brave.desktop"];
       image = "org.gnome.Loupe.desktop";
     };
   };

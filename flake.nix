@@ -20,11 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    qtile-dots = {
-      url = "github:ImRayy/qtile-dots";
-      flake = false;
-    };
-
     stylix = {
       url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
