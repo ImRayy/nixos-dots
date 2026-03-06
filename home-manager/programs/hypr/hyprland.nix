@@ -1,4 +1,18 @@
-{config, ...}: {
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}: {
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+    ];
+  };
+
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "quickshell &"
@@ -20,7 +34,22 @@
       border_size = 3;
       "col.active_border" = "0xff${base0B}";
       "col.inactive_border" = "0x33${base00}";
-      layout = "dwindle";
+      layout = "master";
+    };
+
+    plugin = {
+      hyprexpo = {
+        columns = 2;
+        gap_size = 5;
+        workspace_method = "center current";
+        skip_empty = true;
+      };
+    };
+
+    master = {
+      mfact = 0.50;
+      new_on_top = true;
+      new_on_active = true;
     };
 
     decoration = {
@@ -47,24 +76,23 @@
       enabled = "yes";
       bezier = [
         "quart, 0.25, 1, 0.5, 1"
-        "specialWorkSwitch, 0.05, 0.7, 0.1, 1"
-        "standard, 0.2, 0, 0, 1"
-        "winIn, 0.1, 1.1, 0.1, 1.1"
-        "winOut, 0.3, -0.3, 0, 1"
-        "wind, 0.05, 0.9, 0.1, 1.05"
+        "snap, 0.15, 1, 0.3, 1"
+        "winIn, 0.05, 0.9, 0.15, 1"
+        "winOut, 0.2, -0.2, 0, 1"
+        "slide, 0.1, 1, 0.2, 1"
+        "specialSwitch, 0.1, 0.9, 0.15, 1"
       ];
-
       animation = [
-        "border, 1, 6, standard"
-        "borderangle, 1, 6, quart"
-        "fade, 1, 6, quart"
-        "fadeDim, 1, 6, standard"
-        "layers, 1, 6, quart, slide"
-        "specialWorkspace, 1, 6, specialWorkSwitch, slidefadevert 15%"
-        "windowsIn, 1, 6, winIn, slide"
-        "windowsMove, 1, 5, standard, slide"
-        "windowsOut, 1, 5, winOut, slide"
-        "workspaces, 1, 6, standard"
+        "border, 1, 5, snap"
+        "borderangle, 1, 5, quart"
+        "fade, 1, 5, snap"
+        "fadeDim, 1, 5, snap"
+        "layers, 1, 5, slide, slide"
+        "specialWorkspace, 1, 5, specialSwitch, slidefadevert 10%"
+        "windowsIn, 1, 5, winIn, slide"
+        "windowsMove, 1, 5, snap, slide"
+        "windowsOut, 1, 4, winOut, slide"
+        "workspaces, 1, 5, slide, slide"
       ];
     };
 
@@ -106,36 +134,26 @@
     ];
 
     windowrule = [
-      # Disables weird blur border
-      "noblur, title:^()$, class:^()$"
+      # "noblur, title:^$, class:^$"
+      "match:class it.mijorus.smile, float on, rounding 6, animation popin"
+      "match:class org.keepassxc.KeePassXC, float on, size 800 600"
 
-      # Emoji Picker
-      "float, initialClass:it.mijorus.smile"
-      "rounding 6, class:it.mijorus.smile"
-      "animation popin, class:it.mijorus.smile"
+      # Music Players
+      "match:title Tauon, float on, size 800 600, center on"
 
-      # KeePassXC
-      "size 800 540,class:org.keepassxc.KeePassXC"
-      "float, class:org.keepassxc.KeePassXC"
-      "rounding 6, class:org.keepassxc.KeePassXC"
-
-      # Terminal Musicplayer
-      "size 800 540, initialTitle:^(music-player)$"
-      "center, initialTitle:^(music-player)$"
-      "float, initialTitle:^(music-player)$"
-
-      # File Picker
-      "animation popin, title:Save Image"
-      "animation popin, title:Save As"
-      "animation popin, title:File Upload"
+      # File Pickers
+      "match:title Save Image, size 800 600, animation popin, float on"
+      "match:title Save As, size 800 600, animation popin, float on"
+      "match:title File Upload, size 800 600, animation popin, float on"
+      "match:title Save File, size 800 600, animation popin, float on"
     ];
 
     layerrule = [
-      "animation default,selection"
-      "animation popin 85%, (quickshell::launcher)(.*)"
-      "animation popin 85%, quickshell::powermenu"
-      "animation slide bottom, quickshell::alert-dialog"
-      "animation slide bottom, quickshell::wallpapers"
+      "match:namespace selection, animation default"
+      "match:namespace (quickshell::launcher)(.*), animation popin 85%"
+      "match:namespace quickshell::powermenu, animation popin 85%"
+      "match:namespace quickshell::alert-dialog, animation slide bottom"
+      "match:namespace quickshell::wallpapers, animation slide bottom"
     ];
   };
 }

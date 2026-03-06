@@ -1,5 +1,6 @@
 {
   lib,
+  inputs,
   config,
   pkgs,
   ...
@@ -12,6 +13,8 @@
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
     xdg.portal = {
@@ -27,19 +30,6 @@
         };
       };
     };
-
-    services.greetd = {
-      enable = true;
-      settings.default_session = let
-        tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-      in {
-        command = "${tuigreet} --time --remember-session --cmd Hyprland";
-      };
-    };
-
-    systemd.tmpfiles.rules = [
-      "d '/var/cache/greeter' - greeter greeter - -"
-    ];
 
     environment.systemPackages = with pkgs; [
       hypridle

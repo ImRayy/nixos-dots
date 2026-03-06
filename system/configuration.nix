@@ -5,7 +5,7 @@
   userConfig,
   ...
 }: let
-  cfg = userConfig;
+  config = userConfig;
 in {
   nixpkgs.config.allowUnfree = true;
 
@@ -25,21 +25,22 @@ in {
     ./firewall.nix
     ./fonts.nix
     ./gaming.nix
+    ./gc.nix
+    ./greetd.nix
     ./hardware-configuration.nix
     ./packages.nix
     ./programs
     ./wm/hyprland.nix
-    ./gc.nix
   ];
 
   # Userconfig services
-  docker.enable = cfg.docker.enable;
-  gaming.enable = cfg.gaming.enable;
-  hyprland.enable = cfg.wm.hyprland.enable;
-  ollama.enable = cfg.ollama.enable;
-  printing.enable = cfg.printing.enable;
-  syncthing.enable = cfg.syncthing.enable;
-  vm.enable = cfg.virtual-machine.enable;
+  docker.enable = config.docker.enable;
+  gaming.enable = config.gaming.enable;
+  hyprland.enable = config.windowManager == "hyprland";
+  ollama.enable = config.ollama.enable;
+  printing.enable = config.printing.enable;
+  syncthing.enable = config.syncthing.enable;
+  vm.enable = config.virtual-machine.enable;
 
   # Enable networking
   networking.networkmanager.enable = true;

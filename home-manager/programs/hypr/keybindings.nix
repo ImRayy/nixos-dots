@@ -30,7 +30,6 @@ in {
         "SUPER, Q, killactive,"
         "SUPER SHIFT, Q, exit,"
         "SUPER, C, exec, hyprctl dispatch centerwindow"
-        "SUPER, T, exec, hyprctl dispatch togglesplit"
         "SUPER, P, pin, active"
 
         # Focus Window
@@ -85,6 +84,9 @@ in {
         "SUPER, E, exec, ${pkgs.smile}/bin/smile"
         "ALT, S, exec, ${hyprshot}/bin/hyprshot.sh"
         "ALT SHIFT, P, exec, ${pkgs.tessen}/bin/tessen"
+
+        # Plugins
+        "SUPER, O, hyprexpo:expo, toggle"
 
         # Quickshell
         (shell "a" "launcher-apps")
