@@ -15,6 +15,9 @@ in {
     settings = {
       add_newline = true;
 
+      command_timeout = 10000;
+      scan_timeout = 10000;
+
       line_break = {
         disabled = false;
       };
