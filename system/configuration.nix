@@ -31,12 +31,14 @@ in {
     ./packages.nix
     ./programs
     ./wm/hyprland.nix
+    ./wm/niri.nix
   ];
 
   # Userconfig services
   docker.enable = config.docker.enable;
   gaming.enable = config.gaming.enable;
   hyprland.enable = config.windowManager == "hyprland";
+  niri.enable = config.windowManager == "niri";
   ollama.enable = config.ollama.enable;
   printing.enable = config.printing.enable;
   syncthing.enable = config.syncthing.enable;

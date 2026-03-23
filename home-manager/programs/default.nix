@@ -6,6 +6,7 @@
     ./mpv.nix
     ./neofetch.nix
     ./neovim.nix
+    ./niri
     ./pass.nix
     ./quickshell.nix
     ./shell

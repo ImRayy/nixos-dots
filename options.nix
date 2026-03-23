@@ -14,12 +14,12 @@
     virtual-machine.enable = false; # Kvm/Virt-manager
     syncthing.enable = true;
     docker.enable = true;
-    printing.enable = false;
+    printing.enable = true;
     ollama.enable = false;
     gaming.enable = true;
 
     # Window Manager
-    wm.hyprland.enable = false;
+    windowManager = "hyprland"; # niri | hyprland
 
     # Default Apps
     mime = {
