@@ -36,6 +36,7 @@
     trash-cli
     yt-dlp
     obs-studio
+    wiremix
 
     # GUI Apps
     gimp
