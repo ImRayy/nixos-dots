@@ -52,4 +52,7 @@ in {
   # Misc
   font-list = "fc-list : family | fzf | tr -d '\\n'";
   passs = "PASSWORD_STORE_ENABLE_EXTENSIONS=true pass fzf";
+
+  # Printing
+  printer-scan = "scanimage --format=png --output-file output.png --progress";
 }

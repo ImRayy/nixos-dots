@@ -97,6 +97,16 @@
       eval "$CMD"
     '';
   };
+
+  # ---------------------------------------------------------------------------
+  # Gnerate wifi connection qr code
+  # ---------------------------------------------------------------------------
+  generateWifiCode = pkgs.writeShellApplication {
+    name = "gen-wifi-code";
+    text = ''
+      nix run nixpkgs#qrencode -- -t ansiutf8 "WIFI:T:WPA;S:$1;P:$2;"
+    '';
+  };
 in {
   home.packages = [
     removeSystemGens
@@ -105,5 +115,6 @@ in {
     removeHomeManagerGens
     getPlaylistTitles
     downloadYtPlaylist
+    generateWifiCode
   ];
 }
