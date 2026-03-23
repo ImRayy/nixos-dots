@@ -25,7 +25,7 @@ in {
     ./firewall.nix
     ./fonts.nix
     ./gaming.nix
-    ./gc.nix
+    ./nh.nix
     ./greetd.nix
     ./hardware-configuration.nix
     ./packages.nix
