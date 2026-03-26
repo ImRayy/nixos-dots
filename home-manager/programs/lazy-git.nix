@@ -14,7 +14,7 @@ in {
       promptToReturnFromSubprocess = false;
       update.method = "never";
       git = {
-        commit.signOff = true;
+        commit.signOff = false;
         parseEmoji = true;
       };
       gui = {
