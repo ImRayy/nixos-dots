@@ -3,6 +3,7 @@
 
   nixConfig = {
     extra-substituters = [
+      "https://cache.nixos.org"
       "https://nix-community.cachix.org"
       "https://yazi.cachix.org"
       "https://cuda-maintainers.cachix.org"
@@ -63,29 +64,10 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
 
     # System & Home Manager Configuration
     inherit (import ./options.nix) username systemConfig userConfig;
   in {
-    homeConfigurations = {
-      ray = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit userConfig;
-          inherit systemConfig;
-        };
-
-        modules = [
-          stylix.homeModules.stylix
-          ./home-manager/home.nix
-          ./home-manager
-        ];
-      };
-    };
-
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs system;
@@ -95,12 +77,8 @@
       };
       modules = [
         ./system/configuration.nix
-        {
-          nix.settings = {
-            trusted-users = [username];
-            warn-dirty = false;
-          };
-        }
+        home-manager.nixosModules.home-manager
+        stylix.nixosModules.stylix
       ];
     };
   };

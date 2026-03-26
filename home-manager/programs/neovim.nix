@@ -11,4 +11,11 @@
       nixd
     ];
   };
+
+  home.packages = with pkgs; [
+    neovide
+    ripgrep
+    wordnet
+    fd
+  ];
 }

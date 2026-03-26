@@ -1,6 +1,6 @@
 {config, ...}: {
   imports = [
-    ./dunst.nix
+    # ./dunst.nix
     ./gtk.nix
     ./hypr
     ./mpv.nix
@@ -12,6 +12,8 @@
     ./shell
     ./terminal.nix
     ./yazi/yazi.nix
+    ./obs-studio.nix
+    ./lazy-git.nix
   ];
 
   programs.nh = {

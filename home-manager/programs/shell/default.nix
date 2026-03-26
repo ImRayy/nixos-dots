@@ -50,7 +50,6 @@
     };
   };
 
-  programs.zellij = {
-    enable = true;
-  };
+  programs.zellij.enable = true;
+  programs.eza.enable = true;
 }

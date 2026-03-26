@@ -2,9 +2,9 @@
   imports = [
     ./env.nix
     ./programs
-    ./packages.nix
+    # ./packages.nix
     ./scripts
-    ./stylix
     ./mime.nix
+    ./stylix.nix
   ];
 }

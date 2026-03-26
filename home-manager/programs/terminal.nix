@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   shell = config.home.sessionVariables.SHELL;
@@ -129,5 +130,7 @@ in {
       "ctrl+l=goto_split:right"
       "ctrl+h=goto_split:left"
     ];
+
+    home.packages = with pkgs; [chafa];
   };
 }

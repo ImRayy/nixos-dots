@@ -1,4 +1,5 @@
 {
+  lib,
   inputs,
   pkgs,
   config,
@@ -8,9 +9,6 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
-    ];
   };
 
   wayland.windowManager.hyprland.settings = {
@@ -28,23 +26,14 @@
       follow_mouse = 1;
     };
 
-    general = with config.lib.stylix.colors; {
+    general = lib.mkForce (with config.lib.stylix.colors; {
       gaps_in = 3;
       gaps_out = 6;
       border_size = 3;
       "col.active_border" = "0xff${base0B}";
       "col.inactive_border" = "0x33${base00}";
       layout = "master";
-    };
-
-    plugin = {
-      hyprexpo = {
-        columns = 2;
-        gap_size = 5;
-        workspace_method = "center current";
-        skip_empty = true;
-      };
-    };
+    });
 
     master = {
       mfact = 0.50;

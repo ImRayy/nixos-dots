@@ -12,7 +12,6 @@
     tauon
     telegram-desktop
     keepassxc
-    vscode
 
     # Terminal Apps
     age
@@ -20,43 +19,26 @@
     bottom
     cliphist
     exiftool
-    eza
-    fd
-    ffmpeg
     imagemagick
-    infisical
     jq
     lazydocker
     lazygit
-    mpvpaper
-    p7zip
     rclone
-    ripgrep
     tldr
-    trash-cli
     yt-dlp
-    obs-studio
     wiremix
 
     # GUI Apps
-    gimp
     nautilus
-    neovide
     pavucontrol
     qbittorrent
-    hunspell
-    hunspellDicts.uk_UA
 
     # Terminal Stuff
-    libnotify
     libwebp
     lsof
     ncdu
     neofetch
-    nix-prefetch-git
-    wordnet
-    chafa
-    cachix
+    libnotify
     tokei
     pv
     uv

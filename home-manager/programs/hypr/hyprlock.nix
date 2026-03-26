@@ -6,6 +6,8 @@
     sha256 = "15drham1galkn20w8zcdbsdfxi3nk1wncagfyg3ny8mrazyfgkph";
   };
 in {
+  stylix.targets.hyprlock.enable = false;
+
   programs.hyprlock = {
     enable = true;
     settings = {

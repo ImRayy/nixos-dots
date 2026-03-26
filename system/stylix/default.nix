@@ -19,21 +19,8 @@ in {
   };
 
   stylix.targets = {
-    qt.enable = true;
-    dunst.enable = true;
-    waybar.enable = false;
-    kitty = {
-      enable = true;
-      variant256Colors = true;
-    };
-    foot.enable = true;
-    # tmux.enable = true;
-    zellij.enable = true;
-    gtk.enable = true;
-    fzf.enable = true;
-    nushell.enable = true;
-    lazygit.enable = true;
-    firefox.enable = false;
+    plymouth.enable = false;
+    grub.enable = false;
   };
 
   stylix.fonts = {
@@ -53,7 +40,7 @@ in {
     };
 
     emoji = {
-      package = pkgs.noto-fonts-emoji;
+      package = pkgs.noto-fonts-color-emoji;
       name = "Noto Color Emoji";
     };
   };

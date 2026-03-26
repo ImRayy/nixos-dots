@@ -8,6 +8,7 @@
 in {
   imports = [
     inputs.zen-browser.homeModules.beta
+    ./default.nix
   ];
 
   home.username = username;

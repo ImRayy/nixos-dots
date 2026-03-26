@@ -1,28 +1,81 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    # Core Packages
+    # Core & System
+    cachix
     clang
-    curl
     file
     gcc
     git
-    killall
-    pamixer
-    unzip
-    usbutils
-    wget
-    zip
     inotify-tools
+    killall
+    lsof
+    openssl
+    unzip
+    zip
 
-    # Standard Packages
-    sane-backends
-    usb-modeswitch
+    # Cli Utilities
+    age
+    bat
+    bottom
+    cliphist
+    exiftool
+    imagemagick
+    jq
+    ncdu
+    neofetch
+    pv
+    tldr
+    tokei
+    uv
 
-    # CLI Packages
+    # GUI Apps
+    brave
+    cryptomator
+    keepassxc
+    keepassxc
+    nautilus
+    obsidian
+    pavucontrol
+    qbittorrent
+    smile
+    telegram-desktop
+    wiremix
+    discord
+
+    # Media & Audio
+    ffmpeg
+    pamixer
     playerctl
+    tauon
+    yt-dlp
+    v4l-utils
 
-    # QT
-    libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtgraphicaleffects
+    # Networking & Transfer
+    curl
+    nix-prefetch-git
+    rclone
+    wget
+
+    # Hardware & Drivers
+    libnotify
+    libwebp
+    usb-modeswitch
+    usbutils
+
+    # Development
+    cargo
+    docker-compose
+    git-lfs
+    go
+    gum
+    lazydocker
+    lazygit
+    postgresql
+    python3
+    sqlite
+
+    # Qt / UI Libs
+    qt5.qtquickcontrols2
+    qt5.qtgraphicaleffects
   ];
 }

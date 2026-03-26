@@ -85,9 +85,6 @@ in {
         "ALT, S, exec, ${hyprshot}/bin/hyprshot.sh"
         "ALT SHIFT, P, exec, ${pkgs.tessen}/bin/tessen"
 
-        # Plugins
-        "SUPER, O, hyprexpo:expo, toggle"
-
         # Quickshell
         (shell "a" "launcher-apps")
         (shell "v" "launcher-clipboard")

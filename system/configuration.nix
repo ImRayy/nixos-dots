@@ -3,11 +3,27 @@
   username,
   systemConfig,
   userConfig,
+  inputs,
   ...
 }: let
   config = userConfig;
 in {
+  nix.settings.trusted-users = [username];
+  nix.settings.warn-dirty = false;
   nixpkgs.config.allowUnfree = true;
+
+  home-manager = {
+    backupFileExtension = "something.backup";
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit username;
+      inherit userConfig;
+      inherit systemConfig;
+    };
+    users.${username} = import ../home-manager/home.nix;
+  };
 
   documentation = {
     enable = false;
@@ -32,6 +48,7 @@ in {
     ./programs
     ./wm/hyprland.nix
     ./wm/niri.nix
+    ./stylix
   ];
 
   # Userconfig services
@@ -120,5 +137,5 @@ in {
 
   # NixOS Version
   # -------------
-  system.stateVersion = "23.05";
+  system.stateVersion = "25.11";
 }

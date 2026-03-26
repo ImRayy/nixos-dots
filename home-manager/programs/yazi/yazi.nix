@@ -1,10 +1,16 @@
 {
+  lib,
   config,
   inputs,
   pkgs,
   ...
 }: {
   imports = [./plugins.nix];
+
+  home.packages = with pkgs; [
+    ffmpeg
+    trash-cli
+  ];
 
   programs.yazi = {
     enable = true;
@@ -33,40 +39,42 @@
         run = "cd ${config.home.homeDirectory}/Pictures";
       }
     ];
-    theme = with config.lib.stylix.colors; {
-      mode = {
-        normal_main = {
-          fg = "#${base00}";
-          bg = "#${base0D}";
-          bold = true;
+    theme = lib.mkForce (
+      with config.lib.stylix.colors; {
+        mode = {
+          normal_main = {
+            fg = "#${base00}";
+            bg = "#${base0D}";
+            bold = true;
+          };
+          normal_alt = {
+            fg = "#${base0D}";
+            bg = "#${base01}";
+          };
+          select_main = {
+            fg = "#${base00}";
+            bg = "#${base0B}";
+            bold = true;
+          };
+          select_alt = {
+            fg = "#${base0B}";
+            bg = "#${base01}";
+          };
+          unset_main = {
+            fg = "#${base00}";
+            bg = "#${base06}";
+            bold = true;
+          };
+          unset_alt = {
+            fg = "#${base0D}";
+            bg = "#${base01}";
+          };
         };
-        normal_alt = {
-          fg = "#${base0D}";
-          bg = "#${base01}";
-        };
-        select_main = {
-          fg = "#${base00}";
-          bg = "#${base0B}";
-          bold = true;
-        };
-        select_alt = {
-          fg = "#${base0B}";
-          bg = "#${base01}";
-        };
-        unset_main = {
-          fg = "#${base00}";
-          bg = "#${base06}";
-          bold = true;
-        };
-        unset_alt = {
-          fg = "#${base0D}";
-          bg = "#${base01}";
-        };
-      };
 
-      mgr = {
-        border_style = {fg = "#${base03}";};
-      };
-    };
+        mgr = {
+          border_style = {fg = "#${base03}";};
+        };
+      }
+    );
   };
 }
