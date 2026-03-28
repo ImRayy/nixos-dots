@@ -4,7 +4,7 @@
   ...
 }: let
   sessionMap = {
-    hyprland = "Hyprland";
+    hyprland = "start-hyprland";
     niri = "niri-session";
   };
 
