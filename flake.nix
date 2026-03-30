@@ -55,31 +55,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    stylix,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-
-    # System & Home Manager Configuration
-    inherit (import ./options.nix) username systemConfig userConfig;
-  in {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        inherit inputs system;
-        inherit username;
-        inherit systemConfig;
-        inherit userConfig;
-      };
-      modules = [
-        ./system/configuration.nix
-        home-manager.nixosModules.home-manager
-        stylix.nixosModules.stylix
-      ];
-    };
-  };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
 }
