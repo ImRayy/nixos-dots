@@ -15,6 +15,7 @@
       "lazygit"
       "mpv"
       "neofetch"
+      "scripts"
       "neovim"
       "obs-studio"
       "pass"
