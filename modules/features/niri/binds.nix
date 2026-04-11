@@ -1,5 +1,14 @@
-{
-  flake.modules.homeManager.niri = {...}: {
+{self, ...}: {
+  flake.modules.homeManager.niri = {
+    lib,
+    pkgs,
+    ...
+  }: let
+    noctalia = self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia-shell;
+    noctaliaExec = lib.getExe noctalia;
+    noctaliaDump = noctalia.dump-noctalia-shell;
+    noctaliaCopy = noctalia.copy-noctalia-shell-config;
+  in {
     programs.niri.settings.binds = {
       # --- General & UI ---
       "Mod+Shift+Slash".action.show-hotkey-overlay = {};
@@ -160,6 +169,70 @@
       "Mod+S".action.screenshot = {};
       "Mod+Shift+S".action.screenshot-screen = {};
       "Mod+Shift+W".action.screenshot-window = {};
+
+      # --- Noctalia Shell ---
+      "Mod+A" = {
+        action.spawn-sh = "${noctaliaExec} ipc call launcher toggle";
+        hotkey-overlay.title = "Noctalia: Launcher";
+      };
+
+      "Mod+V" = {
+        action.spawn-sh = "${noctaliaExec} ipc call launcher clipboard";
+        hotkey-overlay.title = "Noctalia: Clipboard";
+      };
+
+      "Mod+C" = {
+        action.spawn-sh = "${noctaliaExec} ipc call calendar toggle";
+        hotkey-overlay.title = "Noctalia: Calendar";
+      };
+
+      "Mod+X" = {
+        action.spawn-sh = "${noctaliaExec} ipc call sessionMenu toggle";
+        hotkey-overlay.title = "Noctalia: Session Menu";
+      };
+
+      "Mod+M" = {
+        action.spawn-sh = "${noctaliaExec} ipc call systemMonitor toggle";
+        hotkey-overlay.title = "Noctalia: System Monitor";
+      };
+
+      "Mod+Comma" = {
+        action.spawn-sh = "${noctaliaExec} ipc call settings open";
+        hotkey-overlay.title = "Noctalia: Settings";
+      };
+
+      "Mod+D".action.spawn-sh = self.mkMenu pkgs [
+        {
+          key = "w";
+          desc = "Wallpapers";
+          cmd = "${noctaliaExec} ipc call wallpaper toggle";
+        }
+        {
+          key = "W";
+          desc = "Window Switcher";
+          cmd = "${noctaliaExec} ipc call launcher windows";
+        }
+        {
+          key = "n";
+          desc = "Notes Scratchpa";
+          cmd = "${noctaliaExec} ipc call plugin:notes-scratchpad togglePanel";
+        }
+        {
+          key = "t";
+          desc = "Todos";
+          cmd = "${noctaliaExec} ipc call plugin:todo togglePanel";
+        }
+        {
+          key = "k";
+          desc = "KDE Connect";
+          cmd = "${noctaliaExec} ipc call plugin:kde-connect toggle";
+        }
+        {
+          key = "r";
+          desc = "Reset Shell";
+          cmd = "${noctaliaDump}; ${noctaliaCopy}; pkill quickshell; ${noctaliaExec}";
+        }
+      ];
     };
   };
 }

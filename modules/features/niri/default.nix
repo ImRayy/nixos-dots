@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  self,
+  ...
+}: {
   flake.modules.nixos.niri = {pkgs, ...}: {
     nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
 
@@ -19,8 +23,15 @@
   };
 
   flake.modules.homeManager.niri = {
+    lib,
+    pkgs,
+    ...
+  }: let
+    noctaliaExe = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia-shell;
+  in {
     programs.niri.settings = {
       spawn-at-startup = [
+        {command = [noctaliaExe];}
         {sh = "wl-paste --type text --watch cliphist store";}
         {sh = "wl-paste --type image --watch cliphist store";}
       ];

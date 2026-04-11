@@ -4,6 +4,8 @@
       fontDir.enable = true;
       fontconfig.enable = true;
       packages = with pkgs; [
+        roboto
+        roboto-serif
         cantarell-fonts
         noto-fonts
         noto-fonts-cjk-sans

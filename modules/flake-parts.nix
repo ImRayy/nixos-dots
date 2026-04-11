@@ -1,5 +1,8 @@
 {inputs, ...}: {
-  imports = [inputs.flake-parts.flakeModules.modules];
+  imports = [
+    inputs.wrapper-modules.flakeModules.wrappers
+    inputs.flake-parts.flakeModules.modules
+  ];
 
   config = {
     systems = [

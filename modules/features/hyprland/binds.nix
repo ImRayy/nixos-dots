@@ -15,7 +15,8 @@
     '';
 
     binding = m: c: k: a: "${m}, ${k}, ${c}, ${a}";
-    shell = k: a: binding "SUPER" "exec" k "hyprctl dispatch global quickshell:${a}";
+    # shell = k: a: binding "SUPER" "exec" k "hyprctl dispatch global quickshell:${a}";
+    noctalia = k: a: binding "SUPER" "exec" k "noctalia-shell ipc call ${a}";
   in {
     wayland.windowManager.hyprland.settings = {
       bindm = [
@@ -85,10 +86,19 @@
         "ALT SHIFT, P, exec, ${pkgs.tessen}/bin/tessen"
 
         # Quickshell
-        (shell "a" "launcher-apps")
-        (shell "v" "launcher-clipboard")
-        (shell "x" "powermenu")
-        (shell "w" "wallpapers")
+        # (shell "a" "launcher-apps")
+        # (shell "v" "launcher-clipboard")
+        # (shell "x" "powermenu")
+        # (shell "w" "wallpapers")
+
+        (noctalia "a" "launcher toggle")
+        (noctalia "v" "launcher clipboard")
+        (noctalia "w" "launcher windows")
+        (noctalia "c" "calendar toggle")
+        (noctalia "x" "sessionMenu toggle")
+        (noctalia "m" "systemMonitor toggle")
+        (noctalia "comma" "settings open")
+        (noctalia "w" "wallpaper toggle")
       ];
     };
   };

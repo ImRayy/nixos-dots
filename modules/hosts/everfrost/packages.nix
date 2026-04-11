@@ -25,9 +25,11 @@
       ncdu
       neofetch
       pv
+      taskwarrior3
       tldr
       tokei
       uv
+      gpu-screen-recorder
 
       # GUI Apps
       brave

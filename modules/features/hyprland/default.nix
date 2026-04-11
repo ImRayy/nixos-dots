@@ -21,7 +21,8 @@
     wayland.windowManager.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     wayland.windowManager.hyprland.settings = {
       exec-once = [
-        "quickshell &"
+        "noctalia-shell &"
+        # "dms run &"
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
       ];
@@ -35,8 +36,8 @@
       };
 
       general = {
-        gaps_in = 3;
-        gaps_out = 6;
+        gaps_in = 5;
+        gaps_out = 10;
         border_size = 3;
         layout = "master";
       };
@@ -48,6 +49,9 @@
       };
 
       decoration = {
+        rounding = 12;
+        rounding_power = 3;
+
         blur = {
           enabled = true;
           size = 6;
@@ -63,8 +67,6 @@
           range = 8;
           render_power = 2;
         };
-
-        rounding = 0;
       };
 
       cursor = {

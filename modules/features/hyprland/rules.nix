@@ -18,10 +18,12 @@
 
       layerrule = [
         "match:namespace selection, animation default"
-        "match:namespace (quickshell::launcher)(.*), animation popin 85%"
-        "match:namespace quickshell::powermenu, animation popin 85%"
-        "match:namespace quickshell::alert-dialog, animation slide bottom"
-        "match:namespace quickshell::wallpapers, animation slide bottom"
+        # "match:namespace (quickshell::launcher)(.*), animation popin 85%"
+        # "match:namespace quickshell::powermenu, animation popin 85%"
+        # "match:namespace quickshell::alert-dialog, animation slide bottom"
+        # "match:namespace quickshell::wallpapers, animation slide bottom"
+        "match:namespace (dms:)(.*), no_anim on"
+        "match:namespace (noctalia-)(.*), no_anim on"
       ];
     };
   };

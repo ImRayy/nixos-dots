@@ -7,4 +7,8 @@
       };
     };
   };
+
+  flake.preferences = {
+    username = "ray";
+  };
 }

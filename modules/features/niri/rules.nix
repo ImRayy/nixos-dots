@@ -10,6 +10,7 @@ in {
           bottom-left = border-radius;
           bottom-right = border-radius;
         };
+
         clip-to-geometry = true;
       }
 
@@ -20,6 +21,16 @@ in {
         ];
 
         block-out-from = "screen-capture";
+      }
+    ];
+
+    programs.niri.settings.layer-rules = [
+      {
+        matches = [
+          {namespace = "^noctalia-overview*";}
+        ];
+
+        place-within-backdrop = true;
       }
     ];
   };
