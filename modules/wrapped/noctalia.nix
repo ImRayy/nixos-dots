@@ -9,7 +9,7 @@
         inherit pkgs;
         package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
         env = {
-          "NOCTALIA_CACHE_DIR" = "/tmp/${self.preferences.username}-noctalia-cache/";
+          "NOCTALIA_CACHE_DIR" = "/home/${self.preferences.username}/.cache/noctalia";
         };
         autoCopyConfig = true;
         outOfStoreConfig = "/home/${self.preferences.username}/.config/noctalia";
