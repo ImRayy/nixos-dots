@@ -10,7 +10,7 @@
 
     programs.niri = {
       enable = true;
-      package = inputs.niri-flake.packages.${pkgs.stdenv.hostPlatform.system}.niri-stable;
+      package = pkgs.niri;
     };
 
     niri-flake.cache.enable = true;
@@ -30,6 +30,8 @@
     noctaliaExe = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia-shell;
   in {
     programs.niri.settings = {
+      xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
+
       spawn-at-startup = [
         {command = [noctaliaExe];}
         {sh = "wl-paste --type text --watch cliphist store";}
