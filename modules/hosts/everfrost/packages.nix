@@ -2,13 +2,9 @@
   flake.modules.nixos.everfrostSystemPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       # Core & System
-      cachix
-      clang
-      file
       gcc
       git
       inotify-tools
-      killall
       lsof
       openssl
       unzip
@@ -18,16 +14,11 @@
       age
       bat
       bottom
-      cliphist
       exiftool
       imagemagick
       jq
       ncdu
-      neofetch
-      pv
-      taskwarrior3
       tldr
-      tokei
       uv
       gpu-screen-recorder
 
@@ -35,23 +26,17 @@
       brave
       cryptomator
       keepassxc
-      keepassxc
       nautilus
       obsidian
-      pavucontrol
       qbittorrent
-      smile
       telegram-desktop
       wiremix
-      discord
 
       # Media & Audio
       ffmpeg
       pamixer
       playerctl
-      tauon
       yt-dlp
-      v4l-utils
 
       # Networking & Transfer
       curl
@@ -76,10 +61,6 @@
       postgresql
       python3
       sqlite
-
-      # Qt / UI Libs
-      qt5.qtquickcontrols2
-      qt5.qtgraphicaleffects
     ];
   };
 }
