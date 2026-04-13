@@ -201,6 +201,8 @@
         hotkey-overlay.title = "Noctalia: Settings";
       };
 
+      "Alt+Shift+P".action.spawn = ["${lib.getExe pkgs.tessen}"];
+
       "Mod+D".action.spawn-sh = self.mkMenu pkgs [
         {
           key = "w";
