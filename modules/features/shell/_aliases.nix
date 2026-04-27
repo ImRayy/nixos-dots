@@ -6,6 +6,7 @@ in {
   cat = "bat";
   e = "exit";
   pk = "pkill";
+  sudo = "doas";
 
   # File Management
   ls = "eza --group-directories-first --icons";

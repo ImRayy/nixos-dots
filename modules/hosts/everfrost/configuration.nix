@@ -98,6 +98,7 @@
         "lp"
         "scanner"
         "libvirtd"
+        "input"
       ];
     };
 
@@ -118,6 +119,19 @@
 
     # Enable Tailscale
     services.tailscale.enable = true;
+
+    # Use doas & disable sudo
+    security.sudo.enable = false;
+    security.doas = {
+      enable = true;
+      extraRules = [
+        {
+          users = [config.preferences.username];
+          keepEnv = true;
+          persist = false;
+        }
+      ];
+    };
 
     # NixOS Version
     # -------------
