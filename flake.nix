@@ -69,8 +69,8 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    niri-flake = {
-      url = "github:sodiboo/niri-flake";
+    helium = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
