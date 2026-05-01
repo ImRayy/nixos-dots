@@ -133,6 +133,8 @@
       ];
     };
 
+    programs.localsend.enable = true;
+
     # NixOS Version
     # -------------
     system.stateVersion = "25.11";
