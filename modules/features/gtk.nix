@@ -5,6 +5,7 @@
     ...
   }: let
     homeDir = "/home/${username}";
+    media = "/media/Storage";
   in {
     gtk = {
       enable = true;
@@ -20,7 +21,7 @@
       gtk3.bookmarks = [
         "file://${homeDir}/Documents"
         "file://${homeDir}/Downloads"
-        "file://${homeDir}/GitHub"
+        "file://${media}/GitHub"
         "file://${homeDir}/Music"
         "file://${homeDir}/Pictures"
         "file://${homeDir}/Pictures/Screenshots"
