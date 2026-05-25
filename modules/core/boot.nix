@@ -31,7 +31,7 @@
       ];
     };
     boot.supportedFilesystems = ["ntfs"];
-    boot.kernelPackages = pkgs.linuxPackages_zen;
+    boot.kernelPackages = pkgs.linuxPackages;
     boot.consoleLogLevel = 0;
     boot.initrd.verbose = false;
     boot.kernelParams = [
