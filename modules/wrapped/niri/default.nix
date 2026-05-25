@@ -20,9 +20,11 @@
     noctaliaDump = noctalia.dump-noctalia-shell;
     noctaliaCopy = noctalia.copy-noctalia-shell-config;
     border-radius = 8.0;
+    system = pkgs.stdenv.hostPlatform.system;
+    pkgsUnstable = import inputs.nixpkgs-unstable {inherit system;};
   in {
     packages.niri-wm = inputs.wrapper-modules.wrappers.niri.wrap {
-      inherit pkgs;
+      pkgs = pkgsUnstable;
 
       settings = {
         # ----------------------------------
@@ -66,6 +68,13 @@
               props.y = 5;
             };
           };
+        };
+
+        blur = {
+          passes = 2;
+          offset = 3.0;
+          noise = 0.03;
+          saturation = 1.0;
         };
 
         # ----------------------------------
@@ -300,6 +309,15 @@
           {
             geometry-corner-radius = builtins.genList (_: border-radius) 4;
             clip-to-geometry = true;
+          }
+
+          {
+            matches = [{app-id = "foot";}];
+
+            background-effect = {
+              blur = true;
+              xray = false;
+            };
           }
 
           {
