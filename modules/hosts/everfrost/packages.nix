@@ -1,6 +1,8 @@
-{
+{inputs, ...}: {
   flake.modules.nixos.everfrostSystemPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
+      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+
       # Core & System
       gcc
       git
@@ -21,15 +23,16 @@
       tldr
       uv
       gpu-screen-recorder
+      pv
 
       # GUI Apps
-      brave
+      loupe
+      zed-editor
       cryptomator
       keepassxc
       nautilus
       obsidian
       qbittorrent
-      telegram-desktop
       wiremix
 
       # Media & Audio
@@ -55,7 +58,6 @@
       docker-compose
       git-lfs
       go
-      gum
       lazydocker
       lazygit
       postgresql

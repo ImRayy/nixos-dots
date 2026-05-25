@@ -18,7 +18,7 @@
       "neofetch"
       "scripts"
       "neovim"
-      "obs-studio"
+      # "obs-studio"
       "pass"
       "printer"
       "quickshell"
@@ -91,6 +91,7 @@
     # Current User
     users.users.${config.preferences.username} = {
       isNormalUser = true;
+      shell = pkgs.bash;
       extraGroups = [
         "networkmanager"
         "wheel"
