@@ -5,7 +5,6 @@
       protonup-ng
       lutris
       heroic
-      cloudflare-warp
       winetricks
       protontricks
       wineWowPackages.wayland
@@ -39,8 +38,5 @@
 
       gamescopeSession.enable = true;
     };
-
-    systemd.packages = [pkgs.cloudflare-warp]; # for warp-cli
-    systemd.targets.multi-user.wants = ["warp-svc.service"]; # causes warp-svc to be started automatically
   };
 }

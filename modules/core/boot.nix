@@ -16,12 +16,13 @@
         enable = true;
         efiSupport = true;
         useOSProber = true;
-        gfxmodeEfi = "1920x1080";
-        theme = inputs.distro-grub-themes.packages.${system}.nixos-grub-theme;
+        # gfxmodeEfi = "1920x1080";
+        # theme = inputs.distro-grub-themes.packages.${system}.nixos-grub-theme;
       };
     };
+
     boot.plymouth = {
-      enable = true;
+      enable = false;
       theme = "cuts_alt";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {

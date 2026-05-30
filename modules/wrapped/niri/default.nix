@@ -8,6 +8,12 @@
       enable = true;
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri-wm;
     };
+
+    environment.systemPackages = with pkgs; [
+      gpu-screen-recorder
+      pamixer
+      playerctl
+    ];
   };
 
   perSystem = {
@@ -20,11 +26,9 @@
     noctaliaDump = noctalia.dump-noctalia-shell;
     noctaliaCopy = noctalia.copy-noctalia-shell-config;
     border-radius = 8.0;
-    system = pkgs.stdenv.hostPlatform.system;
-    pkgsUnstable = import inputs.nixpkgs-unstable {inherit system;};
   in {
     packages.niri-wm = inputs.wrapper-modules.wrappers.niri.wrap {
-      pkgs = pkgsUnstable;
+      inherit pkgs;
 
       settings = {
         # ----------------------------------
@@ -338,6 +342,21 @@
             place-within-backdrop = true;
           }
         ];
+
+        environment = {
+          # Mozilla
+          MOZ_DISABLE_RDD_SANDBOX = "1";
+          MOZ_ENABLE_WAYLAND = "1";
+
+          # QT
+          QT_QPA_PLATFORM = "wayland";
+          QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+          DESKTOP_SESSION = "niri";
+          OZONE_PLATFORM = "wayland";
+          ELECTRON_OZONE_PLATFORM_HINT = "auto";
+          XDG_SESSION_DESKTOP = "niri";
+        };
       };
     };
   };

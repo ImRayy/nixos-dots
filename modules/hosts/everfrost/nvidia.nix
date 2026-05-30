@@ -9,7 +9,8 @@
       modesetting.enable = true;
       open = true;
       nvidiaSettings = false;
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
+    hardware.nvidia-container-toolkit.enable = true;
   };
 }

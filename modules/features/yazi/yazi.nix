@@ -1,6 +1,5 @@
 {
   flake.modules.homeManager.yazi = {
-    lib,
     config,
     inputs,
     pkgs,
@@ -9,29 +8,13 @@
     home.packages = with pkgs; [
       ffmpeg
       trash-cli
+      exiftool
     ];
 
     programs.yazi = {
       enable = true;
       enableZshIntegration = true;
       package = inputs.yazi.packages.${pkgs.stdenv.hostPlatform.system}.default;
-      settings = {
-        enableBashIntegration = true;
-        log.enabled = false;
-        preview.max_width = 1000;
-        mgr = {
-          sort_dir_first = true;
-          linemode = "size";
-          show_symlink = true;
-          show_hidden = false;
-        };
-        plugin.prepend_previewers = [
-          {
-            mime = "audio/*";
-            run = "exifaudio";
-          }
-        ];
-      };
       keymap.mgr.prepend_keymap = [
         {
           on = ["<A-p>"];

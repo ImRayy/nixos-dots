@@ -33,7 +33,8 @@
             iconMode = "tabler";
             ignoreMouseInput = false;
             overviewLayer = false;
-            pinnedApps = [];
+            pinnedApps = [
+            ];
             position = "follow_bar";
             screenshotAnnotationTool = "";
             showCategories = false;
@@ -42,9 +43,9 @@
             terminalCommand = "foot -e";
             viewMode = "list";
           };
-
           audio = {
-            mprisBlacklist = [];
+            mprisBlacklist = [
+            ];
             preferredPlayer = "";
             spectrumFrameRate = 30;
             spectrumMirrored = true;
@@ -54,7 +55,6 @@
             volumeOverdrive = false;
             volumeStep = 5;
           };
-
           bar = {
             autoHideDelay = 500;
             autoShowDelay = 150;
@@ -75,7 +75,8 @@
             middleClickAction = "none";
             middleClickCommand = "";
             middleClickFollowMouse = false;
-            monitors = [];
+            monitors = [
+            ];
             mouseWheelAction = "none";
             mouseWheelWrap = true;
             outerCorners = true;
@@ -84,23 +85,25 @@
             rightClickAction = "controlCenter";
             rightClickCommand = "";
             rightClickFollowMouse = true;
-            screenOverrides = [];
+            screenOverrides = [
+            ];
             showCapsule = true;
             showOnWorkspaceSwitch = true;
             showOutline = false;
             useSeparateOpacity = false;
             widgetSpacing = 6;
-
             widgets = {
               center = [
                 {
-                  blacklist = [];
+                  blacklist = [
+                  ];
                   chevronColor = "none";
                   colorizeIcons = false;
                   drawerEnabled = true;
                   hidePassive = false;
                   id = "Tray";
-                  pinned = [];
+                  pinned = [
+                  ];
                 }
                 {
                   clockColor = "none";
@@ -138,7 +141,6 @@
                   visualizerType = "linear";
                 }
               ];
-
               left = [
                 {
                   colorizeSystemIcon = "none";
@@ -214,6 +216,24 @@
                 }
                 {
                   defaultSettings = {
+                    compactMode = false;
+                    defaultPeerAction = "copy-ip";
+                    hideDisconnected = false;
+                    hideMullvadExitNodes = true;
+                    pingCount = 5;
+                    refreshInterval = 5000;
+                    showIpAddress = true;
+                    showPeerCount = true;
+                    sshUsername = "";
+                    taildropDownloadDir = "~/Downloads";
+                    taildropEnabled = true;
+                    taildropReceiveMode = "operator";
+                    terminalCommand = "";
+                  };
+                  id = "plugin:tailscale";
+                }
+                {
+                  defaultSettings = {
                     completedCount = 0;
                     count = 0;
                     current_page_id = 0;
@@ -234,14 +254,17 @@
                     };
                     showBackground = true;
                     showCompleted = true;
-                    todos = [];
+                    todos = [
+                    ];
                     useCustomColors = false;
                   };
                   id = "plugin:todo";
                 }
               ];
-
               right = [
+                {
+                  id = "plugin:network-manager-vpn";
+                }
                 {
                   compactMode = false;
                   diskPath = "/";
@@ -280,13 +303,15 @@
                   textColor = "none";
                 }
                 {
-                  defaultSettings = {};
+                  defaultSettings = {
+                  };
                   id = "plugin:kde-connect";
                 }
                 {
                   defaultSettings = {
                     ai = {
-                      apiKeys = {};
+                      apiKeys = {
+                      };
                       maxHistoryLength = 100;
                       model = "gemini-2.5-flash";
                       openaiBaseUrl = "https://api.openai.com/v1/chat/completions";
@@ -360,14 +385,13 @@
               ];
             };
           };
-
           brightness = {
-            backlightDeviceMappings = [];
+            backlightDeviceMappings = [
+            ];
             brightnessStep = 5;
             enableDdcSupport = false;
             enforceMinimum = true;
           };
-
           calendar = {
             cards = [
               {
@@ -384,7 +408,6 @@
               }
             ];
           };
-
           colorSchemes = {
             darkMode = true;
             generationMethod = "tonal-spot";
@@ -396,7 +419,6 @@
             syncGsettings = true;
             useWallpaperColors = false;
           };
-
           controlCenter = {
             cards = [
               {
@@ -428,20 +450,35 @@
             position = "close_to_bar_button";
             shortcuts = {
               left = [
-                {id = "Network";}
-                {id = "Bluetooth";}
-                {id = "WallpaperSelector";}
-                {id = "NoctaliaPerformance";}
+                {
+                  id = "Network";
+                }
+                {
+                  id = "Bluetooth";
+                }
+                {
+                  id = "WallpaperSelector";
+                }
+                {
+                  id = "NoctaliaPerformance";
+                }
               ];
               right = [
-                {id = "Notifications";}
-                {id = "PowerProfile";}
-                {id = "KeepAwake";}
-                {id = "NightLight";}
+                {
+                  id = "Notifications";
+                }
+                {
+                  id = "PowerProfile";
+                }
+                {
+                  id = "KeepAwake";
+                }
+                {
+                  id = "NightLight";
+                }
               ];
             };
           };
-
           desktopWidgets = {
             enabled = true;
             gridSnap = false;
@@ -449,12 +486,12 @@
             monitorWidgets = [
               {
                 name = "HDMI-A-1";
-                widgets = [];
+                widgets = [
+                ];
               }
             ];
             overviewEnabled = true;
           };
-
           dock = {
             animationSpeed = 1;
             backgroundOpacity = 1;
@@ -476,9 +513,11 @@
             launcherIconColor = "none";
             launcherPosition = "end";
             launcherUseDistroLogo = false;
-            monitors = [];
+            monitors = [
+            ];
             onlySameOutput = true;
-            pinnedApps = [];
+            pinnedApps = [
+            ];
             pinnedStatic = false;
             position = "bottom";
             showDockIndicator = false;
@@ -486,7 +525,6 @@
             sitOnFrame = false;
             size = 1;
           };
-
           general = {
             allowPanelsOnScreenWithoutBar = true;
             allowPasswordWithFprintd = false;
@@ -506,20 +544,38 @@
             forceBlackScreenCorners = false;
             iRadiusRatio = 1;
             keybinds = {
-              "keyDown" = ["Down" "Ctrl+N"];
-              "keyEnter" = ["Return" "Enter"];
-              "keyEscape" = ["Esc"];
-              "keyLeft" = ["Left"];
-              "keyRemove" = ["Del"];
-              "keyRight" = ["Right"];
-              "keyUp" = ["Up" "Ctrl+P"];
+              keyDown = [
+                "Down"
+                "Ctrl+N"
+              ];
+              keyEnter = [
+                "Return"
+                "Enter"
+              ];
+              keyEscape = [
+                "Esc"
+              ];
+              keyLeft = [
+                "Left"
+              ];
+              keyRemove = [
+                "Del"
+              ];
+              keyRight = [
+                "Right"
+              ];
+              keyUp = [
+                "Up"
+                "Ctrl+P"
+              ];
             };
             language = "";
             lockOnSuspend = true;
             lockScreenAnimations = true;
             lockScreenBlur = 0;
             lockScreenCountdownDuration = 10000;
-            lockScreenMonitors = [];
+            lockScreenMonitors = [
+            ];
             lockScreenTint = 0;
             passwordChars = true;
             radiusRatio = 1;
@@ -536,7 +592,6 @@
             smoothScrollEnabled = true;
             telemetryEnabled = false;
           };
-
           hooks = {
             colorGeneration = "";
             darkModeChange = "";
@@ -549,7 +604,6 @@
             startup = "";
             wallpaperChange = "";
           };
-
           idle = {
             customCommands = "[]";
             enabled = false;
@@ -564,12 +618,11 @@
             suspendCommand = "";
             suspendTimeout = 1800;
           };
-
           location = {
             analogClockInCalendar = false;
             autoLocate = false;
             firstDayOfWeek = -1;
-            hideWeatherCityName = false;
+            hideWeatherCityName = true;
             hideWeatherTimezone = false;
             name = "Ranaghat";
             showCalendarEvents = true;
@@ -581,7 +634,6 @@
             weatherShowEffects = true;
             weatherTaliaMascotAlways = false;
           };
-
           network = {
             bluetoothAutoConnect = true;
             bluetoothDetailsViewMode = "grid";
@@ -592,7 +644,6 @@
             networkPanelView = "wifi";
             wifiDetailsViewMode = "grid";
           };
-
           nightLight = {
             autoSchedule = true;
             dayTemp = "6500";
@@ -602,12 +653,10 @@
             manualSunset = "18:30";
             nightTemp = "4000";
           };
-
           noctaliaPerformance = {
             disableDesktopWidgets = true;
             disableWallpaper = true;
           };
-
           notifications = {
             backgroundOpacity = 1;
             clearDismissed = true;
@@ -620,7 +669,8 @@
             enabled = true;
             location = "top_right";
             lowUrgencyDuration = 3;
-            monitors = [];
+            monitors = [
+            ];
             normalUrgencyDuration = 8;
             overlayLayer = true;
             respectExpireTimeout = false;
@@ -639,22 +689,24 @@
               volume = 0.5;
             };
           };
-
           osd = {
             autoHideMs = 2000;
             backgroundOpacity = 1;
             enabled = true;
-            enabledTypes = [0 1 2];
+            enabledTypes = [
+              0
+              1
+              2
+            ];
             location = "top_right";
-            monitors = [];
+            monitors = [
+            ];
             overlayLayer = true;
           };
-
           plugins = {
             autoUpdate = true;
             notifyUpdates = true;
           };
-
           sessionMenu = {
             countdownDuration = 10000;
             enableCountdown = true;
@@ -722,9 +774,7 @@
             showHeader = true;
             showKeybinds = true;
           };
-
           settingsVersion = 59;
-
           systemMonitor = {
             batteryCriticalThreshold = 5;
             batteryWarningThreshold = 20;
@@ -748,12 +798,11 @@
             useCustomColors = false;
             warningColor = "";
           };
-
           templates = {
-            activeTemplates = [];
+            activeTemplates = [
+            ];
             enableUserTheming = false;
           };
-
           ui = {
             boxBorderEnabled = false;
             fontDefault = "Roboto";
@@ -768,21 +817,22 @@
             tooltipsEnabled = true;
             translucentWidgets = false;
           };
-
           wallpaper = {
             automationEnabled = false;
-            directory = "~/Pictures/Wallpapers";
+            directory = "/home/ray/Pictures/Wallpapers";
             enableMultiMonitorDirectories = false;
             enabled = true;
-            favorites = [];
+            favorites = [
+            ];
             fillColor = "#000000";
             fillMode = "crop";
             hideWallpaperFilenames = false;
             linkLightAndDarkWallpapers = true;
-            monitorDirectories = [];
-            overviewBlur = 0.4;
-            overviewEnabled = false;
-            overviewTint = 0.6;
+            monitorDirectories = [
+            ];
+            overviewBlur = 0.8;
+            overviewEnabled = true;
+            overviewTint = 0.4;
             panelPosition = "center";
             randomIntervalSec = 300;
             setWallpaperOnAllMonitors = true;
@@ -792,7 +842,14 @@
             sortOrder = "name";
             transitionDuration = 1500;
             transitionEdgeSmoothness = 0.05;
-            transitionType = ["fade" "disc" "stripes" "wipe" "pixelate" "honeycomb"];
+            transitionType = [
+              "fade"
+              "disc"
+              "stripes"
+              "wipe"
+              "pixelate"
+              "honeycomb"
+            ];
             useOriginalImages = false;
             useSolidColor = false;
             useWallhaven = false;
@@ -819,50 +876,56 @@
               url = "https://github.com/noctalia-dev/noctalia-plugins";
             }
           ];
-
           states = {
-            "assistant-panel" = {
+            assistant-panel = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
-            "kaomoji-provider" = {
+            kaomoji-provider = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
-            "kde-connect" = {
+            kde-connect = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
-            "mini-docker" = {
+            mini-docker = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
-            "notes-scratchpad" = {
+            network-manager-vpn = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
-            "screen-recorder" = {
+            notes-scratchpad = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
-            "screenshot" = {
+            screen-recorder = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
-            "todo" = {
+            screenshot = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
-            "usb-drive-manager" = {
+            tailscale = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
-            "weather-indicator" = {
+            todo = {
+              enabled = true;
+              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+            };
+            usb-drive-manager = {
+              enabled = true;
+              sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+            };
+            weather-indicator = {
               enabled = true;
               sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
             };
           };
-
           version = 2;
         };
 

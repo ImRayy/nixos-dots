@@ -4,7 +4,6 @@
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       # Core & System
-      gcc
       git
       inotify-tools
       lsof
@@ -16,14 +15,15 @@
       age
       bat
       bottom
-      exiftool
       imagemagick
       jq
       ncdu
       tldr
       uv
-      gpu-screen-recorder
       pv
+      cloudflare-warp
+      television
+      android-tools
 
       # GUI Apps
       loupe
@@ -33,17 +33,13 @@
       nautilus
       obsidian
       qbittorrent
-      wiremix
 
       # Media & Audio
       ffmpeg
-      pamixer
-      playerctl
       yt-dlp
 
       # Networking & Transfer
       curl
-      nix-prefetch-git
       rclone
       wget
 
@@ -55,14 +51,15 @@
 
       # Development
       cargo
-      docker-compose
-      git-lfs
       go
       lazydocker
       lazygit
       postgresql
       python3
       sqlite
+      bun
+      pipx
+      volta
     ];
   };
 }

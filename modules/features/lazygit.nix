@@ -1,12 +1,5 @@
 {
-  flake.modules.homeManager.lazygit = {
-    config,
-    lib,
-    ...
-  }: let
-    accent = "#${config.lib.stylix.colors.base0D}";
-    muted = "#${config.lib.stylix.colors.base03}";
-  in {
+  flake.modules.homeManager.lazygit = {lib, ...}: {
     programs.lazygit = {
       enable = true;
       settings = lib.mkForce {
@@ -19,10 +12,6 @@
           parseEmoji = true;
         };
         gui = {
-          theme = {
-            activeBorderColor = [accent "bold"];
-            inactiveBorderColor = [muted];
-          };
           showListFooter = false;
           showRandomTip = false;
           showCommandLog = false;

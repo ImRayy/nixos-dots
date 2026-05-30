@@ -1,36 +1,29 @@
 {
-  flake.modules.homeManager.yazi = {
+  flake.modules.homeManager.anythingelse = {
     pkgs,
     config,
     ...
   }: let
     gh-common = "https://raw.githubusercontent.com";
     yazi-rs-common = "${gh-common}/yazi-rs/plugins/refs/heads/main";
-    myrepo = "${gh-common}/ImRayy/doftiles/refs/heads/master/.config/yazi/plugins";
     targetDir = "${config.home.homeDirectory}/.config/yazi/plugins";
-
-    setwall = pkgs.fetchurl {
-      url = "${myrepo}/set-wall.yazi/init.lua";
-      sha256 = "1ivswqjfyrir4vjwv9v4fvzridmh08j8p4kw5yn9z19qq292dh08";
-    };
 
     compress = pkgs.fetchurl {
       url = "${gh-common}/KKV9/compress.yazi/refs/heads/main/main.lua";
-      sha256 = "071647k0r8kacxkvq12hi1i1di1s49n429dkball86z6y5cvcli5";
+      sha256 = "041wk9n56fdz0mg5zwjc0faf5l4x9cz119a6icab4m72bzswf32f";
     };
 
     chmod = pkgs.fetchurl {
       url = "${yazi-rs-common}/chmod.yazi/main.lua";
-      sha256 = "1n1afi95gklyw6gja14cnnihj3pm93q5a2rn49a302j01n2pg3jh";
+      sha256 = "0s4gscnq529lg9r1b7nsrssc02g5hhq3fjmlzjzzpbdqn7js22m1";
     };
 
     mount = pkgs.fetchurl {
       url = "${yazi-rs-common}/mount.yazi/main.lua";
-      sha256 = "0sp799rpid1lhysjgycwxj43x4si6hkmq8m5miszwxav304102v5";
+      sha256 = "0ajs6md0b8ir16aa5xid7c14lza0fyjficwrb5z2rssfmxldvjng";
     };
   in {
     xdg.configFile = {
-      "${targetDir}/set-wall.yazi/main.lua".source = setwall;
       "${targetDir}/compress.yazi/main.lua".source = compress;
       "${targetDir}/chmod.yazi/main.lua".source = chmod;
       "${targetDir}/mount.yazi/main.lua".source = mount;

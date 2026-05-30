@@ -81,12 +81,6 @@
       programs.foot.settings = {
         main = {
           inherit shell;
-          font = lib.mkForce (
-            "${config.stylix.fonts.monospace.name}:size=12.5"
-            + ":fontfeatures=calt"
-            + ":fontfeatures=dlig"
-            + ":fontfeatures=liga,termicons:size=12"
-          );
           line-height = 16.5;
           term = "xterm-256color";
           selection-target = "clipboard";

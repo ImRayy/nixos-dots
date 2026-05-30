@@ -1,5 +1,5 @@
-let
-  colorScheme = ./themes/gruvbox/gruvbox.yaml;
+{lib, ...}: let
+  colorScheme = ./themes/rosepine/rosepine.yaml;
 in {
   flake.modules.nixos.theme = {pkgs, ...}: {
     stylix.image = pkgs.fetchurl {
@@ -43,13 +43,12 @@ in {
     };
   };
 
-  flake.modules.homeManager.theme = {
+  flake.modules.homeManager.theme = {config, ...}: {
     stylix = {
       enable = true;
       targets = {
         foot.enable = true;
         hyprland.enable = true;
-        niri.enable = true;
         zellij.enable = true;
         gtk.enable = true;
         fzf.enable = true;
@@ -62,6 +61,35 @@ in {
         zen-browser.enable = true;
         zen-browser.profileNames = ["default"];
       };
+    };
+
+    # Starship
+    programs.starship.settings = lib.mkMerge [
+      {
+        directory = lib.mkForce (
+          with config.lib.stylix.colors; {
+            format = " [](fg:#${base05})[$path](bg:#${base05} fg:bold #${base00})[](fg:#${base05})";
+
+            read_only = "󰌾 ";
+            truncation_length = 6;
+            truncation_symbol = "~/.../";
+          }
+        );
+      }
+    ];
+
+    # Foot terminal
+    programs.foot.settings = {
+      main = lib.mkMerge [
+        {
+          font = lib.mkForce (
+            "${config.stylix.fonts.monospace.name}:size=12.5"
+            + ":fontfeatures=calt"
+            + ":fontfeatures=dlig"
+            + ":fontfeatures=liga,termicons:size=12"
+          );
+        }
+      ];
     };
   };
 }

@@ -1,6 +1,6 @@
 {
   settings = {
-    "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled" = true;
+    "media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled" = false;
     "zen.urlbar.replace-newtab" = false;
 
     # disable password manager stuff

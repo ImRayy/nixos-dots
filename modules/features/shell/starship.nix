@@ -47,16 +47,6 @@
           format = "took [$duration]($style)";
         };
 
-        directory = lib.mkForce (
-          with config.lib.stylix.colors; {
-            format = " [](fg:#${base05})[$path](bg:#${base05} fg:bold #${base00})[](fg:#${base05})";
-
-            read_only = "󰌾 ";
-            truncation_length = 6;
-            truncation_symbol = "~/.../";
-          }
-        );
-
         # GIT
         git_branch = {
           format = " [$symbol$branch]($style) ";

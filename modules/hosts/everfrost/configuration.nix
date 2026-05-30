@@ -5,10 +5,11 @@
     ...
   }: let
     modules = [
+      "ai"
       "desktop"
       "docker"
       "fish"
-      "gaming"
+      # "gaming"
       "gtk"
       # "hyprland"
       "niri"
@@ -20,8 +21,8 @@
       "neovim"
       # "obs-studio"
       "pass"
-      "printer"
-      "quickshell"
+      # "printer"
+      # "quickshell"
       "shell-extras"
       "starship"
       "syncthing"
@@ -33,6 +34,14 @@
     nix.settings.trusted-users = [config.preferences.username];
     nix.settings.warn-dirty = false;
     nixpkgs.config.allowUnfree = true;
+
+    nixpkgs.overlays = [
+      (final: prev: {
+        pipx = prev.pipx.overridePythonAttrs (old: {
+          doCheck = false;
+        });
+      })
+    ];
 
     imports =
       [
@@ -67,9 +76,6 @@
       excludePackages = with pkgs; [nano xterm];
     };
 
-    # Enable ADB
-    programs.adb.enable = true;
-
     # nix-ld: run unpatched dynamic binaries
     programs.nix-ld = {
       enable = true;
@@ -100,6 +106,7 @@
         "scanner"
         "libvirtd"
         "input"
+        "docker"
       ];
     };
 
@@ -135,6 +142,9 @@
     };
 
     programs.localsend.enable = true;
+
+    systemd.packages = [pkgs.cloudflare-warp]; # for warp-cli
+    systemd.targets.multi-user.wants = ["warp-svc.service"]; # causes warp-svc to be started automatically
 
     # NixOS Version
     # -------------
