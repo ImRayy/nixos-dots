@@ -94,10 +94,12 @@
       "flakes"
     ];
 
+    programs.fish.enable = true;
+
     # Current User
     users.users.${config.preferences.username} = {
       isNormalUser = true;
-      shell = pkgs.bash;
+      shell = pkgs.fish;
       extraGroups = [
         "networkmanager"
         "wheel"

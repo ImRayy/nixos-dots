@@ -1,6 +1,6 @@
-{inputs, ...}: {
+{
   flake.modules.nixos.core = {pkgs, ...}: let
-    system = pkgs.stdenv.hostPlatform.system;
+    # system = pkgs.stdenv.hostPlatform.system;
   in {
     boot.tmp.useTmpfs = true;
     boot.tmp.tmpfsSize = "30%";
@@ -37,14 +37,15 @@
     boot.initrd.verbose = false;
     boot.kernelParams = [
       "nvidia-drm.modeset=1"
-      # "nvidia-drm.fbdev=1"
-      "quiet"
-      "splash"
       "loglevel=3"
-      "boot.shell_on_fail"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
       "udev.log_priority=3"
+
+      ## Enable followings if using plymouth
+      # "quiet"
+      # "splash"
+      # "boot.shell_on_fail"
+      # "rd.systemd.show_status=false"
+      # "rd.udev.log_level=3"
     ];
   };
 }

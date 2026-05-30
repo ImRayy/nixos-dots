@@ -12,7 +12,7 @@ in {
       autoEnable = false;
       base16Scheme = colorScheme;
       polarity = "dark";
-      opacity.terminal = 0.8;
+      opacity.terminal = 1.0;
     };
 
     stylix.targets = {
