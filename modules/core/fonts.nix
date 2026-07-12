@@ -15,9 +15,10 @@
         noto-fonts
         dejavu_fonts
         liberation_ttf
-        nerd-fonts.commit-mono
+        inter
         nerd-fonts.jetbrains-mono
-        nerd-fonts.zed-mono
+        nerd-fonts.blex-mono
+        nerd-fonts.lilex
       ];
     };
   };

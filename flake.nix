@@ -57,18 +57,12 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    helium = {
-      url = "github:schembriaiden/helium-browser-nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     wrappers.url = "github:Lassulus/wrappers";
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);

@@ -11,8 +11,10 @@
 
     environment.systemPackages = with pkgs; [
       gpu-screen-recorder
+      hyprpicker
       pamixer
       playerctl
+      wl-clipboard
     ];
   };
 
@@ -21,10 +23,6 @@
     lib,
     ...
   }: let
-    noctalia = self.packages.${pkgs.stdenv.hostPlatform.system}.noctalia-shell;
-    noctaliaExec = lib.getExe noctalia;
-    noctaliaDump = noctalia.dump-noctalia-shell;
-    noctaliaCopy = noctalia.copy-noctalia-shell-config;
     border-radius = 8.0;
   in {
     packages.niri-wm = inputs.wrapper-modules.wrappers.niri.wrap {
@@ -42,9 +40,10 @@
         # STARTUP APPS
         # ----------------------------------
         spawn-at-startup = [
-          noctaliaExec
+          "noctalia"
           "wl-paste --type text --watch cliphist store"
           "wl-paste --type image --watch cliphist store"
+          "foot --server"
         ];
 
         # ----------------------------------
@@ -119,11 +118,13 @@
           # --- Media Keys ---
           "XF86AudioRaiseVolume" = _: {
             props.allow-when-locked = true;
-            content.spawn = ["sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"];
+            # content.spawn = ["sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"];
+            content.spawn-sh = "noctalia msg volume-up";
           };
           "XF86AudioLowerVolume" = _: {
             props.allow-when-locked = true;
-            content.spawn = ["sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"];
+            # content.spawn = ["sh" "-c" "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"];
+            content.spawn-sh = "noctalia msg volume-down";
           };
           "XF86AudioMute" = _: {
             props.allow-when-locked = true;
@@ -246,27 +247,23 @@
 
           # --- Noctalia Shell ---
           "Mod+A" = _: {
-            content.spawn-sh = "${noctaliaExec} ipc call launcher toggle";
+            content.spawn-sh = "noctalia msg panel-toggle launcher";
             props.hotkey-overlay-title = "Noctalia: Launcher";
           };
           "Mod+V" = _: {
-            content.spawn-sh = "${noctaliaExec} ipc call launcher clipboard";
+            content.spawn-sh = "noctalia msg panel-toggle clipboard";
             props.hotkey-overlay-title = "Noctalia: Clipboard";
           };
           "Mod+C" = _: {
-            content.spawn-sh = "${noctaliaExec} ipc call calendar toggle";
+            content.spawn-sh = "noctalia msg panel-toggle control-center";
             props.hotkey-overlay-title = "Noctalia: Calendar";
           };
           "Mod+X" = _: {
-            content.spawn-sh = "${noctaliaExec} ipc call sessionMenu toggle";
+            content.spawn-sh = "noctalia msg panel-toggle session";
             props.hotkey-overlay-title = "Noctalia: Session Menu";
           };
-          "Mod+M" = _: {
-            content.spawn-sh = "${noctaliaExec} ipc call systemMonitor toggle";
-            props.hotkey-overlay-title = "Noctalia: System Monitor";
-          };
           "Mod+Comma" = _: {
-            content.spawn-sh = "${noctaliaExec} ipc call settings open";
+            content.spawn-sh = "noctalia msg settings-open";
             props.hotkey-overlay-title = "Noctalia: Settings";
           };
 
@@ -276,32 +273,22 @@
             {
               key = "w";
               desc = "Wallpapers";
-              cmd = "${noctaliaExec} ipc call wallpaper toggle";
+              cmd = "noctalia msg panel-toggle wallpaper";
             }
             {
               key = "W";
               desc = "Window Switcher";
-              cmd = "${noctaliaExec} ipc call launcher windows";
+              cmd = "noctalia msg window-switcher";
             }
             {
               key = "n";
-              desc = "Notes Scratchpa";
-              cmd = "${noctaliaExec} ipc call plugin:notes-scratchpad togglePanel";
+              desc = "Launch Obsidian";
+              cmd = "obsidian";
             }
             {
-              key = "t";
-              desc = "Todos";
-              cmd = "${noctaliaExec} ipc call plugin:todo togglePanel";
-            }
-            {
-              key = "k";
-              desc = "KDE Connect";
-              cmd = "${noctaliaExec} ipc call plugin:kde-connect toggle";
-            }
-            {
-              key = "r";
-              desc = "Reset Shell";
-              cmd = "${noctaliaDump}; ${noctaliaCopy}; pkill quickshell; ${noctaliaExec}";
+              key = "b";
+              desc = "Launch zen browser";
+              cmd = "zen-beta";
             }
           ];
         };
@@ -336,7 +323,7 @@
         layer-rules = [
           {
             matches = [
-              {namespace = "^noctalia-overview*";}
+              {namespace = "^noctalia-backdrop";}
             ];
 
             place-within-backdrop = true;
@@ -356,6 +343,9 @@
           OZONE_PLATFORM = "wayland";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
           XDG_SESSION_DESKTOP = "niri";
+
+          # Golang
+          GOMEMLIMIT = "2048MiB";
         };
       };
     };
