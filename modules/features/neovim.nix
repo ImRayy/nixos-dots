@@ -1,15 +1,24 @@
 {
-  flake.modules.nixos.neovim = {
-    environment.variables = {
-      EDITOR = "nvim";
-    };
-  };
-
   flake.modules.homeManager.neovim = {pkgs, ...}: {
+    programs.neovim = {
+      enable = true;
+      withNodeJs = true;
+      withPython3 = true;
+      viAlias = true;
+      vimAlias = true;
+      defaultEditor = true;
+
+      initLua = ''
+        require("config.lazy")
+      '';
+
+      extraPackages = with pkgs; [
+        nixd
+        alejandra
+      ];
+    };
+
     home.packages = with pkgs; [
-      neovim
-      nixd
-      alejandra
       gcc
       neovide
       ripgrep

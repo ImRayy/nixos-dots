@@ -1,8 +1,6 @@
-{inputs, ...}: {
+{
   flake.modules.nixos.everfrostSystemPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
-
       # Core & System
       git
       inotify-tools
@@ -10,6 +8,7 @@
       openssl
       unzip
       zip
+      taskwarrior3
 
       # Cli Utilities
       age
@@ -37,6 +36,7 @@
       # Media & Audio
       ffmpeg
       yt-dlp
+      bitwarden-cli
 
       # Networking & Transfer
       curl
@@ -60,6 +60,7 @@
       bun
       pipx
       volta
+      gnumake
     ];
   };
 }
