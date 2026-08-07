@@ -29,6 +29,7 @@
       "terminal"
       "theme"
       "yazi"
+      "secretspec"
     ];
   in {
     nix.settings.trusted-users = [config.preferences.username];
@@ -66,7 +67,6 @@
     networking.hostName = "EverFrost";
 
     # To support mtp/android file transfer
-    services.ipp-usb.enable = true;
     services.gvfs.enable = true;
 
     # Other services
