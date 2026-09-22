@@ -8,7 +8,6 @@
       openssl
       unzip
       zip
-      taskwarrior3
 
       # Cli Utilities
       age
@@ -21,26 +20,21 @@
       uv
       pv
       cloudflare-warp
-      television
       android-tools
+      scrcpy
+      zathura
 
       # GUI Apps
       loupe
-      zed-editor
       cryptomator
-      keepassxc
       nautilus
-      obsidian
       qbittorrent
 
       # Media & Audio
       ffmpeg
-      yt-dlp
-      bitwarden-cli
 
       # Networking & Transfer
       curl
-      rclone
       wget
 
       # Hardware & Drivers
@@ -60,7 +54,9 @@
       bun
       pipx
       volta
-      gnumake
+
+      # Spell Dictionaries
+      hunspellDicts.en_US
     ];
   };
 }

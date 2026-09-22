@@ -2,7 +2,9 @@
   flake.modules.homeManager.desktop = let
     defaults = import ./_firefoxSettings.nix;
   in {
-    imports = [inputs.zen-browser.homeModules.beta];
+    imports = [
+      inputs.zen-browser.homeModules.beta
+    ];
 
     programs.zen-browser = {
       enable = true;

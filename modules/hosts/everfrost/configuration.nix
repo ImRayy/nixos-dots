@@ -5,7 +5,7 @@
     ...
   }: let
     modules = [
-      "ai"
+      # "ai"
       "desktop"
       "docker"
       "fish"
@@ -30,6 +30,7 @@
       "theme"
       "yazi"
       "secretspec"
+      "llm-agents"
     ];
   in {
     nix.settings.trusted-users = [config.preferences.username];
@@ -128,7 +129,7 @@
     services.openssh.enable = true;
 
     # Enable Tailscale
-    services.tailscale.enable = true;
+    services.tailscale.enable = false;
 
     # Use doas & disable sudo
     security.sudo.enable = false;

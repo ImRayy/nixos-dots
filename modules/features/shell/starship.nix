@@ -1,9 +1,5 @@
 {
-  flake.modules.homeManager.starship = {
-    config,
-    lib,
-    ...
-  }: let
+  flake.modules.homeManager.starship = {lib, ...}: let
     lang = icon: color: {
       symbol = icon;
       format = "[$symbol](${color})";

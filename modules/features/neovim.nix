@@ -9,12 +9,18 @@
       defaultEditor = true;
 
       initLua = ''
-        require("config.lazy")
+        require("core.lazy")
+        require("core.options")
+        require("core.keybindings")
+        require("core.cmds")
+        require("core.gui")
       '';
 
       extraPackages = with pkgs; [
         nixd
         alejandra
+        luarocks
+        tree-sitter
       ];
     };
 
