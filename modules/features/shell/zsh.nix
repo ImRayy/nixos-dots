@@ -5,7 +5,11 @@
     ...
   }: {
     users.users.${config.preferences.username}.shell = pkgs.zsh;
-    programs.zsh.enable = true;
+
+    programs.zsh = {
+      enable = true;
+      enableGlobalCompInit = false;
+    };
   };
 
   flake.modules.homeManager.zsh = {
@@ -14,13 +18,13 @@
     ...
   }: let
     home = config.home.homeDirectory;
+
     paths = [
       ".bun/bin"
       ".local/share/go/bin"
       ".volta/bin"
       "go/bin"
     ];
-    pathString = builtins.concatStringsSep ":" (map (x: "${home}/${x}") paths);
 
     sources = with pkgs; [
       "${zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh"
@@ -30,11 +34,19 @@
       "${zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh"
     ];
 
+    # Generate init scripts at build time instead of forking binaries on every shell start
+    anyNixShellInit = pkgs.runCommand "any-nix-shell-zsh-init" {} ''
+      ${pkgs.any-nix-shell}/bin/any-nix-shell zsh --info-right > $out
+    '';
+
     plugins = builtins.concatStringsSep "\n" ([
-        "${pkgs.any-nix-shell}/bin/any-nix-shell zsh --info-right | source /dev/stdin"
+        "source ${anyNixShellInit}"
       ]
       ++ map (file: "source ${file}") sources);
   in {
+    # Replaces the manual `export PATH=...` in .zshenv (no duplicates in nested shells)
+    home.sessionPath = map (x: "${home}/${x}") paths;
+
     home.sessionVariables = {
       SHELL = "${pkgs.zsh}/bin/zsh";
     };
@@ -43,14 +55,19 @@
       enable = true;
       shellAliases = import ./_aliases.nix;
       enableCompletion = true;
+
+      # -C skips the security check and dump regeneration (much faster).
+      # If a new completion doesn't show up, run: rm -f ~/.zcompdump*
+      completionInit = "autoload -Uz compinit && compinit -C";
+
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+
       initContent =
         #bash
         ''
           ${plugins}
 
-          setopt HIST_IGNORE_DUPS
           setopt HIST_IGNORE_ALL_DUPS
           setopt HIST_FIND_NO_DUPS
           setopt INC_APPEND_HISTORY
@@ -62,13 +79,6 @@
           # terminal before loading zsh, followed by the % prompt.
           unsetopt PROMPT_SP
 
-          bindkey -e
-
-          # The following lines were added by compinstall
-          zstyle :compinstall filename '~/.zshrc'
-          autoload -Uz compinit
-          compinit
-
           # Set case sensitive to false like Fish shell
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
@@ -78,15 +88,18 @@
 
           # Rebind keys removed by zsh-vi-mode plugin
           function zvm_after_init() {
-              # bindkey "^[[A" fzf-history-widget
-              # bindkey '^R'   fzf-history-widget
               eval "$(${pkgs.atuin}/bin/atuin init zsh --disable-up-arrow)"
+
+              bindkey '^[[A' history-substring-search-up
+              bindkey '^[OA' history-substring-search-up
+              bindkey '^[[B' history-substring-search-down
+              bindkey '^[OB' history-substring-search-down
           }
         '';
+
       envExtra =
         #zsh
         ''
-          export PATH="${pathString}:$PATH"
           export ZLE_RPROMPT_INDENT=0
         '';
     };
