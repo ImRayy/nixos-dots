@@ -56,4 +56,7 @@ in {
 
   # Printing
   printer-scan = "scanimage --format=png --output-file output.png --progress";
+
+  # PI
+  pi = "secretspec -f /home/ray/.pi/secretspec.toml run --provider pass -- pi";
 }

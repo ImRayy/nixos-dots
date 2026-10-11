@@ -21,7 +21,9 @@
 
     paths = [
       ".bun/bin"
+      ".local/bin"
       ".local/share/go/bin"
+      ".local/share/pipx/venvs/graphifyy"
       ".volta/bin"
       "go/bin"
     ];
