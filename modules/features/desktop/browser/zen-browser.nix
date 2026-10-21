@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.modules.homeManager.desktop = {pkgs, ...}: let
+  flake.modules.homeManager.desktop = let
     defaults = import ./_firefoxSettings.nix;
   in {
     imports = [
@@ -14,17 +14,6 @@
         isDefault = true;
         inherit (defaults) settings;
       };
-    };
-
-    programs.chromium = {
-      enable = true;
-      package = pkgs.brave;
-      extensions = [
-        "joggkdfebigddmaagckekihhfncdobff" # Le Git Graph
-        "bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc" # Material Icons for GitHub
-        "ghmbeldphafepmbegfdlkpapadhbakde" # Proton Pass
-        "amknoiejhlmhancpahfcfcfhllgkpbld" # Hoppscotch
-      ];
     };
   };
 }

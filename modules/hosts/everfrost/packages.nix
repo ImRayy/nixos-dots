@@ -28,6 +28,8 @@
       # TUI
       resterm
       posting
+      lazydocker
+      lazygit
 
       # GUI Apps
       loupe
@@ -35,6 +37,7 @@
       nautilus
       qbittorrent
       zed-editor
+      obsidian
 
       # Media & Audio
       ffmpeg
@@ -50,16 +53,15 @@
       usbutils
 
       # Development
+      bun
       cargo
       go
-      lazydocker
-      lazygit
+      nodejs_22
+      pipx
+      pnpm
       postgresql
       python3
-      sqld
-      bun
-      pipx
-      volta
+      sqlite
 
       # Spell Dictionaries
       hunspellDicts.en_US
