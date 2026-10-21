@@ -23,12 +23,18 @@
       android-tools
       scrcpy
       zathura
+      gh
+
+      # TUI
+      resterm
+      posting
 
       # GUI Apps
       loupe
       cryptomator
       nautilus
       qbittorrent
+      zed-editor
 
       # Media & Audio
       ffmpeg
@@ -50,7 +56,7 @@
       lazygit
       postgresql
       python3
-      sqlite
+      sqld
       bun
       pipx
       volta

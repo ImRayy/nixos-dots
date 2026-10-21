@@ -1,6 +1,5 @@
 {
   flake.modules.nixos.core = {pkgs, ...}: let
-    # system = pkgs.stdenv.hostPlatform.system;
   in {
     boot.tmp.useTmpfs = true;
     boot.tmp.tmpfsSize = "30%";
@@ -16,21 +15,9 @@
         enable = true;
         efiSupport = true;
         useOSProber = true;
-        # gfxmodeEfi = "1920x1080";
-        # theme = inputs.distro-grub-themes.packages.${system}.nixos-grub-theme;
       };
     };
 
-    boot.plymouth = {
-      enable = false;
-      theme = "cuts_alt";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          # source: https://github.com/adi1090x/plymouth-themes
-          selected_themes = ["cuts_alt"];
-        })
-      ];
-    };
     boot.supportedFilesystems = ["ntfs"];
     boot.kernelPackages = pkgs.linuxPackages;
     boot.consoleLogLevel = 0;
@@ -39,13 +26,6 @@
       "nvidia-drm.modeset=1"
       "loglevel=3"
       "udev.log_priority=3"
-
-      ## Enable followings if using plymouth
-      # "quiet"
-      # "splash"
-      # "boot.shell_on_fail"
-      # "rd.systemd.show_status=false"
-      # "rd.udev.log_level=3"
     ];
   };
 }

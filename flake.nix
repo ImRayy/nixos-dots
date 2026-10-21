@@ -6,7 +6,6 @@
       "https://cache.nixos.org"
       "https://nix-community.cachix.org"
       "https://yazi.cachix.org"
-      "https://cache.nixos-cuda.org"
       "https://hyprland.cachix.org"
       "https://niri.cachix.org"
       "https://noctalia.cachix.org"
@@ -17,7 +16,6 @@
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
-      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
@@ -27,7 +25,7 @@
   };
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     home-manager = {
@@ -48,7 +46,6 @@
       };
     };
 
-    distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     yazi.url = "github:sxyazi/yazi";
 
     hyprland.url = "github:hyprwm/Hyprland";
@@ -68,6 +65,11 @@
     };
 
     llm-agents.url = "github:numtide/llm-agents.nix";
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);

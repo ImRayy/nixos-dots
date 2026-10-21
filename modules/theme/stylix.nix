@@ -27,8 +27,10 @@ in {
       };
 
       sansSerif = {
-        package = pkgs.nerd-fonts.lilex;
-        name = "Lilex Nerd Font";
+        package = pkgs.cantarell-fonts;
+        name = "Cantarell";
+        # package = pkgs.nerd-fonts.lilex;
+        # name = "Lilex Nerd Font";
       };
 
       monospace = {
