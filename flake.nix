@@ -9,8 +9,8 @@
       "https://hyprland.cachix.org"
       "https://niri.cachix.org"
       "https://noctalia.cachix.org"
-      "https://llama-cpp.cachix.org"
       "https://cache.numtide.com"
+      "https://cache.nixos-cuda.org"
     ];
     extra-trusted-substituters = ["https://hyprland.cachix.org"];
     extra-trusted-public-keys = [
@@ -19,8 +19,8 @@
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-      "llama-cpp.cachix.org-1:H75X+w83wUKTIPSO1KWy9ADUrzThyGs8P5tmAbkWhQc=" # nixpkgs-unstable [8983]
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
     ];
   };
 
