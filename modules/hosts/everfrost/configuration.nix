@@ -17,7 +17,7 @@
       "kdeconnect"
       "lazygit"
       "mpv"
-      "neofetch"
+      "fastfetch"
       "scripts"
       "neovim"
       # "obs-studio"
