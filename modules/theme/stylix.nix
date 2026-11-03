@@ -50,7 +50,6 @@ in {
       enable = true;
       targets = {
         foot.enable = true;
-        hyprland.enable = true;
         zellij.enable = true;
         gtk.enable = true;
         fzf.enable = true;

@@ -3,7 +3,7 @@
 
 ## Applications
 
-- [Hyprland](https://hyprland.org/) or [Niri](https://github.com/niri-wm/niri) - compositor/window-manager
+- [Niri](https://github.com/niri-wm/niri) - compositor/window-manager
 - [Noctalia Shell](https://noctalia.dev/) - top bar, Launcher, Notificatons etc.
 - [Foot](https://codeberg.org/dnkl/foot) - terminal
 - [Yazi](https://github.com/sxyazi/yazi) - TUI file explorer, [Nautilus](https://apps.gnome.org/en-GB/Nautilus/) - GUI file explorer

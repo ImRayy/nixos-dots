@@ -6,7 +6,7 @@
       settings.default_session = let
         tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
       in {
-        command = "${tuigreet} --time --remember-session --cmd star-hyprland";
+        command = "${tuigreet} --time --remember-session --cmd niri";
       };
     };
 
