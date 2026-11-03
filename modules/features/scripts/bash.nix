@@ -108,6 +108,26 @@
         ${pkgs.qrcodegen}/bin/qrcodegen -t ansiutf8 "WIFI:T:WPA;S:$1;P:$2;"
       '';
     };
+
+    # ---------------------------------------------------------------------------
+    # Zellij session manager
+    # ---------------------------------------------------------------------------
+    zellijSessionManager = pkgs.writeShellApplication {
+      name = "zsm";
+      runtimeInputs = [
+        pkgs.zellij
+        pkgs.fzf
+      ];
+      text =
+        #bash
+        ''
+          zellij ls -s | fzf \
+            --header 'Enter: attach | Ctrl-X: kill | Ctrl-D: delete' \
+            --bind 'enter:execute(zellij attach {})+abort' \
+            --bind 'ctrl-x:execute(zellij kill-session {})+reload(zellij ls -s)' \
+            --bind 'ctrl-d:execute(zellij delete-session {})+reload(zellij ls -s)'
+        '';
+    };
   in {
     home.packages = [
       removeSystemGens
@@ -117,6 +137,7 @@
       getPlaylistTitles
       downloadYtPlaylist
       generateWifiCode
+      zellijSessionManager
     ];
   };
 }
