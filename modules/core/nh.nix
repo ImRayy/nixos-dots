@@ -1,7 +1,7 @@
 {
   flake.modules.nixos.core = {config, ...}: {
     programs.nh = {
-      enable = false;
+      enable = true;
       clean = {
         enable = true;
         extraArgs = "--keep 5 --keep-since 7d";

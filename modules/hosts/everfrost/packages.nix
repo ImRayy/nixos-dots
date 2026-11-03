@@ -15,7 +15,6 @@
       bottom
       imagemagick
       jq
-      ncdu
       tldr
       uv
       pv
@@ -23,21 +22,20 @@
       android-tools
       scrcpy
       zathura
-      gh
+      zed-editor
+      doppler
 
       # TUI
-      resterm
       posting
       lazydocker
-      lazygit
 
       # GUI Apps
       loupe
       cryptomator
       nautilus
       qbittorrent
-      zed-editor
       obsidian
+      proton-pass
 
       # Media & Audio
       ffmpeg
@@ -62,9 +60,6 @@
       postgresql
       python3
       sqlite
-
-      # Spell Dictionaries
-      hunspellDicts.en_US
     ];
   };
 }
