@@ -21,6 +21,11 @@
           run = "cd ${config.home.homeDirectory}/Pictures";
         }
       ];
+      settings = {
+        plugin = {
+          preloaders = [];
+        };
+      };
       # theme = lib.mkForce (
       #   with config.lib.stylix.colors; {
       #     mode = {
