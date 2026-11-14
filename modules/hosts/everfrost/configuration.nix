@@ -30,6 +30,7 @@
       "yazi"
       "secretspec"
       "llm-agents"
+      "ytm-rs"
     ];
   in {
     nix.settings.trusted-users = [config.preferences.username];
