@@ -1,5 +1,5 @@
 let
-  browser = "zen-beta.desktop";
+  browser = "helium.desktop";
   image = "org.gnome.Loupe.desktop";
 
   fileAssociations = {
