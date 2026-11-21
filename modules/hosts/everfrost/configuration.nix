@@ -31,6 +31,7 @@
       "secretspec"
       "llm-agents"
       "ytm-rs"
+      "helium"
     ];
   in {
     nix.settings.trusted-users = [config.preferences.username];

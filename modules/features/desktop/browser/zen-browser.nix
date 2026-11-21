@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.modules.homeManager.desktop = let
+  flake.modules.homeManager.zen-browser = let
     defaults = import ./_firefoxSettings.nix;
   in {
     imports = [
