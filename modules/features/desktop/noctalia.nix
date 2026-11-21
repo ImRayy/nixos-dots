@@ -1,7 +1,12 @@
 {inputs, ...}: {
-  flake.modules.nixos.desktop = {pkgs, ...}: {
-    environment.systemPackages = [
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+  flake.modules.nixos.desktop = {
+    imports = [
+      inputs.noctalia.nixosModules.default
     ];
+
+    programs.noctalia = {
+      enable = true;
+      recommendedServices.enable = true;
+    };
   };
 }

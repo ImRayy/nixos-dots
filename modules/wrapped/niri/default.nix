@@ -18,6 +18,16 @@
     ];
   };
 
+  flake.modules.homeManager.niri = {pkgs, ...}: {
+    # imports =
+    programs.vicinae = {
+      enable = true;
+      package = inputs.vicinae.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      systemd.enable = true;
+      systemd.autoStart = true;
+    };
+  };
+
   perSystem = {
     pkgs,
     lib,
@@ -247,12 +257,16 @@
 
           # --- Noctalia Shell ---
           "Mod+A" = _: {
-            content.spawn-sh = "noctalia msg panel-toggle launcher";
-            props.hotkey-overlay-title = "Noctalia: Launcher";
+            content.spawn-sh = "vicinae toggle";
+            props.hotkey-overlay-title = "Vicinae: Launcher";
           };
           "Mod+V" = _: {
-            content.spawn-sh = "noctalia msg panel-toggle clipboard";
-            props.hotkey-overlay-title = "Noctalia: Clipboard";
+            content.spawn-sh = "vicinae vicinae://launch/clipboard/history";
+            props.hotkey-overlay-title = "Vicinae: Clipboard";
+          };
+          "Mod+E" = _: {
+            content.spawn-sh = "vicinae vicinae://launch/core/search-emojis";
+            props.hotkey-overlay-title = "Vicinae: Emoji Picker";
           };
           "Mod+C" = _: {
             content.spawn-sh = "noctalia msg panel-toggle control-center";
