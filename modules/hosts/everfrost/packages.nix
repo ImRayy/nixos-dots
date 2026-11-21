@@ -22,7 +22,6 @@
       android-tools
       scrcpy
       zathura
-      zed-editor
       doppler
 
       # TUI
@@ -34,8 +33,8 @@
       cryptomator
       nautilus
       qbittorrent
-      obsidian
       proton-pass
+      tauon
 
       # Media & Audio
       ffmpeg
