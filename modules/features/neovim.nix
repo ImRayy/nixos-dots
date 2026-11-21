@@ -2,8 +2,8 @@
   flake.modules.homeManager.neovim = {pkgs, ...}: {
     programs.neovim = {
       enable = true;
-      withNodeJs = true;
-      withPython3 = true;
+      withNodeJs = false;
+      withPython3 = false;
       viAlias = true;
       vimAlias = true;
       defaultEditor = true;

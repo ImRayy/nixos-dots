@@ -36,6 +36,7 @@
   in {
     nix.settings.trusted-users = [config.preferences.username];
     nix.settings.warn-dirty = false;
+    nix.settings.auto-optimise-store = true;
     nixpkgs.config.allowUnfree = true;
 
     nixpkgs.overlays = [
@@ -54,6 +55,8 @@
         self.modules.nixos.core
       ]
       ++ (self.lib.loadNixosAndHmModuleForUser config.preferences.username modules);
+
+    services.journald.extraConfig = "SystemMaxUse=500M";
 
     documentation = {
       enable = false;

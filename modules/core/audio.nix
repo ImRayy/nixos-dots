@@ -3,6 +3,9 @@
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
 
+    # No Orca/speech-dispatcher use; it pulls ~1G of mbrola/espeak/flite voices.
+    services.speechd.enable = false;
+
     # Enable sound with pipewire
     services.pipewire = {
       enable = true;
